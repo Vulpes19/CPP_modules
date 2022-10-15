@@ -6,13 +6,25 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 15:57:39 by codespace         #+#    #+#             */
-/*   Updated: 2022/10/15 16:38:00 by codespace        ###   ########.fr       */
+/*   Updated: 2022/10/15 17:48:18 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "PhoneBook.hpp"
 #include <iomanip>
+
+PhoneBook::PhoneBook()
+{
+	for (int i = 0; i < 8; i++)
+	{
+		contacts[i].set_firstName("");
+		contacts[i].set_lastName("");
+		contacts[i].set_nickname("");
+		contacts[i].set_darkestSecret("");
+		contacts[i].set_number("");
+	}
+}
 
 void    PhoneBook::printTable(void)
 {
