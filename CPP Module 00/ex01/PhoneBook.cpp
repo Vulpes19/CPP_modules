@@ -3,73 +3,50 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/03 16:57:09 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/09/03 18:17:16 by abaioumy         ###   ########.fr       */
+/*   Created: 2022/10/15 15:57:39 by codespace         #+#    #+#             */
+/*   Updated: 2022/10/15 16:38:00 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "PhoneBook.hpp"
+#include <iomanip>
 
-PhoneBook::PhoneBook(void)
+void    PhoneBook::printTable(void)
 {
-    std::cout << "phonebook is created" << std::endl;
-    return ;
-}
-
-PhoneBook::~PhoneBook(void)
-{
-    std::cout << "phonebook is destroyed" << std::endl;
-    return ;
-}
-
-Contact PhoneBook::get_contact(int index)
-{
-    return (contacts[index]);
-}
-
-void    PhoneBook::ft_PrintTable(Contact contact)
-{
-    std::cout << "|";
-    std::cout << "first name" << std::endl;
-    std::cout << contact.gset_FirstName("none");
-}
-
-void    PhoneBook::ft_add(int index)
-{
-    std::string input;
-    int         nbr;
-    Contact     contact;
-
-    contact = get_contact(index);
-    std::cout << "first name: " << std::endl;
-    std::cin >> input;
-    contact.gset_FirstName(input);
-    std::cout << "last name: " << std::endl;
-    std::cin >> input;
-    contact.gset_LastName(input);
-    std::cout << "nickname: " << std::endl;
-    std::cin >> input;
-    contact.gset_nickname(input);
-    std::cout << "phone number: " << std::endl;
-    std::cin >> nbr;
-    contact.gset_PhoneNbr(nbr);
-    std::cout << "darkest secret: " << std::endl;
-    std::cin >> input;
-    contact.gset_DarkestSecret(input);   
-}
-
-void    PhoneBook::ft_search(void)
-{
-    Contact contacts;
-
-    for (int i = 0; i < 55; i++)
-        std::cout << "-";
-    std::cout << std::endl;
-    for (int i = 0; i < 8; i++)
-    {
-        ft_PrintTable(contacts[i]);
-    }
+	std::cout << "\033[0;36m";
+	std::cout << std::setw(1) << std::left << "|";
+	std::cout << std::setw(10) << std::left << "Index";
+	std::cout << std::setw(1) << std::left << "|";
+	std::cout << std::setw(10) << std::left << "First name";
+	std::cout << std::setw(1) << std::left << "|";
+	std::cout << std::setw(10) << std::left << "Last name";
+	std::cout << std::setw(1) << std::left << "|";
+	std::cout << std::setw(10) << std::left << "Nickname";
+	std::cout << std::setw(1) << std::left << "|";
+	std::cout << std::endl;
+	for (int i = 0; i < 8; i++)
+	{   
+		std::cout << std::setw(1) << std::left << "|";
+		std::cout << "\001\e[0m\002";
+		std::cout << std::setw(10) << std::left << i;
+		std::cout << "\033[0;36m";
+		std::cout << std::setw(1) << std::left << "|";
+		std::cout << "\001\e[0m\002";
+		std::cout << std::setw(10) << std::left << contacts[i].get_firstName();
+		std::cout << "\033[0;36m";
+		std::cout << std::setw(1) << std::left << "|";
+		std::cout << "\001\e[0m\002";
+		std::cout << std::setw(10) << std::left << contacts[i].get_lasttName();
+		std::cout << "\033[0;36m";
+		std::cout << std::setw(1) << std::left << "|";
+		std::cout << "\001\e[0m\002";
+		std::cout << std::setw(10) << std::left << contacts[i].get_nickname();
+		std::cout << "\033[0;36m";
+		std::cout << std::setw(1) << std::left << "|";
+		std::cout << std::endl;
+	}
+	std::cout << "\001\e[0m\002";
 }

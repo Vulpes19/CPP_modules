@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 17:14:11 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/09/03 18:01:02 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/10/15 17:01:28 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,28 @@
 
 class Contact
 {
-private:
-	std::string first_name;
-	std::string last_name;
-	std::string nickname;
-	int         phone_nbr;
-	std::string darkest_secret;
-public:
-	std::string		gset_FirstName(std::string str);
-	std::string		gset_LastName(std::string str);
-	std::string		gset_nickname(std::string str);
-	int				gset_PhoneNbr(int nbr);
-	std::string		gset_DarkestSecret(std::string str);
+	public:
+		void set_firstName(std::string str); //setter
+		std::string get_firstName(void) {return (firstName);}; //getter
+
+		void set_lastName(std::string str);
+		std::string get_lasttName(void) {return (lastName);};
+
+		void set_nickname(std::string str) {nickname = str;};
+		std::string get_nickname(void) {return (nickname);};
+
+		void set_number(std::string nbr);
+		std::string get_number(void) {return (number);};
+
+		void set_darkestSecret(std::string str);
+		std::string get_darkestSecret(void) {return (darkestSecret);};
+		
+	private:
+		std::string	firstName;
+		std::string	lastName;
+		std::string	nickname;
+		std::string	number;
+		std::string	darkestSecret;
 };
 
 #endif

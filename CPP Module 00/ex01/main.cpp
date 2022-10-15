@@ -3,39 +3,59 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 18:28:39 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/09/03 17:49:42 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/10/15 16:39:45 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <string.h>
+#include "Contact.hpp"
 #include "PhoneBook.hpp"
 
-int main(int ac, char **av)
+int	main(void)
 {
-    std::string input;
-    PhoneBook   phonebook;
-    int         index;
+    std::string    input;
+    int index = 0;
+    PhoneBook   phoneBook;
+    Contact contact;
 
-    index = 0;
-    while (true)
+	while (true)
     {
         std::cin >> input;
         if (input == "ADD")
         {
-            phonebook.ft_add(index);
+            std::string data;
+            std::cout << "adding a contact" << std::endl;
+            std::cout << "First name: ";
+            std::cin >> data;
+            contact.set_firstName(data);
+            std::cout << "Last name: ";
+            std::cin >> data;
+            contact.set_lastName(data);
+            std::cout << "Nickname: ";
+            std::cin >> data;
+            contact.set_nickname(data);
+            int nbr;
+            std::cout << "Phone number: ";
+            std::cin >> nbr;
+            contact.set_number(nbr);
+            std::cout << "Darkest secret: ";
+            std::cin >> data;
+            contact.set_darkestSecret(data);
+            phoneBook.addContact(contact, index);
             index++;
-            if (index == 7)
-                index = 0;
         }
         else if (input == "SEARCH")
-            phonebook.ft_search();
+        {
+            if (index > 0)
+                phoneBook.printTable();
+            // phoneBook.searchContact(i);
+        }
         else if (input == "EXIT")
-            phonebook.ft_exit();
+            break ;
         else
-            std::cout << "you can only enter (ADD) or (SEARCH) or (EXIT)" << std::endl;
-    }    
+            std::cout << "only accepts <ADD> <SEARCH> <EXIT>" << std::endl;
+    }
 }

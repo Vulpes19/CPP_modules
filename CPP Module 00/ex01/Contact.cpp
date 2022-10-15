@@ -3,51 +3,67 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/03 17:46:26 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/09/03 18:12:15 by abaioumy         ###   ########.fr       */
+/*   Created: 2022/10/15 16:42:34 by codespace         #+#    #+#             */
+/*   Updated: 2022/10/15 17:01:07 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream>
 #include "Contact.hpp"
 
-std::string    Contact::gset_FirstName(std::string str)
+void	Contact::set_firstName(std::string str)
 {
-    if (str == "none")
-        return (first_name);
-    first_name = str;
-    return (first_name);
+	if (str.length() > 10)
+	{
+		firstName = str.substr(0, 10);
+		firstName[firstName.length() - 1] = '.';
+	}
+	else
+		firstName = str;
 }
 
-std::string    Contact::gset_LastName(std::string str)
+void	Contact::set_lastName(std::string str)
 {
-    if (str == "none")
-        return (last_name);
-    last_name = str;
-    return (last_name);
+	if (str.length() > 10)
+	{
+		lastName = str.substr(0, 10);
+		lastName[lastName.length() - 1] = '.';
+	}
+	else
+		lastName = str;
 }
 
-std::string    Contact::gset_nickname(std::string str)
+void	Contact::set_nickname(std::string str)
 {
-    if (str == "none")
-        return (nickname);
-    nickname = str;
-    return (nickname);
+	if (str.length() > 10)
+	{
+		nickname = str.substr(0, 10);
+		nickname[nickname.length() - 1] = '.';
+	}
+	else
+		nickname = str;
 }
 
-int    Contact::gset_PhoneNbr(int nbr)
+void	Contact::set_number(std::string nbr)
 {
-    if (nbr == 0)
-        return (phone_nbr);
-    phone_nbr = nbr;
-    return (phone_nbr);
+	if (nbr.length() > 10)
+	{
+		number = nbr.substr(0, 10);
+		number[number.length() - 1] = '.';
+	}
+	else
+		number = nbr;
 }
 
-std::string    Contact::gset_DarkestSecret(std::string str)
+void	Contact::set_darkestSecret(std::string str)
 {
-    if (str == "none")
-        return (darkest_secret);
-    darkest_secret = str;
-    return (darkest_secret);
+	if (str.length() > 10)
+	{
+		darkestSecret = str.substr(0, 10);
+		darkestSecret[darkestSecret.length() - 1] = '.';
+	}
+	else
+		darkestSecret = str;
 }

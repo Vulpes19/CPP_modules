@@ -1,6 +1,6 @@
-TARGET = megaphone
+TARGET = phonebook
 
-FILES = main.cpp
+FILES = main.cpp PhoneBook.cpp Contact.cpp
 
 OBJS = $(FILES:%.cpp=%.o)
 
@@ -13,9 +13,9 @@ DEL = rm -f
 all: $(TARGET)
 
 %.o: %.cpp
-	c++ $(FLAGS) -c $< -o $@
+	c++ $(FLAGS) -c -I $(INCLUDE) $< -o $@
 
-$(TARGET): $(OBJS)
+$(TARGET): $(OBJS) $(INCLUDE)
 	c++ $(FLAGS) $(OBJS) -o $(TARGET)
 
 re: fclean all
