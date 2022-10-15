@@ -1,6 +1,6 @@
 TARGET = phonebook
 
-FILES = main.cpp PhoneBook.cpp Contact.cpp
+FILES = main.cpp PhoneBook.cpp
 
 OBJS = $(FILES:%.cpp=%.o)
 
