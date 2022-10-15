@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 18:28:39 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/10/15 16:39:45 by codespace        ###   ########.fr       */
+/*   Updated: 2022/10/15 17:03:17 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,9 @@ int	main(void)
             std::cout << "Nickname: ";
             std::cin >> data;
             contact.set_nickname(data);
-            int nbr;
             std::cout << "Phone number: ";
-            std::cin >> nbr;
-            contact.set_number(nbr);
+            std::cin >> data;
+            contact.set_number(data);
             std::cout << "Darkest secret: ";
             std::cin >> data;
             contact.set_darkestSecret(data);

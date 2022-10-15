@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 17:14:11 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/10/15 17:01:28 by codespace        ###   ########.fr       */
+/*   Updated: 2022/10/15 17:02:41 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Contact
 		void set_lastName(std::string str);
 		std::string get_lasttName(void) {return (lastName);};
 
-		void set_nickname(std::string str) {nickname = str;};
+		void set_nickname(std::string str);
 		std::string get_nickname(void) {return (nickname);};
 
 		void set_number(std::string nbr);
