@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: abaioumy <abaioumy@student.42.fr>        	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 18:28:39 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/10/15 19:48:13 by codespace        ###   ########.fr       */
+/*   Updated: 2022/10/15 19:48:13 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int	main(void)
 		else if (input == "EXIT")
 			break ;
 		else
-			std::cerr << "only accepts <ADD> <SEARCH> <EXIT>" << std::endl;
+			std::cerr << RED << "only accepts <ADD> <SEARCH> <EXIT>" << RESET << std::endl;
 	}
 	return (0);
 }

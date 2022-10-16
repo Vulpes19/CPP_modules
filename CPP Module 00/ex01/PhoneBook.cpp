@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: abaioumy <abaioumy@student.42.fr>        	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/15 15:57:39 by codespace         #+#    #+#             */
-/*   Updated: 2022/10/15 19:33:10 by codespace        ###   ########.fr       */
+/*   Created: 2022/10/15 15:57:39 by abaioumy          #+#    #+#             */
+/*   Updated: 2022/10/15 19:33:10 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ std::string	PhoneBook::fixLength(std::string str)
 
 void    PhoneBook::printTable(void)
 {
-	std::cout << "\033[0;36m";
+	std::cout << CYAN;
 	std::cout << std::setw(1) << std::right << "|";
 	std::cout << std::setw(10) << std::right << "Index";
 	std::cout << std::setw(1) << std::right << "|";
@@ -54,32 +54,32 @@ void    PhoneBook::printTable(void)
 	for (int i = 0; i < 8; i++)
 	{   
 		std::cout << std::setw(1) << std::right << "|";
-		std::cout << "\001\e[0m\002";
+		std::cout << RESET;
 		std::cout << std::setw(10) << std::right << i;
-		std::cout << "\033[0;36m";
+		std::cout << CYAN;
 		std::cout << std::setw(1) << std::right << "|";
-		std::cout << "\001\e[0m\002";
+		std::cout << RESET;
 		std::cout << std::setw(10) << std::right << fixLength(contacts[i].get_firstName());
-		std::cout << "\033[0;36m";
+		std::cout << CYAN;
 		std::cout << std::setw(1) << std::right << "|";
-		std::cout << "\001\e[0m\002";
+		std::cout << RESET;
 		std::cout << std::setw(10) << std::right << fixLength(contacts[i].get_lasttName());
-		std::cout << "\033[0;36m";
+		std::cout << CYAN;
 		std::cout << std::setw(1) << std::right << "|";
-		std::cout << "\001\e[0m\002";
+		std::cout << RESET;
 		std::cout << std::setw(10) << std::right << fixLength(contacts[i].get_nickname());
-		std::cout << "\033[0;36m";
+		std::cout << CYAN;
 		std::cout << std::setw(1) << std::right << "|";
 		std::cout << std::endl;
 	}
-	std::cout << "\001\e[0m\002";
+	std::cout << RESET;
 }
 
 void	PhoneBook::searchContact(int index)
 {
-	std::cout << "First name: " << contacts[index].get_firstName() << std::endl;
-	std::cout << "Last name: " << contacts[index].get_lasttName() << std::endl;
-	std::cout << "Nickname: " << contacts[index].get_nickname() << std::endl;
-	std::cout << "Phone number: " << contacts[index].get_number() << std::endl;
-	std::cout << "Darkest secret: " << contacts[index].get_darkestSecret() << std::endl;
+	std::cout << YELLOW << "First name: " << RESET << contacts[index].get_firstName() << std::endl;
+	std::cout << YELLOW << "Last name: " << RESET << contacts[index].get_lasttName() << std::endl;
+	std::cout << YELLOW << "Nickname: " << RESET << contacts[index].get_nickname() << std::endl;
+	std::cout << YELLOW << "Phone number: " << RESET << contacts[index].get_number() << std::endl;
+	std::cout << YELLOW << "Darkest secret: " << RESET << contacts[index].get_darkestSecret() << std::endl;
 }

@@ -3,19 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: abaioumy <abaioumy@student.42.fr>        	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 17:14:11 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/10/15 19:35:52 by codespace        ###   ########.fr       */
+/*   Updated: 2022/10/15 19:35:52 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_HPP
 #define CONTACT_HPP
 
+//colors
+#define CYAN "\033[0;36m"
+#define RED "\001\e[0;31m\002"
+#define RESET "\001\e[0m\002"
+#define YELLOW "\033[0;33m"
+
 #include <iostream>
 
-enum word {LIST, NO_LIST};
 
 class Contact
 {

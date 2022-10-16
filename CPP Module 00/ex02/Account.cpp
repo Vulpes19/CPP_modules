@@ -1,44 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.cpp                                        :+:      :+:    :+:   */
+/*   Account.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/15 16:42:34 by codespace         #+#    #+#             */
-/*   Updated: 2022/10/15 19:34:03 by codespace        ###   ########.fr       */
+/*   Created: 2022/10/16 12:25:11 by codespace         #+#    #+#             */
+/*   Updated: 2022/10/16 12:40:39 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "Contact.hpp"
+#include "Account.hpp"
 
-void	Contact::set_firstName(std::string str)
+Account::Account(int initial_deposit)
 {
-	
-		firstName = str;
-}
-
-void	Contact::set_lastName(std::string str)
-{
-	
-	
-		lastName = str;
-}
-
-void	Contact::set_nickname(std::string str)
-{
-	
-		nickname = str;
-}
-
-void	Contact::set_number(std::string nbr)
-{
-	
-		number = nbr;
-}
-
-void	Contact::set_darkestSecret(std::string str)
-{	
-		darkestSecret = str;
+    for (int i = 0; i < 8; i++)
+    {
+        std::cout << "index:" << i << ";amount:"
+    }
 }
