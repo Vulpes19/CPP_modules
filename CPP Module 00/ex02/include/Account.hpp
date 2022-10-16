@@ -53,6 +53,5 @@ private:
 	Account( void );
 
 };
-// int Account::_nbAccounts = 0;
 
 #endif /* __ACCOUNT_HPP__ */

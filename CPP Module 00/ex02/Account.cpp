@@ -14,15 +14,10 @@
 #include <ctime>
 #include "Account.hpp"
 
-int Account::_nbAccounts = 8;
+int Account::_nbAccounts = 0;
 int Account::_totalAmount = 0;
 int Account::_totalNbDeposits = 0;
 int Account::_totalNbWithdrawals = 0;
-
-Account::Account(void)
-{
-   std::cout << "index:" << _accountIndex << ";amount:" << _amount << ";created" << std::endl;
-}
 
 Account::~Account(void)
 {
@@ -33,10 +28,11 @@ Account::~Account(void)
 Account::Account(int initial_deposit)
 {
 	_displayTimestamp();
+	_accountIndex = _nbAccounts;
    std::cout << "index:" << _accountIndex << ";amount:" << initial_deposit << ";created" << std::endl;
 	_nbDeposits = 0;
 	_nbWithdrawals = 0;
-	Account::_nbAccounts = 8;
+	Account::_nbAccounts++;
 	_amount = initial_deposit;
 	Account::_totalAmount += _amount;
 }
