@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Account.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: abaioumy <abaioumy@student.42.fr>        	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/16 12:23:52 by codespace         #+#    #+#             */
-/*   Updated: 2022/10/16 12:24:47 by codespace        ###   ########.fr       */
+/*   Created: 2022/10/16 12:23:52 by abaioumy          #+#    #+#             */
+/*   Updated: 2022/10/16 15:48:09 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ public:
 
 	typedef Account		t;
 
-	static int	getNbAccounts( void );
-	static int	getTotalAmount( void );
-	static int	getNbDeposits( void );
-	static int	getNbWithdrawals( void );
+	static int	getNbAccounts( void ) { return (_nbAccounts); };
+	static int	getTotalAmount( void ) { return (_totalAmount); };
+	static int	getNbDeposits( void ) { return (_totalNbDeposits); };
+	static int	getNbWithdrawals( void ) { return (_totalNbWithdrawals); };
 	static void	displayAccountsInfos( void );
 
 	Account( int initial_deposit );
@@ -53,5 +53,6 @@ private:
 	Account( void );
 
 };
+// int Account::_nbAccounts = 0;
 
 #endif /* __ACCOUNT_HPP__ */

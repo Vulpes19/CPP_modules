@@ -55,6 +55,11 @@
         "clocale": "cpp",
         "cmath": "cpp",
         "iomanip": "cpp",
-        "sstream": "cpp"
+        "sstream": "cpp",
+        "deque": "cpp",
+        "unordered_map": "cpp",
+        "vector": "cpp",
+        "fstream": "cpp",
+        "optional": "cpp"
     }
 }

@@ -1,6 +1,6 @@
 TARGET = SavedTheDay
 
-FILES = test.cpp Account.cpp
+FILES = tests.cpp Account.cpp
 
 OBJS = $(FILES:%.cpp=%.o)
 
