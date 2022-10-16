@@ -99,13 +99,11 @@ void	Account::displayAccountsInfos(void)
 
 void	Account::_displayTimestamp(void)
 {
-	std::tm time;
-	time.tm_year = 2022-1900;
-	time.tm_mon = 10-1;
-	time.tm_mday = 16;
-	time.tm_hour = 7;
-	time.tm_min = 0;
-	time.tm_sec = 0;
-	std::mktime(&time);
-	std::cout << "[" << time.tm_year << time.tm_mon << time.tm_mday << "_" << time.tm_hour << time.tm_min << time.tm_sec << "]" << " ";
+	time_t currentTime;
+	struct tm *localTime;
+
+	time( &currentTime );
+	localTime = localtime( &currentTime );
+	
+	std::cout << "[" << localTime->tm_year + 1900 << localTime->tm_mon + 1 << localTime->tm_mday << "_" << localTime->tm_hour << localTime->tm_min << localTime->tm_sec << "]" << " ";
 }
