@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/16 19:44:12 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/10/17 10:34:10 by codespace        ###   ########.fr       */
+/*   Created: 2022/10/17 10:35:41 by codespace         #+#    #+#             */
+/*   Updated: 2022/10/17 11:17:41 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie *Zombie::newZombie( std::string name )
+Zombie::Zombie( void )
 {
-    Zombie *Z;
+    anounce();
+}
 
-    Z = new Zombie(name);
-    return (Z);
+Zombie::~Zombie( void )
+{
+    std::cout << name << " Zombie is dead ?!" << std::endl;
+}
+
+void    Zombie::anounce( void )
+{
+    std::cout << name << ":  BraiiiiiiinnnzzzZ..." << std::endl;
 }

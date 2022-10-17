@@ -20,11 +20,16 @@ class PhoneBook
 	public:
 		PhoneBook();
 		std::string	fixLength(std::string str);
-		void		addContact(Contact contact, int index) {contacts[index] = contact;};
+		void		addContact(Contact contact) {contacts[index] = contact;};
 		void		printTable(void);
-		void		searchContact(int index);
+		void		searchContact( int index );
+		void		inputContact( void );
+		int			check_ifEmpty(Contact contact);
+		void		setIndex( int in) { index = in; };
+		int			getIndex( void ) { return (index); };
 	private:
 		Contact contacts[8];
+		int		index;
 };
 
 #endif

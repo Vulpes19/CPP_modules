@@ -14,7 +14,7 @@
 #include "PhoneBook.hpp"
 #include <iomanip>
 
-PhoneBook::PhoneBook()
+PhoneBook::PhoneBook( void )
 {
 	for (int i = 0; i < 8; i++)
 	{
@@ -38,7 +38,7 @@ std::string	PhoneBook::fixLength(std::string str)
 		return (str);
 }
 
-void    PhoneBook::printTable(void)
+void    PhoneBook::printTable( void )
 {
 	std::cout << CYAN;
 	std::cout << std::setw(1) << std::right << "|";
@@ -51,7 +51,7 @@ void    PhoneBook::printTable(void)
 	std::cout << std::setw(10) << std::right << "Nickname";
 	std::cout << std::setw(1) << std::right << "|";
 	std::cout << std::endl;
-	for (int i = 0; i < 8; i++)
+	for (int i = 0; i < index; i++)
 	{   
 		std::cout << std::setw(1) << std::right << "|";
 		std::cout << RESET;
@@ -75,11 +75,51 @@ void    PhoneBook::printTable(void)
 	std::cout << RESET;
 }
 
-void	PhoneBook::searchContact(int index)
+void	PhoneBook::searchContact( int index )
 {
 	std::cout << YELLOW << "First name: " << RESET << contacts[index].get_firstName() << std::endl;
 	std::cout << YELLOW << "Last name: " << RESET << contacts[index].get_lasttName() << std::endl;
 	std::cout << YELLOW << "Nickname: " << RESET << contacts[index].get_nickname() << std::endl;
 	std::cout << YELLOW << "Phone number: " << RESET << contacts[index].get_number() << std::endl;
 	std::cout << YELLOW << "Darkest secret: " << RESET << contacts[index].get_darkestSecret() << std::endl;
+}
+
+void	PhoneBook::inputContact( void )
+{
+	Contact contact;
+
+	std::string data;
+	std::cout << "Please enter the displayed informations" << std::endl;
+	std::cout << "First name: ";
+	std::cin >> data;
+	contact.set_firstName(data);
+	std::cout << "Last name: ";
+	std::cin >> data;
+	contact.set_lastName(data);
+	std::cout << "Nickname: ";
+	std::cin >> data;
+	contact.set_nickname(data);
+	std::cout << "Phone number: ";
+	std::cin >> data;
+	contact.set_number(data);
+	std::cout << "Darkest secret: ";
+	std::cin >> data;
+	contact.set_darkestSecret(data);
+	if (!check_ifEmpty(contact))
+	{
+		addContact(contact);
+		index++;
+	}
+}
+
+int	PhoneBook::check_ifEmpty(Contact contact)
+{
+	if (contact.get_firstName().empty()
+		|| contact.get_lasttName().empty()
+		|| contact.get_nickname().empty()
+		|| contact.get_number().empty()
+		|| contact.get_darkestSecret().empty())
+		return (1);
+	else
+		return (0);
 }

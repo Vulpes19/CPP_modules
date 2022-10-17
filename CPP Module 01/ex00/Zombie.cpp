@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/16 19:42:08 by codespace         #+#    #+#             */
-/*   Updated: 2022/10/16 19:59:17 by codespace        ###   ########.fr       */
+/*   Created: 2022/10/16 19:42:08 by abaioumy          #+#    #+#             */
+/*   Updated: 2022/10/17 10:34:35 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Zombie::Zombie(std::string in)
 
 Zombie::~Zombie( void )
 {
-    std::cout << name << "Zombie is dead ?!" << std::endl;
+    std::cout << name << " Zombie is dead ?!" << std::endl;
 }
 
 void    Zombie::anounce( void )

@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/16 19:44:12 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/10/17 10:34:10 by codespace        ###   ########.fr       */
+/*   Created: 2022/10/17 10:32:53 by abaioumy          #+#    #+#             */
+/*   Updated: 2022/10/17 11:06:48 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream>
 #include "Zombie.hpp"
 
-Zombie *Zombie::newZombie( std::string name )
+int	main( void )
 {
-    Zombie *Z;
+	Zombie Z;
+	Zombie *horde;
+	int	N = 3;
 
-    Z = new Zombie(name);
-    return (Z);
+	horde = Z.zombieHorde(N, "Ayman");
+	delete [] horde;
 }
