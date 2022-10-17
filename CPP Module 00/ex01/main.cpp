@@ -14,7 +14,6 @@
 #include <string>
 #include <sstream>
 #include <cstdlib>
-#include <errno.h>
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
 
@@ -42,6 +41,7 @@ int	main(void)
 			{
 				std::string in;
 				char		ptr[in.length()];
+				char		*ptrEnd;
 				long int	nbr = -1;
 			
 				phoneBook.printTable();
@@ -52,11 +52,8 @@ int	main(void)
 				{
 					ptr[i] = in[i];
 				}
-				errno = 0;
-				nbr = strtol(ptr, NULL, 10);
-				std::cout << nbr << std::endl;
-				std::cout << "errno " << errno << std::endl;
-				if (nbr >= 0 && nbr < phoneBook.getIndex() && errno == 0)
+				nbr = strtol(ptr, &ptrEnd, 10);
+				if (nbr >= 0 && nbr < phoneBook.getIndex() && *ptrEnd == '\0')
 					phoneBook.searchContact(nbr);
 				else
 					std::cerr << "The index is out of range" << std::endl;
