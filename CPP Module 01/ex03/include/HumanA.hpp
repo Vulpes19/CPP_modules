@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 15:39:35 by codespace         #+#    #+#             */
-/*   Updated: 2022/10/17 15:48:51 by codespace        ###   ########.fr       */
+/*   Updated: 2022/10/17 17:20:28 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,17 @@
 #define HUMANA_HPP
 
 #include <iostream>
+#include "Weapon.hpp"
 
 class HumanA
 {
     public:
-        HumanA( std::string newWeapon);
+        HumanA( std::string newName, Weapon newWeapon);
         ~HumanA( void );
         void    attack( void );
     private:
         std::string Weapon;
-        std::string name;
+        std::string Name;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 15:39:30 by codespace         #+#    #+#             */
-/*   Updated: 2022/10/17 15:54:04 by codespace        ###   ########.fr       */
+/*   Updated: 2022/10/18 12:12:01 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,12 @@
 class HumanB
 {
     public:
-        HumanB( void );
+        HumanB( std::string newName );
         ~HumanB( void );
+        void    setWeapon(std::string &newWeapon);
         void    attack( void );
     private:
-        std::string Weapon;
+        Weapon  weapon;
         std::string name;
 };
 
