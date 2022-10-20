@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/20 13:05:33 by codespace         #+#    #+#             */
-/*   Updated: 2022/10/20 13:05:36 by codespace        ###   ########.fr       */
+/*   Created: 2022/10/20 13:05:50 by codespace         #+#    #+#             */
+/*   Updated: 2022/10/20 14:31:14 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <fstream>
-#include <string>
 
-void	betterSed(char *filename, char *s1, char *s2);
-
-int main(int ac, char **av)
+class Harl
 {
-    if (ac == 4)
-        betterSed(av[1], av[2], av[3]);
-    else
-        std::cerr << "<file_name> <s1> <s2>" << std::endl;
-    return 0;
-}
+	public:
+		void	complain( std::string level );
+		void	DEBUG(void) { debug(); };
+		void	INFO( void ) { info(); };
+		void	WARNING( void ) { warning(); };
+		void	ERROR( void ) { error(); };
+	private:
+		void	debug( void );
+		void	info( void );
+		void	warning( void );
+		void	error( void );
+};
