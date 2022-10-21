@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 13:05:59 by codespace         #+#    #+#             */
-/*   Updated: 2022/10/21 10:09:21 by codespace        ###   ########.fr       */
+/*   Updated: 2022/10/21 10:12:38 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ void    Harl::complain( std::string level)
 
 void    Harl::debug( void )
 {
+    std::cout << "DEBUG" << std::endl;
+
     std::cout << "I love having extra bacon for "
             << "my 7XL-double-cheese-triple-pickle-"
             << "special- ketchup burger. I really do!" 
@@ -39,6 +41,8 @@ void    Harl::debug( void )
 
 void    Harl::info( void )
 {
+    std::cout << "INFO" << std::endl;
+
     std::cout << "I cannot believe adding extra bacon costs more money."
         << " You didn’t put enough bacon in my burger! If you did, "
         << "I wouldn’t be asking for more!"
@@ -47,6 +51,8 @@ void    Harl::info( void )
 
 void    Harl::warning( void )
 {
+    std::cout << "WARNING" << std::endl;
+
     std::cout << "I think I deserve to have some extra bacon for free."
         << " I’ve been coming for years whereas you started"
         << " working here since last month."
@@ -55,5 +61,7 @@ void    Harl::warning( void )
 
 void    Harl::error( void )
 {
+    std::cout << "ERROR" << std::endl;
+
     std::cout << "This is unacceptable! I want to speak to the manager now." << std::endl;
 }
