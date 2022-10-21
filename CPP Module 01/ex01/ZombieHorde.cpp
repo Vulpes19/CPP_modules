@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ZombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: abaioumy <abaioumy@student.42.fr>        	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/17 10:35:51 by codespace         #+#    #+#             */
-/*   Updated: 2022/10/17 11:17:58 by codespace        ###   ########.fr       */
+/*   Created: 2022/10/17 10:35:51 by abaioumy          #+#    #+#             */
+/*   Updated: 2022/10/17 11:17:58 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

@@ -3,12 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: abaioumy <abaioumy@student.42.fr>        	+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/20 13:05:50 by codespace         #+#    #+#             */
-/*   Updated: 2022/10/20 14:31:14 by codespace        ###   ########.fr       */
+/*   Created: 2022/10/20 13:05:50 by abaioumy          #+#    #+#             */
+/*   Updated: 2022/10/20 14:31:14 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef HARL_HPP
+#define HARL_HPP
 
 #include <iostream>
 
@@ -26,3 +29,5 @@ class Harl
 		void	warning( void );
 		void	error( void );
 };
+
+#endif
