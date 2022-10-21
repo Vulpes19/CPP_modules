@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 13:05:59 by codespace         #+#    #+#             */
-/*   Updated: 2022/10/20 15:05:11 by codespace        ###   ########.fr       */
+/*   Updated: 2022/10/21 10:09:21 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,12 @@ void    Harl::complain( std::string level)
 {
     std::string functions[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
     pointer_member ptr[4] = {&Harl::DEBUG, &Harl::INFO, &Harl::WARNING, &Harl::ERROR};
+
     for (int i = 0; i < 4; i++)
     {
         if (functions[i] == level)
         {
-            Harl::ptr[i](void);
+            (this->*(ptr[i]))();
             break ;
         }
     }
