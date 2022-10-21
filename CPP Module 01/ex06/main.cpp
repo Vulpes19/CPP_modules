@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 10:13:26 by codespace         #+#    #+#             */
-/*   Updated: 2022/10/21 10:15:36 by codespace        ###   ########.fr       */
+/*   Updated: 2022/10/21 10:39:05 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,7 @@
 
 int	main( void )
 {
-	
+	Harl h;
+
+	h.complain("DEBUG");
 }
