@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/29 12:15:00 by codespace         #+#    #+#             */
-/*   Updated: 2022/10/29 14:23:41 by codespace        ###   ########.fr       */
+/*   Created: 2022/10/29 14:19:39 by codespace         #+#    #+#             */
+/*   Updated: 2022/10/29 14:40:03 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-#define SCAVTRAP_HPP
+#ifndef FRAGTRAP_HPP
+#define FRAGTRAP_HPP
 
 #include "ClapTrap.hpp"
 
-class ScavTrap: public ClapTrap
+class   FragTrap : public ClapTrap
 {
     public:
-        explicit ScavTrap( std::string n ) : ClapTrap( n ) { std::cout << "ScavTrap is created" << std::endl;};
-        ~ScavTrap( void );
-        void    attack( const std::string &target );
-        void    updateAtt( std::string );
-        void guardGate( void );
+        FragTrap( std::string n ) : ClapTrap( n ) { std::cout << "FragTrap is created" << std::endl; };
+        ~FragTrap( void );
+        void    highFivesGuys( void );
 };
 
 #endif

@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/29 12:15:00 by codespace         #+#    #+#             */
-/*   Updated: 2022/10/29 14:23:41 by codespace        ###   ########.fr       */
+/*   Created: 2022/10/29 12:07:23 by codespace         #+#    #+#             */
+/*   Updated: 2022/10/29 14:35:57 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-#define SCAVTRAP_HPP
-
 #include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
-class ScavTrap: public ClapTrap
+int main( void )
 {
-    public:
-        explicit ScavTrap( std::string n ) : ClapTrap( n ) { std::cout << "ScavTrap is created" << std::endl;};
-        ~ScavTrap( void );
-        void    attack( const std::string &target );
-        void    updateAtt( std::string );
-        void guardGate( void );
-};
+    ScavTrap    S("Amine");
+    FragTrap    F("mama");
+    ClapTrap C("Ayman");
 
-#endif
+    S.attack("Ayman");
+    C.attack("Hiba");
+}

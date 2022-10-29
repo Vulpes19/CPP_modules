@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 11:42:25 by codespace         #+#    #+#             */
-/*   Updated: 2022/10/29 13:03:22 by codespace        ###   ########.fr       */
+/*   Updated: 2022/10/29 14:38:43 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,28 +19,6 @@ ClapTrap::ClapTrap( std::string input )
     hitPoints = 100;
     energyPoints = 50;
     attackDamage = 20;
-}
-
-ClapTrap::ClapTrap( const ClapTrap &C)
-{
-    std::cout << "copy constructor is called" << std::endl;
-    name = C.name;
-    hitPoints = C.hitPoints;
-    energyPoints = C.energyPoints;
-    attackDamage = C.attackDamage;
-}
-
-ClapTrap    &ClapTrap::operator=( const ClapTrap &C)
-{
-    std::cout << "operator is called" << std::endl;
-    if (this != &C)
-    {
-        name = C.name;
-        hitPoints = C.hitPoints;
-        energyPoints = C.energyPoints;
-        attackDamage = C.attackDamage;
-    }
-    return (*this);
 }
 
 ClapTrap::~ClapTrap( void )

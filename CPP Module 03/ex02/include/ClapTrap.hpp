@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/29 12:15:00 by codespace         #+#    #+#             */
-/*   Updated: 2022/10/29 14:23:41 by codespace        ###   ########.fr       */
+/*   Created: 2022/10/29 11:35:29 by codespace         #+#    #+#             */
+/*   Updated: 2022/10/29 14:37:46 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-#define SCAVTRAP_HPP
+#ifndef CLAPTRAP_HPP
+#define CLAPTRAP_HPP
 
-#include "ClapTrap.hpp"
+#include <iostream>
 
-class ScavTrap: public ClapTrap
+class ClapTrap
 {
-    public:
-        explicit ScavTrap( std::string n ) : ClapTrap( n ) { std::cout << "ScavTrap is created" << std::endl;};
-        ~ScavTrap( void );
-        void    attack( const std::string &target );
-        void    updateAtt( std::string );
-        void guardGate( void );
+	public:
+		ClapTrap( std::string );
+		virtual	~ClapTrap( void );
+		virtual	void		attack( const std::string &target);
+		void		takeDamage(unsigned int amount);
+		void		beRepaired(unsigned int amount);
+	protected:
+		std::string name;
+		unsigned int hitPoints;
+		unsigned int energyPoints;
+		unsigned int attackDamage;
 };
 
 #endif
