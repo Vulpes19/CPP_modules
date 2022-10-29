@@ -1,32 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/22 10:51:23 by codespace         #+#    #+#             */
-/*   Updated: 2022/10/22 15:18:07 by codespace        ###   ########.fr       */
+/*   Created: 2022/10/29 12:07:23 by codespace         #+#    #+#             */
+/*   Updated: 2022/10/29 12:12:46 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-#define FIXED_HPP
+#include "ClapTrap.hpp"
 
-#include <iostream>
-
-class   Fixed
+int main( void )
 {
-	public:
-		Fixed();
-		Fixed(const Fixed &);
-		~Fixed();
-		Fixed	&operator = (const Fixed &);
-		int		getRawBits( void ) const;
-		void	setRawBits( int const raw);
-	private:
-		int					fixedNbr;
-		static const int	fractBits;
-};
+    ClapTrap C("Ayman");
 
-#endif
+    C.takeDamage(10);
+    C.attack("Hiba");
+}

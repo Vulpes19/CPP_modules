@@ -1,32 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/22 10:51:23 by codespace         #+#    #+#             */
-/*   Updated: 2022/10/22 15:18:07 by codespace        ###   ########.fr       */
+/*   Created: 2022/10/26 10:21:36 by abaioumy          #+#    #+#             */
+/*   Updated: 2022/10/26 10:36:47 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-#define FIXED_HPP
+#include "Fixed.hpp"
 
-#include <iostream>
-
-class   Fixed
+int	main( void )
 {
-	public:
-		Fixed();
-		Fixed(const Fixed &);
-		~Fixed();
-		Fixed	&operator = (const Fixed &);
-		int		getRawBits( void ) const;
-		void	setRawBits( int const raw);
-	private:
-		int					fixedNbr;
-		static const int	fractBits;
-};
-
-#endif
+	Fixed b;
+	Fixed a( 42.23f);
+	b = a;
+}
