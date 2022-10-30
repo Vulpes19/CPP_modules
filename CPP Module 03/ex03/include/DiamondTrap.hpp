@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/29 12:15:00 by codespace         #+#    #+#             */
-/*   Updated: 2022/10/30 21:02:24 by codespace        ###   ########.fr       */
+/*   Created: 2022/10/30 21:22:02 by codespace         #+#    #+#             */
+/*   Updated: 2022/10/30 21:29:19 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-#define SCAVTRAP_HPP
+#ifndef DIAMONDTRAP_HPP
+#define DIAMONDTRAP_HPP
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
-class ScavTrap: public ClapTrap
+class DiamondTrap : public ScavTrap, public FragTrap
 {
-    public:
-        explicit ScavTrap( std::string n ) : ClapTrap( n ) { updateAtt(n);};
-        ~ScavTrap( void );
-        void    attack( const std::string &target );
-        void    updateAtt( std::string );
-        void guardGate( void );
+public:
+    DiamondTrap( void );
+    ~DiamondTrap( void );
+    void    whoAmI( void );  
+private:
+    std::string name;
 };
 
 #endif
