@@ -1,10 +1,10 @@
-TARGET = FragTrap
+TARGET = DiamondTrap
 
-FILES = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
+FILES = main.cpp DiamondTrap.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 
 OBJS = $(FILES:%.cpp=%.o)
 
-FLAGS = -std=c++98 -Wall -Wextra -Werror
+FLAGS = -Wshadow -Wno-shadow -std=c++98 -Wall -Wextra -Werror
 
 INCLUDE = include/
 

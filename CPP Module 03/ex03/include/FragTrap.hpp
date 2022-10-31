@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 14:19:39 by codespace         #+#    #+#             */
-/*   Updated: 2022/10/30 21:06:02 by codespace        ###   ########.fr       */
+/*   Updated: 2022/10/31 11:16:38 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 
 #include "ClapTrap.hpp"
 
-class   FragTrap : public ClapTrap
+class   FragTrap : virtual public ClapTrap
 {
     public:
-        FragTrap( std::string n ) : ClapTrap( n ) { updateAtt( n ); };
+        FragTrap( std::string n ) : ClapTrap( n ) { updateAttFrag( n ); };
         ~FragTrap( void );
-        void    updateAtt( std::string );
+        void    updateAttFrag( std::string );
         void    highFivesGuys( void );
 };
 

@@ -6,20 +6,11 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 11:42:25 by codespace         #+#    #+#             */
-/*   Updated: 2022/10/30 21:05:16 by codespace        ###   ########.fr       */
+/*   Updated: 2022/10/31 11:23:59 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
-
-ClapTrap::ClapTrap( std::string input )
-{
-    std::cout << "constructor is called" << std::endl;
-    name = input;
-    //hitPoints = 100;
-    //energyPoints = 100;
-    //attackDamage = 30;
-}
 
 ClapTrap::~ClapTrap( void )
 {

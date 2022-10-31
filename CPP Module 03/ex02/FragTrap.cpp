@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 14:32:09 by codespace         #+#    #+#             */
-/*   Updated: 2022/10/30 21:06:48 by codespace        ###   ########.fr       */
+/*   Updated: 2022/10/31 10:29:42 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ FragTrap::~FragTrap( void )
     std::cout << "FragTrap is destroyed" << std::endl;
 }
 
-void    FragTrap::updateAtt( std::string n )
+void    FragTrap::updateAttFrag( std::string n )
 {
     std::cout << "FragTrap is created !" << std::endl;
     hitPoints = 100;

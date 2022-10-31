@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 12:27:11 by codespace         #+#    #+#             */
-/*   Updated: 2022/10/29 13:28:54 by codespace        ###   ########.fr       */
+/*   Updated: 2022/10/31 10:32:15 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,15 @@
 ScavTrap::~ScavTrap( void )
 {
     std::cout << "ScavTrap is destroyed" << std::endl;
+}
+
+void    ScavTrap::updateAttScav( std::string n )
+{
+    std::cout << "ScavTrap is created" << std::endl;
+    name = n;
+    hitPoints = 100;
+    energyPoints = 50;
+    attackDamage = 20;
 }
 
 void    ScavTrap::attack( const std::string &target )

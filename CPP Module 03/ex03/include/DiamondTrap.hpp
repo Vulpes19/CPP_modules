@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 21:22:02 by codespace         #+#    #+#             */
-/*   Updated: 2022/10/30 21:29:19 by codespace        ###   ########.fr       */
+/*   Updated: 2022/10/31 11:31:30 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@
 class DiamondTrap : public ScavTrap, public FragTrap
 {
 public:
-    DiamondTrap( void );
+    DiamondTrap( std::string n) : ClapTrap( n.append("_clap_name") ), ScavTrap( n ), FragTrap( n ) { updateName( n ); };
     ~DiamondTrap( void );
+    void    updateName( std::string );
+    void    attack( std::string &target );
     void    whoAmI( void );  
 private:
     std::string name;
