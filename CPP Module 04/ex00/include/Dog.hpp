@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/26 10:21:36 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/10/31 12:03:59 by codespace        ###   ########.fr       */
+/*   Created: 2022/10/31 12:26:21 by codespace         #+#    #+#             */
+/*   Updated: 2022/10/31 12:58:35 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#ifndef DOG_HPP
+#define DOG_HPP
 
-int	main( void )
+#include "Animal.hpp"
+
+class Dog : public Animal
 {
-	Fixed b;
-	Fixed a( 42.23f);
-	b = a;
+	public:
+		Dog( void );
+		~Dog( void );
+		void	makeSound( void );
+		std::string	getType( void ) { return (type); };
+};
 
-	float c = 1.28f;
-	std::cout << c - (long)c << std::endl;
-}
+#endif

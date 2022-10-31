@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/26 10:21:36 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/10/31 12:03:59 by codespace        ###   ########.fr       */
+/*   Created: 2022/10/31 12:26:11 by codespace         #+#    #+#             */
+/*   Updated: 2022/10/31 12:58:32 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#ifndef CAT_HPP
+#define CAT_HPP
 
-int	main( void )
+#include "Animal.hpp"
+
+class Cat : public Animal
 {
-	Fixed b;
-	Fixed a( 42.23f);
-	b = a;
+    public:
+        Cat( void );
+        ~Cat( void );
+        void    makeSound( void );
+		std::string	getType( void ) { return (type); };
+};
 
-	float c = 1.28f;
-	std::cout << c - (long)c << std::endl;
-}
+#endif

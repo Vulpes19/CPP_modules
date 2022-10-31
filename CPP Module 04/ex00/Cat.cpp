@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/26 10:21:36 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/10/31 12:03:59 by codespace        ###   ########.fr       */
+/*   Created: 2022/10/31 12:41:29 by codespace         #+#    #+#             */
+/*   Updated: 2022/10/31 12:55:41 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "Cat.hpp"
 
-int	main( void )
+Cat::Cat( void )
 {
-	Fixed b;
-	Fixed a( 42.23f);
-	b = a;
+    type = "Cat";
+    std::cout << "meow I'm created !" << std::endl;
+}
 
-	float c = 1.28f;
-	std::cout << c - (long)c << std::endl;
+Cat::~Cat( void )
+{
+    std::cout << "Cat is destroyed" << std::endl;
+}
+
+void	Animal::makeSound( void )
+{
+	std::cout << "meooooow !!" << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 10:51:18 by codespace         #+#    #+#             */
-/*   Updated: 2022/10/29 10:56:55 by codespace        ###   ########.fr       */
+/*   Updated: 2022/10/31 12:36:23 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,13 @@ Fixed::Fixed(const int nbr)
 	fixedNbr = nbr;
 }
 
-Fixed::Fixed(const int nbr)
+Fixed::Fixed(const float nbr)
 {
 	fixedNbr = roundf(nbr);
-	
+	fractBits = nbr - (long)nbr;
 }
 
-Fixed::~Fixed()
+Fixed::~Fixed( void )
 {
 	std::cout << "Destructor called" << std::endl;
 }
@@ -65,10 +65,10 @@ void	Fixed::setRawBits( int const raw)
 
 float	Fixed::toFloat( void ) const
 {
-
+	return (0);
 }
 
 int	Fixed::toInt( void ) const
 {
-		
+	return (0);
 }

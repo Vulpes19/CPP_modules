@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/26 10:21:36 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/10/31 12:03:59 by codespace        ###   ########.fr       */
+/*   Created: 2022/10/31 12:43:18 by codespace         #+#    #+#             */
+/*   Updated: 2022/10/31 12:59:17 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "Dog.hpp"
 
-int	main( void )
+Dog::Dog( void )
 {
-	Fixed b;
-	Fixed a( 42.23f);
-	b = a;
+    type = "Dog";
+    std::cout << "bark I'm created !" << std::endl;
+}
 
-	float c = 1.28f;
-	std::cout << c - (long)c << std::endl;
+Dog::~Dog( void )
+{
+    std::cout << "Dog is destroyed" << std::endl;
+}
+
+void    Dog::makeSound( void )
+{
+	std::cout << "bark bark !" << std::endl;
 }
