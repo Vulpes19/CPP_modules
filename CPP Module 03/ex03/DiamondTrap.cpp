@@ -6,17 +6,20 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 10:20:48 by codespace         #+#    #+#             */
-/*   Updated: 2022/10/31 11:33:56 by codespace        ###   ########.fr       */
+/*   Updated: 2022/11/01 11:08:40 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
-/*
-DiamondTrap::DiamondTrap( std::string n )
+
+DiamondTrap::DiamondTrap( std::string n) : ClapTrap( n ), ScavTrap( n ), FragTrap( n )
 {
 	name = n;
-	std::cout << "DiamondTrap is created" << std::endl;
-}*/
+	ClapTrap::name = n.append("_clap_name");
+	hitPoints = getHitpoints();
+	energyPoints = getEnergyPoints();
+	attackDamage = getAttackDamage();
+}
 
 DiamondTrap::~DiamondTrap( void )
 {
@@ -29,23 +32,7 @@ void	DiamondTrap::updateName( std::string n )
 	name = n;
 }
 
-void	attack( std::string &target )
-{
-	if (ScavTrap::energyPoints == 0)
-	{
-		std::cout << name << " is exhausted :(" << std::endl;
-		return ;
-	}
-	if (FragTrap::hitPoints == 0)
-	{
-		std::cout << name << " is wasted :(" << std::endl;
-		return ;
-	}
-	std::cout << "ScavTrap " << name << " attacks " << target << " , causing " << FragTrap::attackDamage << " points of damage!" << std::endl;
-	ScavTrap::energyPoints--;
-}
-
 void	DiamondTrap::whoAmI( void )
 {
-	std::cout << name << " " << ScavTrap::name << std::endl;
+	std::cout << name << " " << ClapTrap::name << std::endl;
 }

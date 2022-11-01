@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 12:07:23 by codespace         #+#    #+#             */
-/*   Updated: 2022/10/31 11:18:20 by codespace        ###   ########.fr       */
+/*   Updated: 2022/11/01 11:06:04 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,8 @@ int main( void )
 {
     DiamondTrap D("Ayyy");
 
+    D.attack("hmar");
+    D.takeDamage(10);
+    std::cout << D.getHitpoints();
     D.whoAmI();
 }

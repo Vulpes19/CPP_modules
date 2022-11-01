@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 14:19:39 by codespace         #+#    #+#             */
-/*   Updated: 2022/10/31 11:16:38 by codespace        ###   ########.fr       */
+/*   Updated: 2022/11/01 10:59:17 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,13 @@
 
 class   FragTrap : virtual public ClapTrap
 {
-    public:
-        FragTrap( std::string n ) : ClapTrap( n ) { updateAttFrag( n ); };
-        ~FragTrap( void );
-        void    updateAttFrag( std::string );
-        void    highFivesGuys( void );
+	public:
+		FragTrap( std::string n ) : ClapTrap( n ) { updateAttFrag( n ); };
+		~FragTrap( void );
+		void    updateAttFrag( std::string );
+		void    highFivesGuys( void );
+		int		getHitpoints( void ) { return (hitPoints); };
+		int		getAttackDamage( void ) { return (attackDamage); }
 };
 
 #endif
