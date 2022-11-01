@@ -4,7 +4,7 @@ FILES = main.cpp Animal.cpp Dog.cpp Cat.cpp
 
 OBJS = $(FILES:%.cpp=%.o)
 
-FLAGS = -std=c++98 -Wall -Wextra -Werror
+FLAGS = -Wshadow -Wno-shadow -std=c++98 -Wall -Wextra -Werror
 
 INCLUDE = include/
 

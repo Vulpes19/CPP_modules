@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 12:26:17 by codespace         #+#    #+#             */
-/*   Updated: 2022/10/31 12:58:20 by codespace        ###   ########.fr       */
+/*   Updated: 2022/11/01 12:11:00 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ class Animal
 		Animal( void );
 		Animal( const Animal & );
 		Animal	&operator=(const Animal & );
-		std::string	getType( void ) { return (type); };
+		std::string	getType( void ) const { return (type); };
 		~Animal( void );
-		void	makeSound( void );
+		virtual void	makeSound( void ) const;
 	protected:
 		std::string type;
 };

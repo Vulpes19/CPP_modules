@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 12:33:33 by codespace         #+#    #+#             */
-/*   Updated: 2022/10/31 12:53:40 by codespace        ###   ########.fr       */
+/*   Updated: 2022/11/01 12:10:02 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ Animal	&Animal::operator=( const Animal &A )
 	return (*this);
 }
 
-void	Animal::makeSound( void )
+void	Animal::makeSound( void ) const
 {
-	std::cout << "idk it's an random animal sound" << std::endl;
+	std::cout << "idk it's a random animal sound" << std::endl;
 }
