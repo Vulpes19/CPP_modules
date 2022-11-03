@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 10:12:42 by codespace         #+#    #+#             */
-/*   Updated: 2022/11/03 11:27:10 by codespace        ###   ########.fr       */
+/*   Updated: 2022/11/03 12:50:51 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,14 @@ Bureaucrat::Bureaucrat( std::string n, int g): name(n)
 {
 	try
 	{
-		if (g < 1 || g > 150)
-			throw(g);
-	}
-	catch(int g)
-	{
-		grade = 0;
 		if (g < 1)
-			GradeTooLowException();
-		else
-			GradeTooHighException();
+			throw(tooHigh);
+		else if (g > 150)
+			throw(tooLow);
+	}
+	catch(std::exception &e)
+	{
+		std::cerr << e.what() << std::endl;
 	}
 	grade = g;
 	std::cout << "Bureaucrat is created" << std::endl;
@@ -34,16 +32,6 @@ Bureaucrat::Bureaucrat( std::string n, int g): name(n)
 Bureaucrat::~Bureaucrat( void )
 {
 	std::cout << "Bureaucrat is destroyed" << std::endl;
-}
-
-void    Bureaucrat::GradeTooHighException( void )
-{
-	std::cout << "Grade is too high" << std::endl;
-}
-
-void    Bureaucrat::GradeTooLowException( void )
-{
-	std::cout << "Grade is too low" << std::endl;
 }
 
 const	std::string	Bureaucrat::getName( void ) const
@@ -60,20 +48,28 @@ void	Bureaucrat::incrementGrade( void )
 {
 	try
 	{
-		if (grade < 1 || grade > 150)
-			throw(grade);
+		if (grade <= 1)
+		{
+			throw(tooHigh);
+		}
 	}
-	catch(int grade)
+	catch(std::exception &e)
 	{
-		if (grade < 1)
-			GradeTooLowException();
-		else
-			GradeTooHighException();
+		std::cerr << e.what() << std::endl;
 	}
 	grade--;
 }
 
 void	Bureaucrat::decrementGrade( void )
 {
+	try
+	{
+		if (grade >= 150)
+			throw(tooLow);
+	}
+	catch(std::exception &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
 	grade++;
 }
