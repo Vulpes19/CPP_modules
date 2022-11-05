@@ -6,15 +6,16 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 10:16:34 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/11/04 11:36:19 by codespace        ###   ########.fr       */
+/*   Updated: 2022/11/05 10:54:17 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FORM_HPP
 #define FORM_HPP
 
-#include "Bureaucrat.hpp"
 #include <iostream>
+#include "Exception.hpp"
+class Bureaucrat;
 
 class Form
 {
