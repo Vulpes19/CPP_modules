@@ -13,7 +13,7 @@ DEL = rm -f
 all: $(TARGET)
 
 %.o: %.cpp
-	c++ $(FLAGS) -c -I $(INCLUDE) -I /path/to/boost/include $< -o $@
+	c++ $(FLAGS) -c -I $(INCLUDE) $< -o $@
 
 $(TARGET): $(OBJS) $(INCLUDE)
 	c++ $(FLAGS) $(OBJS) -o $(TARGET)
@@ -25,5 +25,5 @@ clean:
 
 fclean:	clean
 	$(DEL) $(TARGET)
-
+\
 .PHONY: clean fclean re all
