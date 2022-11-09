@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 11:25:39 by codespace         #+#    #+#             */
-/*   Updated: 2022/11/08 10:53:12 by codespace        ###   ########.fr       */
+/*   Updated: 2022/11/09 10:25:11 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,22 +74,24 @@ void	convertToType( int type, std::string str )
 	}
 	case FLOAT:
 	{
-		/*float nbrf = std::stof(str);
+		float nbrf = strtof(ptr, &ptrEnd);
 		std::cout << "char: non displayable" << std::endl;
 		std::cout << "float: " <<  nbrf << "f" << std::endl;
-		int nbr = (int)nbrf;
+		int nbr = static_cast<int>(nbrf);
 		std::cout << "int: " << nbr << std::endl;
-		double nbrd = (double)nbrf;
-		std::cout << "double: " << nbrd << std::endl;*/
+		double nbrd = static_cast<double>(nbrf);
+		std::cout << "double: " << nbrd << std::endl;
 		break;
 	}
 	case DOUBLE:
 	{
-		/*
+		double nbrd = strtod(ptr, &ptrEnd);
 		std::cout << "char: non displayable" << std::endl;
-		std::cout << "double: " << nbrd << ".0" << std::endl;
+		std::cout << "double: " << nbrd << std::endl;
+		int nbr = static_cast<int>(nbrd);
 		std::cout << "int: " << nbr << std::endl;
-		std::cout << "float: " <<  nbrf << ".0f" << std::endl;*/
+		float nbrf = static_cast<float>(nbrd);
+		std::cout << "float: " <<  nbrf << "f" << std::endl;
 		break;
 	}
 	case PSEUDO:
