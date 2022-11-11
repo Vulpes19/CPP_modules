@@ -12,17 +12,23 @@
 
 #include "HumanB.hpp"
 
-HumanB::HumanB( std::string newName)
+HumanB::HumanB( std::string newName )
 {
 	Name = newName;
+	weapon = NULL;
 }
 
-HumanA::~HumanA( void )
+HumanB::~HumanB( void )
 {
 	std::cout << Name << " is dead :(" << std::endl;
 }
 
-void	HumanA::attack( void )
+void	HumanB::attack( void )
 {
-	std::cout << Name << " attacks with their " << Weapon << std::endl;
+	std::cout << Name << " attacks with their " << weapon->getType() << std::endl;
+}
+
+void	HumanB::setWeapon( Weapon newWeapon )
+{
+	weapon = &newWeapon;
 }

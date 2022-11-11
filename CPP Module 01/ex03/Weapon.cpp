@@ -17,7 +17,12 @@ Weapon::Weapon( std::string newType )
 	type = newType;
 }
 
-const	std::string	Weapon::getType( void )
+Weapon::~Weapon( void )
+{
+	std::cout << "Weapon is destroyed" << std::endl;
+}
+
+const	std::string	&Weapon::getType( void )
 {
 	return (type);
 }

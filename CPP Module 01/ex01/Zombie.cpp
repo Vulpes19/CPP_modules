@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 10:35:41 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/10/21 10:41:29 by codespace        ###   ########.fr       */
+/*   Updated: 2022/11/11 11:16:32 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Zombie::Zombie( void )
 {
-    anounce();
+    std::cout << "Zombie class is created" << std::endl;
 }
 
 Zombie::~Zombie( void )

@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 19:42:08 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/10/21 10:40:41 by codespace        ###   ########.fr       */
+/*   Updated: 2022/11/11 11:10:06 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 Zombie::Zombie(std::string in)
 {
     name = in;
-    anounce();
 }
 
 Zombie::~Zombie( void )

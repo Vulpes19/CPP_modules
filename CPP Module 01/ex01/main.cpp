@@ -17,8 +17,7 @@ int	main( void )
 {
 	Zombie Z;
 	Zombie *horde;
-	int	N = 3;
 
-	horde = Z.zombieHorde(N, "Ayman");
+	horde = Z.zombieHorde(3, "Ayman");
 	delete [] horde;
 }

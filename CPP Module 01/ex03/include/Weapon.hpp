@@ -19,7 +19,8 @@ class Weapon
 {
 	public:
 		Weapon( std::string newType );
-		const std::string	getType( void );
+		~Weapon( void );
+		const std::string	&getType( void );
 		void	setType( std::string newType);
 	private:
 		std::string	type;

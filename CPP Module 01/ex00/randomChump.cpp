@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 19:44:32 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/10/21 10:40:34 by codespace        ###   ########.fr       */
+/*   Updated: 2022/11/11 11:08:32 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,4 +15,5 @@
 void    Zombie::randomChump( std::string name )
 {
     Zombie Z(name);
+    Z.anounce();
 }
