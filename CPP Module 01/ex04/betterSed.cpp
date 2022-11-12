@@ -29,7 +29,7 @@ void	searchLine(std::string &fileContent, std::string toReplace, std::string toP
 {
 	int	index = fileContent.find(toReplace);
 
-	while (index != -1)
+	while (index > -1 && index < fileContent.npos )
 	{
 		fileContent.erase(index, toReplace.length());
 		fileContent.insert(index, toPlace);
@@ -37,30 +37,31 @@ void	searchLine(std::string &fileContent, std::string toReplace, std::string toP
 	}
 }
 
-void	betterSed(char *filename, char *s1, char *s2)
+void	betterSed( char *filename, char *s1, char *s2 )
 {
-	std::string	toReplace = toString(s1);
-	std::string	toPlace = toString(s2);
+	std::string	toReplace = toString( s1 );
+	std::string	toPlace = toString( s2 );
 	std::string fileContent;
 	std::ifstream myFile;
 	std::ofstream result;
 
-	myFile.open(filename);
-	result.open(strcat(filename, "_edited"));
-	if (myFile.is_open())
+	myFile.open( filename );
+	result.open(strcat( filename, "_edited" ));
+	if ( myFile.is_open() )
 	{
-		while (myFile)
+		while ( myFile )
 		{
-			if (!std::getline(myFile, fileContent))
+			if ( !std::getline( myFile, fileContent ) )
 				break ;
-			std::cout << "line of file: " << fileContent << std::endl;
+			//std::cout << "line of file: " << fileContent << std::endl;
 			searchLine(fileContent, toReplace, toPlace);
 			result << fileContent;
 			result << '\n';
-			std::cout << "after editing " << fileContent << std::endl;
+			//std::cout << "after editing " << fileContent << std::endl;
 		}
 	}
 	else
 		std::cerr << "can't open file :(" << std::endl;
 	myFile.close();
+	result.close();
 }

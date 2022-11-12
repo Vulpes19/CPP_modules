@@ -1,0 +1,27 @@
+TARGET = sedForLosers
+
+FILEYY = main.cpp betterYYed.cpp
+
+OBJYY = $(FILEYY:%.cpp=%.o)
+
+FLAGYY = -std=c++98 #-Wall -Wextra -Werror
+
+DEL = rm -f
+
+all: $(TARGET)
+
+%.o: %.cpp
+	c++ $(FLAGYY) -c $< -o $@
+
+$(TARGET): $(OBJYY) $(INCLUDE)
+	c++ $(FLAGYY) $(OBJYY) -o $(TARGET)
+
+re: fclean all
+
+clean:
+	$(DEL) $(OBJYY)
+
+fclean:	clean
+	$(DEL) $(TARGET)
+
+.PHONY: clean fclean re all
