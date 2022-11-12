@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 10:51:23 by codespace         #+#    #+#             */
-/*   Updated: 2022/10/22 15:18:07 by codespace        ###   ########.fr       */
+/*   Updated: 2022/11/12 11:15:19 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@
 class   Fixed
 {
 	public:
-		Fixed();
-		Fixed(const Fixed &);
-		~Fixed();
-		Fixed	&operator = (const Fixed &);
+		Fixed(); 							 //constructor
+		Fixed(const Fixed &); 				 //copy constructor
+		~Fixed(); 							 //destructor
+		Fixed	&operator = (const Fixed &); //copy assignement
 		int		getRawBits( void ) const;
 		void	setRawBits( int const raw);
 	private:

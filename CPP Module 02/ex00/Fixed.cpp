@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 10:51:18 by codespace         #+#    #+#             */
-/*   Updated: 2022/10/22 15:19:00 by codespace        ###   ########.fr       */
+/*   Updated: 2022/11/12 11:48:07 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Fixed::Fixed(): fixedNbr(0)
 Fixed::Fixed(const Fixed &F)
 {
 	std::cout << "Copy constructor called" << std::endl;
-	fixedNbr = F.fixedNbr;
+	fixedNbr = F.getRawBits();
 }
 
 Fixed::~Fixed()
