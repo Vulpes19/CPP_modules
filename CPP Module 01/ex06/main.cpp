@@ -17,5 +17,5 @@ int	main( void )
 {
 	Harl h;
 
-	h.complain("DEBUG");
+	h.complain("WARNING");
 }

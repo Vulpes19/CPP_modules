@@ -29,7 +29,6 @@ void    Harl::complain( std::string level)
 			break ;
 		}
 	}
-
 	switch (index)
 	{
 	case 0:
