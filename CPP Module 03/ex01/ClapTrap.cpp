@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 11:42:25 by codespace         #+#    #+#             */
-/*   Updated: 2022/10/30 21:01:31 by codespace        ###   ########.fr       */
+/*   Updated: 2022/11/13 17:14:34 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ ClapTrap::ClapTrap( std::string input )
 {
     std::cout << "constructor is called" << std::endl;
     name = input;
-    //hitPoints = 100;
-    //energyPoints = 50;
-    //attackDamage = 20;
+    hitPoints = 10;
+    energyPoints = 10;
+    attackDamage = 0;
 }
 
 ClapTrap::~ClapTrap( void )
@@ -50,4 +50,5 @@ void    ClapTrap::takeDamage( unsigned int amount )
 void    ClapTrap::beRepaired( unsigned int amount )
 {
     hitPoints += amount;
+    energyPoints--;
 }

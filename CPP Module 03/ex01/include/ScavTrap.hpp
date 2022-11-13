@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 12:15:00 by codespace         #+#    #+#             */
-/*   Updated: 2022/10/30 21:02:24 by codespace        ###   ########.fr       */
+/*   Updated: 2022/11/13 17:13:28 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class ScavTrap: public ClapTrap
 {
     public:
-        explicit ScavTrap( std::string n ) : ClapTrap( n ) { updateAtt(n);};
+        ScavTrap( std::string n ) : ClapTrap( n ) { updateAtt(n);};
         ~ScavTrap( void );
         void    attack( const std::string &target );
         void    updateAtt( std::string );
