@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 11:42:25 by codespace         #+#    #+#             */
-/*   Updated: 2022/10/29 14:38:31 by codespace        ###   ########.fr       */
+/*   Updated: 2022/11/13 17:11:39 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,5 @@ void    ClapTrap::takeDamage( unsigned int amount )
 void    ClapTrap::beRepaired( unsigned int amount )
 {
     hitPoints += amount;
+    energyPoints--;
 }
