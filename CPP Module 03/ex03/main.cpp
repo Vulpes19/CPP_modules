@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 12:07:23 by codespace         #+#    #+#             */
-/*   Updated: 2022/11/01 11:06:04 by codespace        ###   ########.fr       */
+/*   Updated: 2022/11/13 17:25:17 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ int main( void )
 
     D.attack("hmar");
     D.takeDamage(10);
-    std::cout << D.getHitpoints();
+    std::cout << D.getHitpoints() << std::endl;
     D.whoAmI();
 }
