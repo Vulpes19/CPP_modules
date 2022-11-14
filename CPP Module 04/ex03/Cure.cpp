@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ICharacter.cpp                                     :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/14 12:24:53 by codespace         #+#    #+#             */
-/*   Updated: 2022/11/14 13:07:01 by codespace        ###   ########.fr       */
+/*   Created: 2022/11/14 12:15:51 by codespace         #+#    #+#             */
+/*   Updated: 2022/11/14 12:24:15 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ICharacter.hpp"
+#include "Cure.hpp"
 
-ICharacter::ICharacter( std::string name ) : inventory(NULL)
+Cure::Cure( void ) : AMateria("cure")
 {
-    std::cout << "ICharacter is created" << std::endl;
-    this->name = name;
+    std::cout << "Cure is created" << std::endl;
 }
 
-ICharacter::~ICharacter( void )
+Cure::~Cure( void )
 {
-    std::cout << "ICharacter is destroyed" << std::endl;
+    std::cout << "Cure is destroyed" << std::endl;
 }
 
-void    ICharacter::equip( AMateria *m )
+Cure *Cure::clone( void )
 {
-    if ( m->getType() == "ice" )
-        inventory[index] = &m;
+    return (this);
+}
+
+void    Cure::use( ICharacter &target )
+{
+    std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
 }

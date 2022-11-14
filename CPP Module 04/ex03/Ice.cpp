@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ICharacter.cpp                                     :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/14 12:24:53 by codespace         #+#    #+#             */
-/*   Updated: 2022/11/14 13:07:01 by codespace        ###   ########.fr       */
+/*   Created: 2022/11/14 12:15:54 by codespace         #+#    #+#             */
+/*   Updated: 2022/11/14 12:24:29 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ICharacter.hpp"
+#include "Ice.hpp"
 
-ICharacter::ICharacter( std::string name ) : inventory(NULL)
+Ice::Ice( void ) : AMateria("ice")
 {
-    std::cout << "ICharacter is created" << std::endl;
-    this->name = name;
+    std::cout << "Ice is created" << std::endl;
 }
 
-ICharacter::~ICharacter( void )
+Ice::~Ice( void )
 {
-    std::cout << "ICharacter is destroyed" << std::endl;
+    std::cout << "Ice is destroyed" << std::endl;
 }
 
-void    ICharacter::equip( AMateria *m )
+Ice *Ice::clone( void )
 {
-    if ( m->getType() == "ice" )
-        inventory[index] = &m;
+    return (this);
+}
+
+void    Ice::use( ICharacter &target )
+{
+    std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }

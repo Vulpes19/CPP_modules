@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 11:26:10 by codespace         #+#    #+#             */
-/*   Updated: 2022/11/02 11:56:58 by codespace        ###   ########.fr       */
+/*   Updated: 2022/11/14 12:17:32 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Ice : public AMateria
     public:
         Ice( void );
         ~Ice( void );
-        Ice *clone( void ) const = 0;
+        Ice *clone( void );
         void    use( ICharacter &target );
 };
 

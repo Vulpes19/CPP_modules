@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.hpp                                       :+:      :+:    :+:   */
+/*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/02 11:17:13 by codespace         #+#    #+#             */
-/*   Updated: 2022/11/14 12:55:06 by codespace        ###   ########.fr       */
+/*   Created: 2022/11/14 12:07:56 by codespace         #+#    #+#             */
+/*   Updated: 2022/11/14 12:12:03 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AMATERIA_HPP
-#define AMATERIA_HPP
-
-#include <iostream>
-#include "ICharacter.hpp"
 #include "MateriaSource.hpp"
 
-class AMateria
+IMateriaSource::IMateriaSource( void )
 {
-	protected:
-		std::string	type;
-	public:
-		AMateria( std::string const &type );
-		AMateria( const AMateria & );
-		AMateria	&operator=( const AMateria & );
-		std::string const &getType( void ) const;
-		virtual AMateria *clone( void ) const = 0;
-		virtual	void	use( ICharacter &target );
-};
+    std::cout << "IMateriaSource is created" << std::endl;
+}
 
-#endif
+IMateriaSource::~IMateriaSource( void )
+{
+    std::cout << "IMateriaSource is destroyed" << std::endl;
+}
