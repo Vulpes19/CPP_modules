@@ -26,7 +26,7 @@ PhoneBook::PhoneBook( void )
 	}
 }
 
-std::string	PhoneBook::fixLength(std::string str)
+std::string	PhoneBook::fixLength( std::string str )
 {
 	if (str.length() > 10)
 	{
@@ -36,6 +36,11 @@ std::string	PhoneBook::fixLength(std::string str)
 	}
 	else
 		return (str);
+}
+
+void	PhoneBook::addContact( Contact contact )
+{
+	contacts[index] = contact;
 }
 
 void    PhoneBook::printTable( void )
@@ -63,7 +68,7 @@ void    PhoneBook::printTable( void )
 		std::cout << CYAN;
 		std::cout << std::setw(1) << std::right << "|";
 		std::cout << RESET;
-		std::cout << std::setw(10) << std::right << fixLength(contacts[i].get_lasttName());
+		std::cout << std::setw(10) << std::right << fixLength(contacts[i].get_lastName());
 		std::cout << CYAN;
 		std::cout << std::setw(1) << std::right << "|";
 		std::cout << RESET;
@@ -78,7 +83,7 @@ void    PhoneBook::printTable( void )
 void	PhoneBook::searchContact( int index )
 {
 	std::cout << YELLOW << "First name: " << RESET << contacts[index].get_firstName() << std::endl;
-	std::cout << YELLOW << "Last name: " << RESET << contacts[index].get_lasttName() << std::endl;
+	std::cout << YELLOW << "Last name: " << RESET << contacts[index].get_lastName() << std::endl;
 	std::cout << YELLOW << "Nickname: " << RESET << contacts[index].get_nickname() << std::endl;
 	std::cout << YELLOW << "Phone number: " << RESET << contacts[index].get_number() << std::endl;
 	std::cout << YELLOW << "Darkest secret: " << RESET << contacts[index].get_darkestSecret() << std::endl;
@@ -120,11 +125,21 @@ void	PhoneBook::inputContact( void )
 int	PhoneBook::check_ifEmpty(Contact contact)
 {
 	if (contact.get_firstName().empty()
-		|| contact.get_lasttName().empty()
+		|| contact.get_lastName().empty()
 		|| contact.get_nickname().empty()
 		|| contact.get_number().empty()
 		|| contact.get_darkestSecret().empty())
 		return (1);
 	else
 		return (0);
+}
+
+void	PhoneBook::setIndex( int in )
+{
+	index = in;
+}
+
+int		PhoneBook::getIndex( void )
+{
+	return (index);
 }

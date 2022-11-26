@@ -18,15 +18,15 @@
 class PhoneBook
 {
 	public:
-		PhoneBook();
-		std::string	fixLength(std::string str);
-		void		addContact(Contact contact) {contacts[index] = contact;};
-		void		printTable(void);
+		PhoneBook( void );
+		std::string	fixLength( std::string str );
+		void		addContact( Contact contact );
+		void		printTable( void );
 		void		searchContact( int index );
 		void		inputContact( void );
-		int			check_ifEmpty(Contact contact);
-		void		setIndex( int in) { index = in; };
-		int			getIndex( void ) { return (index); };
+		int			check_ifEmpty( Contact contact );
+		void		setIndex( int in );
+		int			getIndex( void );
 	private:
 		Contact contacts[8];
 		int		index;
