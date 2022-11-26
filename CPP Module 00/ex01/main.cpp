@@ -27,7 +27,7 @@ int	main(void)
 	{
 		std::cout << RED << "accepts <ADD> <SEARCH> <EXIT>" << RESET << std::endl;
 		if (!std::getline(std::cin, input))
-			break ;
+			exit(1) ;
 		if (input == "ADD")
 		{
 			if (phoneBook.getIndex() >= 8)
@@ -46,7 +46,12 @@ int	main(void)
 				phoneBook.printTable();
 				std::cout << "Please enter an index: ";
 				if (!std::getline(std::cin, in))
-					break ;
+					exit(1) ;
+				if ( in.length() == 0 )
+				{
+					std::cerr << "please enter a number" << std::endl;
+					continue ;
+				}
 				for (unsigned int i = 0; i < in.length(); i++)
 				{
 					ptr[i] = in[i];

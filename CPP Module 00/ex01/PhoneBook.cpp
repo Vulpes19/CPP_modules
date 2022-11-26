@@ -52,22 +52,24 @@ void    PhoneBook::printTable( void )
 	std::cout << std::setw(1) << std::right << "|";
 	std::cout << std::endl;
 	for (int i = 0; i < index; i++)
-	{   
+	{
+		if ( check_ifEmpty( contacts[i] ) )
+			break ;
 		std::cout << std::setw(1) << std::right << "|";
 		std::cout << RESET;
 		std::cout << std::setw(10) << std::right << i;
 		std::cout << CYAN;
 		std::cout << std::setw(1) << std::right << "|";
 		std::cout << RESET;
-		std::cout << std::setw(10) << std::right << fixLength(contacts[i].get_firstName());
+		std::cout << std::setw(10) << std::right << fixLength( contacts[i].get_firstName() );
 		std::cout << CYAN;
 		std::cout << std::setw(1) << std::right << "|";
 		std::cout << RESET;
-		std::cout << std::setw(10) << std::right << fixLength(contacts[i].get_lasttName());
+		std::cout << std::setw(10) << std::right << fixLength( contacts[i].get_lasttName() );
 		std::cout << CYAN;
 		std::cout << std::setw(1) << std::right << "|";
 		std::cout << RESET;
-		std::cout << std::setw(10) << std::right << fixLength(contacts[i].get_nickname());
+		std::cout << std::setw(10) << std::right << fixLength( contacts[i].get_nickname() );
 		std::cout << CYAN;
 		std::cout << std::setw(1) << std::right << "|";
 		std::cout << std::endl;
