@@ -30,5 +30,5 @@ void	HumanB::attack( void )
 
 void	HumanB::setWeapon( Weapon newWeapon )
 {
-	weapon = &newWeapon;
+	weapon = new Weapon( newWeapon.getType() );
 }
