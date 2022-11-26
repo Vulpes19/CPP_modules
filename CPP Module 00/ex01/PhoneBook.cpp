@@ -91,19 +91,24 @@ void	PhoneBook::inputContact( void )
 	std::string data;
 	std::cout << "Please enter the displayed informations" << std::endl;
 	std::cout << "First name: ";
-	std::cin >> data;
+	if (!std::getline(std::cin, data))
+			return ;
 	contact.set_firstName(data);
 	std::cout << "Last name: ";
-	std::cin >> data;
+	if (!std::getline(std::cin, data))
+			return ;
 	contact.set_lastName(data);
 	std::cout << "Nickname: ";
-	std::cin >> data;
+	if (!std::getline(std::cin, data))
+			return ;
 	contact.set_nickname(data);
 	std::cout << "Phone number: ";
-	std::cin >> data;
+	if (!std::getline(std::cin, data))
+			return ;
 	contact.set_number(data);
 	std::cout << "Darkest secret: ";
-	std::cin >> data;
+	if (!std::getline(std::cin, data))
+			return ;
 	contact.set_darkestSecret(data);
 	if (!check_ifEmpty(contact))
 	{

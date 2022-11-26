@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 14:53:56 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/09/01 18:20:56 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/11/26 10:33:11 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ int main(int ac, char **av)
     int         len;
 
     len = 0;
-    ch = 's';
+    ch = '0';
     if (ac == 1)
-        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
+        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
     for (int i = 1; av[i]; i++)
     {
         str = ft_convert_to_string(av[i]);

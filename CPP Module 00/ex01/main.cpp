@@ -26,7 +26,6 @@ int	main(void)
 	while (true)
 	{
 		std::cout << RED << "accepts <ADD> <SEARCH> <EXIT>" << RESET << std::endl;
-		// std::cin >> input;
 		if (!std::getline(std::cin, input))
 			break ;
 		if (input == "ADD")
