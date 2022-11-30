@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   converter.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: vulpes <vulpes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 11:25:39 by codespace         #+#    #+#             */
-/*   Updated: 2022/11/09 10:25:11 by codespace        ###   ########.fr       */
+/*   Updated: 2022/11/30 14:52:43 by vulpes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,9 @@ void	convertToType( int type, std::string str )
 		nbr = strtol(ptr, &ptrEnd, 10);
 		std::cout << "char: non displayable" << std::endl;
 		std::cout << "int: " << nbr << std::endl;
-		float nbrf = (float)nbr;
+		float nbrf = static_cast<float>(nbr);
 		std::cout << "float: " <<  nbrf << ".0f" << std::endl;
-		double nbrd = (double)nbr;
+		double nbrd = static_cast<double>(nbr);
 		std::cout << "double: " << nbrd << ".0" << std::endl;
 		break;
 	}
