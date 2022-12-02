@@ -56,7 +56,7 @@ void    PhoneBook::printTable( void )
 	std::cout << std::setw(10) << std::right << "Nickname";
 	std::cout << std::setw(1) << std::right << "|";
 	std::cout << std::endl;
-	for (int i = 0; i < index; i++)
+	for (int i = 0; i < 8; i++)
 	{
 		if ( check_ifEmpty( contacts[i] ) )
 			break ;
@@ -82,6 +82,40 @@ void    PhoneBook::printTable( void )
 	std::cout << RESET;
 }
 
+// void	PhoneBook::startSearch( void )
+// {
+// 	std::string in;
+// 	char		ptr[in.length()];
+// 	char		*ptrEnd;
+// 	long int	nbr = 9;
+// 	if (index > 0)
+// 	{
+// 		printTable();
+// 		std::cout << "Please enter an index: ";
+// 		if (!std::getline(std::cin, in))
+// 			exit(1) ;
+// 		while ( in.length() == 0 )
+// 		{
+// 			std::cerr << "please enter a number: ";
+// 			if (!std::getline(std::cin, in))
+// 				exit(1) ;
+// 		}
+// 		for (unsigned int i = 0; i < in.length(); i++)
+// 		{
+// 			ptr[i] = in[i];
+// 		}
+// 		nbr = strtol(ptr, &ptrEnd, 10);
+// 		// std::cout << nbr << std::endl;
+// 		// std::cout << index << std::endl;
+// 		if (nbr >= 0 && nbr < getIndex() && *ptrEnd == '\0')
+// 			searchContact(nbr);
+// 		else
+// 			std::cerr << "Please enter an index in range" << std::endl;
+// 	}
+// 	else
+// 		std::cout << "The list is empty :(" << std::endl;
+// }
+
 void	PhoneBook::searchContact( int index )
 {
 	std::cout << YELLOW << "First name: " << RESET << contacts[index].get_firstName() << std::endl;
@@ -99,23 +133,53 @@ void	PhoneBook::inputContact( void )
 	std::cout << "Please enter the displayed informations" << std::endl;
 	std::cout << "First name: ";
 	if (!std::getline(std::cin, data))
-			return ;
+			exit(1) ;
+	while ( data.length() == 0 )
+	{
+		std::cout << "Please enter a name: ";
+		if (!std::getline(std::cin, data))
+			exit(1) ;
+	}
 	contact.set_firstName(data);
 	std::cout << "Last name: ";
 	if (!std::getline(std::cin, data))
-			return ;
+			exit(1) ;
+	while ( data.length() == 0 )
+	{
+		std::cout << "Please enter a Last name: ";
+		if (!std::getline(std::cin, data))
+			exit(1) ;
+	}
 	contact.set_lastName(data);
 	std::cout << "Nickname: ";
 	if (!std::getline(std::cin, data))
-			return ;
+			exit(1) ;
+	while ( data.length() == 0 )
+	{
+		std::cout << "Please enter a nickname: ";
+		if (!std::getline(std::cin, data))
+			exit(1) ;
+	}
 	contact.set_nickname(data);
 	std::cout << "Phone number: ";
 	if (!std::getline(std::cin, data))
-			return ;
+			exit(1) ;
+	while ( data.length() == 0 )
+	{
+		std::cout << "Please enter a number: ";
+		if (!std::getline(std::cin, data))
+			exit(1) ;
+	}
 	contact.set_number(data);
 	std::cout << "Darkest secret: ";
 	if (!std::getline(std::cin, data))
-			return ;
+			exit(1) ;
+	while ( data.length() == 0 )
+	{
+		std::cout << "Please enter a darkest secret: ";
+		if (!std::getline(std::cin, data))
+			exit(1) ;
+	}
 	contact.set_darkestSecret(data);
 	if (!check_ifEmpty(contact))
 	{
