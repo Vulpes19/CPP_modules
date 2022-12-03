@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 19:42:08 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/11/11 11:10:06 by codespace        ###   ########.fr       */
+/*   Updated: 2022/12/02 14:17:53 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 Zombie::Zombie(std::string in)
 {
     name = in;
+    std::cout << "Zombie is created" << std::endl;
 }
 
 Zombie::~Zombie( void )

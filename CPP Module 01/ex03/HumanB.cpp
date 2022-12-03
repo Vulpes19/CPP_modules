@@ -25,10 +25,13 @@ HumanB::~HumanB( void )
 
 void	HumanB::attack( void )
 {
-	std::cout << Name << " attacks with their " << weapon->getType() << std::endl;
+	if ( weapon == NULL )
+		std::cout << Name << "attacks with his bare hands" << std::endl;
+	else
+		std::cout << Name << " attacks with their " << weapon->getType() << std::endl;
 }
 
-void	HumanB::setWeapon( Weapon newWeapon )
+void	HumanB::setWeapon( Weapon &newWeapon )
 {
-	weapon = new Weapon( newWeapon.getType() );
+	weapon = &newWeapon;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 15:39:30 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/11/11 12:25:43 by codespace        ###   ########.fr       */
+/*   Updated: 2022/12/03 14:48:34 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class HumanB
     public:
         HumanB( std::string newName );
         ~HumanB( void );
-        void    setWeapon( Weapon newWeapon );
+        void    setWeapon( Weapon &newWeapon );
         void    attack( void );
     private:
         Weapon  *weapon;

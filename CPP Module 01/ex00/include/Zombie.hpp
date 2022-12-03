@@ -20,8 +20,6 @@ class Zombie
     public:
         Zombie(std::string in);
         ~Zombie();
-        Zombie *newZombie( std::string name );
-        void    randomChump( std::string name );
         void    anounce( void );
     private:
         std::string name;

@@ -13,11 +13,12 @@
 #include <iostream>
 #include "Zombie.hpp"
 
+Zombie  *zombieHorde( int N, std::string name );
+
 int	main( void )
 {
-	Zombie Z;
 	Zombie *horde;
 
-	horde = Z.zombieHorde(3, "Ayman");
+	horde = zombieHorde(3, "Ayman");
 	delete [] horde;
 }

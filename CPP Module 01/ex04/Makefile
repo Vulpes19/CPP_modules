@@ -4,7 +4,7 @@ FILES = main.cpp betterSed.cpp
 
 OBJS = $(FILES:%.cpp=%.o)
 
-FLAGS = -std=c++98 #-Wall -Wextra -Werror
+FLAGS = -std=c++98 -Wall -Wextra -Werror
 
 DEL = rm -f
 

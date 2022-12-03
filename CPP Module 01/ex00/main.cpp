@@ -13,14 +13,20 @@
 #include <iostream>
 #include "Zombie.hpp"
 
+Zombie *newZombie( std::string name );
+void    randomChump( std::string name );
+
 int	main()
 {
 	Zombie a("hamid");
 	Zombie b("hmar");
 	Zombie *c;
 
-	c = a.newZombie("hamid2");
-	b.randomChump("hmar2");
+	a.anounce();
+	b.anounce();
+	c = newZombie("hamid2");
+	c->anounce();
+	randomChump("hmar2");
 	delete c;
 	return (0);
 }

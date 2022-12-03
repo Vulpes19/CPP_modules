@@ -20,8 +20,8 @@ class Zombie
 	public:
 		Zombie( void );
 		~Zombie();
-		Zombie	*zombieHorde( int N, std::string name );
 		void	anounce( void );
+		void	setName( std::string );
 	private:
 		std::string name;
 };
