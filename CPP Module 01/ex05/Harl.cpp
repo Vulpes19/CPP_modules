@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 13:05:59 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/11/12 11:05:14 by codespace        ###   ########.fr       */
+/*   Updated: 2022/12/05 10:30:35 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 typedef void    (Harl::*pointer_member) (void);
 
-void    Harl::complain( std::string level)
+void    Harl::complain( std::string level )
 {
     std::string functions[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-    pointer_member ptr[4] = {&Harl::DEBUG, &Harl::INFO, &Harl::WARNING, &Harl::ERROR};
+    pointer_member ptr[4] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 
     for (int i = 0; i < 4; i++)
     {

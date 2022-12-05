@@ -19,10 +19,6 @@ class Harl
 {
 	public:
 		void	complain( std::string level );
-		void	DEBUG(void) { debug(); };
-		void	INFO( void ) { info(); };
-		void	WARNING( void ) { warning(); };
-		void	ERROR( void ) { error(); };
 	private:
 		void	debug( void );
 		void	info( void );
