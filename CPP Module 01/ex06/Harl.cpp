@@ -12,15 +12,11 @@
 
 #include "Harl.hpp"
 
-// typedef void    (Harl::*pointer_member) (void);
-
 void    Harl::complain( std::string level)
 {
 	int index = -1;
 
 	std::string functions[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	// pointer_member ptr[4] = {&Harl::DEBUG, &Harl::INFO, &Harl::WARNING, &Harl::ERROR};
-
 	for (int i = 0; i < 4; i++)
 	{
 		if (functions[i] == level)

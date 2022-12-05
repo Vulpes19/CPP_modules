@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 10:13:30 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/10/21 10:48:30 by codespace        ###   ########.fr       */
+/*   Updated: 2022/12/05 10:43:11 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,6 @@ class Harl
 {
 	public:
 		void	complain( std::string level );
-		void	DEBUG(void) { debug(); };
-		void	INFO( void ) { info(); };
-		void	WARNING( void ) { warning(); };
-		void	ERROR( void ) { error(); };
 	private:
 		void	debug( void );
 		void	info( void );
