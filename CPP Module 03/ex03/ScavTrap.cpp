@@ -3,14 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: vulpes <vulpes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 12:27:11 by codespace         #+#    #+#             */
-/*   Updated: 2022/10/31 10:32:15 by codespace        ###   ########.fr       */
+/*   Updated: 2022/12/07 17:36:52 by vulpes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
+
+ScavTrap::ScavTrap( std::string n ) : ClapTrap( n)
+{ 
+    updateAttScav(n);
+}
 
 ScavTrap::~ScavTrap( void )
 {

@@ -3,14 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: vulpes <vulpes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 11:42:25 by codespace         #+#    #+#             */
-/*   Updated: 2022/10/31 11:23:59 by codespace        ###   ########.fr       */
+/*   Updated: 2022/12/07 17:35:21 by vulpes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+
+ClapTrap::ClapTrap( std::string n ) : name(n)
+{
+    std::cout << "constructor is called" << std::endl;
+}
 
 ClapTrap::~ClapTrap( void )
 {

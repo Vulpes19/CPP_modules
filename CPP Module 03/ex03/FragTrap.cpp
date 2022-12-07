@@ -3,14 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: vulpes <vulpes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 14:32:09 by codespace         #+#    #+#             */
-/*   Updated: 2022/10/31 10:46:41 by codespace        ###   ########.fr       */
+/*   Updated: 2022/12/07 17:36:07 by vulpes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
+
+FragTrap::FragTrap( std::string n ) : ClapTrap( n )
+{ 
+    updateAttFrag( n );
+}
 
 FragTrap::~FragTrap( void )
 {
