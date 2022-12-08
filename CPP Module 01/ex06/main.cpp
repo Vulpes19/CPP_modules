@@ -13,9 +13,24 @@
 #include <iostream>
 #include "Harl.hpp"
 
-int	main( void )
+std::string toString(char *av)
 {
-	Harl h;
+    std::string ret;
 
-	h.complain("WARNING");
+    ret = "";
+    for (int i = 0; av[i]; i++)
+        ret = ret + av[i];
+    return (ret);
+}
+
+int	main( int ac, char **av )
+{
+	if ( ac == 2)
+	{
+		Harl H;
+		H.complain( toString( av[1] ));
+	}
+	else
+		std::cerr << "<./harlFilter> <your complain>" << std::endl;
+	return (0);
 }

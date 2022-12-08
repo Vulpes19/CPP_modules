@@ -61,12 +61,10 @@ void	betterSed( char *filename, char *s1, char *s2 )
 	{
 		if ( !std::getline( myFile, fileContent ) )
 			break ;
-		//std::cout << "line of file: " << fileContent << std::endl;
 		if ( toReplace != toPlace )
 			searchLine(fileContent, toReplace, toPlace);
 		result << fileContent;
 		result << '\n';
-		//std::cout << "after editing " << fileContent << std::endl;
 	}
 	myFile.close();
 	result.close();

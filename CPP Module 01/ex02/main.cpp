@@ -18,11 +18,12 @@ int	main( void )
 	std::string *stringPTR = &str;
 	std::string &stringREF = str;
 
+	std::cout << "--------Address--------" << std::endl;
 	std::cout << "string address: " << &str << std::endl;
 	std::cout << "stringPTR address: " << &stringPTR << std::endl;
 	std::cout << "stringREF address: " << &stringREF << std::endl;
 
-	std::cout << " " << std::endl;
+	std::cout << "--------Value--------" << std::endl;
 
 	std::cout << "string value: " << str << std::endl;
 	std::cout << "stringPTR value: " << *stringPTR << std::endl;
