@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 16:24:26 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/12/09 18:33:55 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/09 19:38:10 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,11 +143,11 @@ int	Fixed::toInt( void ) const
 	return (fixedNbr / 256);
 }
 
-std::ostream	Fixed::&operator<< ( std::ostream &out )
-{
-	out << toFloat();
-	return (out);
-}
+// std::ostream	&Fixed::operator<< ( std::ostream &out ) const
+// {
+// 	out << this->toFloat();
+// 	return (out);
+// }
 
 bool	Fixed::operator== ( const Fixed &F1 ) const
 {
@@ -211,4 +211,10 @@ const Fixed &Fixed::max( const Fixed &F1, const Fixed &F2 )
 		return (F1);
 	else
 		return (F2);
+}
+
+std::ostream	&operator<< ( std::ostream &out, const Fixed &F )
+{
+	out << F.toFloat();
+	return (out);
 }

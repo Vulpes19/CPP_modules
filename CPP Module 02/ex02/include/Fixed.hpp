@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 16:24:33 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/12/09 18:28:52 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/09 19:37:43 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ class   Fixed
 		Fixed( const int );
 		Fixed( const float );
 		~Fixed();
-		std::ostream	&operator<<( std::ostream &out );
 		Fixed	&operator = ( const Fixed & );
 		Fixed	operator+ ( const Fixed & ) const;
 		Fixed	operator- ( const Fixed & ) const;
@@ -56,5 +55,6 @@ class   Fixed
 		static const int	fractBits;
 };
 
+std::ostream	&operator<< ( std::ostream &out, const Fixed & );
 
 #endif
