@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 10:51:23 by codespace         #+#    #+#             */
-/*   Updated: 2022/10/26 11:42:03 by codespace        ###   ########.fr       */
+/*   Updated: 2022/12/09 15:58:56 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,7 @@ class   Fixed
 		int					fixedNbr;
 		static const int	fractBits;
 };
+
+std::ostream	&operator<<( std::ostream &out, const Fixed &F);
 
 #endif

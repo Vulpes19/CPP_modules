@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 10:51:18 by codespace         #+#    #+#             */
-/*   Updated: 2022/10/31 12:36:23 by codespace        ###   ########.fr       */
+/*   Updated: 2022/12/09 16:09:41 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,14 @@ Fixed::Fixed(const Fixed &F)
 
 Fixed::Fixed(const int nbr)
 {
-	fixedNbr = nbr;
+	std::cout << "Int constructor called" << std::endl;
+	fixedNbr = nbr * 256;
 }
 
 Fixed::Fixed(const float nbr)
 {
-	fixedNbr = roundf(nbr);
-	fractBits = nbr - (long)nbr;
+	std::cout << "Float constructor called" << std::endl;
+	fixedNbr = roundf(nbr * 256);
 }
 
 Fixed::~Fixed( void )
@@ -65,10 +66,16 @@ void	Fixed::setRawBits( int const raw)
 
 float	Fixed::toFloat( void ) const
 {
-	return (0);
+	return(fixedNbr / 256.0);
 }
 
 int	Fixed::toInt( void ) const
 {
-	return (0);
+	return (fixedNbr / 256);
+}
+
+std::ostream	&operator<<( std::ostream &out, const Fixed &F)
+{
+	out << F.toFloat();
+	return (out);
 }
