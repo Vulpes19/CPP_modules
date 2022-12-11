@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 16:24:33 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/12/09 18:28:52 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/11 16:56:14 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,15 @@ class   Fixed
 		Fixed( const int );
 		Fixed( const float );
 		~Fixed();
-		std::ostream	&operator<<( std::ostream &out );
 		Fixed	&operator = ( const Fixed & );
 		Fixed	operator+ ( const Fixed & ) const;
 		Fixed	operator- ( const Fixed & ) const;
 		Fixed	operator* ( const Fixed & ) const;
 		Fixed	operator/ ( const Fixed & ) const;
-		void	operator++ ( void ); //pre-increment operator
-		void	operator++ ( int ); //post-increment operator
-		void	operator-- ( void ); //pre-decrement operator
-		void	operator-- ( int ); //post-decrement operator
+		Fixed	&operator++ ( void ); //pre-increment operator
+		Fixed	operator++ ( int ); //post-increment operator
+		Fixed	&operator-- ( void ); //pre-decrement operator
+		Fixed	operator-- ( int ); //post-decrement operator
 		bool	operator== ( const Fixed & ) const;
 		bool	operator!= ( const Fixed & ) const;
 		bool	operator< ( const Fixed & ) const;
@@ -56,5 +55,6 @@ class   Fixed
 		static const int	fractBits;
 };
 
+std::ostream	&operator<<( std::ostream &out, const Fixed & );
 
 #endif

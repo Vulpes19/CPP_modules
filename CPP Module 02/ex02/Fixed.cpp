@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 16:24:26 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/12/09 18:33:55 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/11 17:40:49 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,27 @@
 
 const int Fixed::fractBits = 8;
 
-Fixed::Fixed(): fixedNbr(0)
+Fixed::Fixed( void ) : fixedNbr(0)
 {
 	std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed(const Fixed &F)
+Fixed::Fixed( const Fixed &F )
 {
 	std::cout << "Copy constructor called" << std::endl;
 	fixedNbr = F.fixedNbr;
 }
 
-Fixed::Fixed(const int nbr)
+Fixed::Fixed( const int nbr )
 {
 	std::cout << "Int constructor called" << std::endl;
-	fixedNbr = nbr * 256;
+	fixedNbr = nbr * 256.0f;
 }
 
-Fixed::Fixed(const float nbr)
+Fixed::Fixed( const float nbr )
 {
 	std::cout << "Float constructor called" << std::endl;
-	fixedNbr = roundf(nbr * 256);
+	fixedNbr = roundf(nbr * 256.0f);
 }
 
 Fixed::~Fixed( void )
@@ -47,7 +47,7 @@ Fixed	&Fixed::operator=( const Fixed &F )
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &F)
 	{
-		fixedNbr = F.fixedNbr;
+		this->fixedNbr = F.fixedNbr;
 	}
 	return (*this);
 }
@@ -80,46 +80,32 @@ Fixed	Fixed::operator/ ( const Fixed &F ) const
 	return (ret); 
 }
 
-void	Fixed::operator++ ( void )
+Fixed	&Fixed::operator++ ( void )
 {
-	float	result;
-
-	result = this->fixedNbr / 256.0f;
-	++result;
-	result *= 256.0f;
-	this->fixedNbr = result;
+	this->fixedNbr += 1;
+	return (*this);
 }
 
-void	Fixed::operator++ ( int nbr )
+Fixed	Fixed::operator++ ( int )
 {
-	float result;
-
-	nbr = 0;
-	result = this->fixedNbr / 256.0f;
-	result++;
-	result *= 256.0f;
-	this->fixedNbr = result;
+	Fixed F;
+	F.setRawBits(this->fixedNbr);
+	this->fixedNbr++;
+	return (F);
 }
 
-void	Fixed::operator-- ( void )
+Fixed	&Fixed::operator-- ( void )
 {
-	float	result;
-
-	result = this->fixedNbr / 256.0f;
-	--result;
-	result *= 256.0f;
-	this->fixedNbr = result;
+	this->fixedNbr -= 1;
+	return (*this);
 }
 
-void	Fixed::operator-- ( int nbr )
+Fixed	Fixed::operator-- ( int )
 {
-	float result;
-
-	nbr = 0;
-	result = this->fixedNbr / 256.0f;
-	result--;
-	result *= 256.0f;
-	this->fixedNbr = result;
+	Fixed F;
+	F.setRawBits(this->fixedNbr);
+	this->fixedNbr--;
+	return (F);
 }
 
 
@@ -135,18 +121,12 @@ void	Fixed::setRawBits( int const raw)
 
 float	Fixed::toFloat( void ) const
 {
-	return(fixedNbr / 256.0);
+	return(fixedNbr / 256.0f);
 }
 
 int	Fixed::toInt( void ) const
 {
-	return (fixedNbr / 256);
-}
-
-std::ostream	Fixed::&operator<< ( std::ostream &out )
-{
-	out << toFloat();
-	return (out);
+	return (fixedNbr / 256.0f);
 }
 
 bool	Fixed::operator== ( const Fixed &F1 ) const
@@ -211,4 +191,10 @@ const Fixed &Fixed::max( const Fixed &F1, const Fixed &F2 )
 		return (F1);
 	else
 		return (F2);
+}
+
+std::ostream	&operator<< ( std::ostream &out, const Fixed &F )
+{
+	out << F.toFloat();
+	return (out);
 }
