@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 18:29:23 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/12/11 20:45:13 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/12 17:13:52 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 
 typedef struct vec
 {
-    float x;
-    float y;
+    Fixed x;
+    Fixed y;
 } m_vec;
 
 class Point

@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 18:39:38 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/12/11 20:58:02 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/12 17:23:20 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,7 @@ int main( void )
     Point p1(-2.0f, -1.0f);
     Point p2(0.0f, 2.0f);
     Point p3(2.0f, -1.0f);
-    Point p( 0.0f, 1.0f);
-    std::cout << p1.getX() << " " << p1.getY() << std::endl;
-    std::cout << p2.getX() << " " << p2.getY() << std::endl;
-    std::cout << p3.getX() << " " << p3.getY() << std::endl;
+    Point p( 0.0f, 2.01f);
     std::cout << bsp(p1, p2, p3, p) << std::endl;
 //     bool bsp(Triangle triangle, Point point)
 // {
