@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/22 10:51:18 by codespace         #+#    #+#             */
-/*   Updated: 2022/12/09 16:09:41 by abaioumy         ###   ########.fr       */
+/*   Created: 2022/10/22 10:51:18 by abaioumy          #+#    #+#             */
+/*   Updated: 2022/12/13 14:15:12 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ Fixed::Fixed(const Fixed &F)
 Fixed::Fixed(const int nbr)
 {
 	std::cout << "Int constructor called" << std::endl;
-	fixedNbr = nbr * 256;
+	fixedNbr = nbr << Fixed::fractBits;
 }
 
 Fixed::Fixed(const float nbr)
 {
 	std::cout << "Float constructor called" << std::endl;
-	fixedNbr = roundf(nbr * 256);
+	fixedNbr = roundf(nbr * (1 << Fixed::fractBits));
 }
 
 Fixed::~Fixed( void )
@@ -66,12 +66,12 @@ void	Fixed::setRawBits( int const raw)
 
 float	Fixed::toFloat( void ) const
 {
-	return(fixedNbr / 256.0);
+	return ((float)fixedNbr / (1 << Fixed::fractBits));
 }
 
 int	Fixed::toInt( void ) const
 {
-	return (fixedNbr / 256);
+	return (fixedNbr >> Fixed::fractBits);
 }
 
 std::ostream	&operator<<( std::ostream &out, const Fixed &F)

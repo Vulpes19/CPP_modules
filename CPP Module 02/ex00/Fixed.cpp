@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/22 10:51:18 by codespace         #+#    #+#             */
-/*   Updated: 2022/11/12 11:48:07 by codespace        ###   ########.fr       */
+/*   Created: 2022/10/22 10:51:18 by abaioumy          #+#    #+#             */
+/*   Updated: 2022/12/13 15:05:27 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,23 @@
 
 const int Fixed::fractBits = 8;
 
-Fixed::Fixed(): fixedNbr(0)
+Fixed::Fixed( void ): fixedNbr(0)
 {
 	std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed(const Fixed &F)
+Fixed::Fixed( const Fixed &F )
 {
 	std::cout << "Copy constructor called" << std::endl;
-	fixedNbr = F.getRawBits();
+	fixedNbr = F.fixedNbr;
 }
 
-Fixed::~Fixed()
+Fixed::~Fixed( void )
 {
 	std::cout << "Destructor called" << std::endl;
 }
 
-Fixed	&Fixed::operator=(const Fixed &F)
+Fixed	&Fixed::operator= ( const Fixed &F )
 {
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &F)

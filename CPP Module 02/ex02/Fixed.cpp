@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 16:24:26 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/12/11 17:40:49 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/13 14:39:04 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,35 +16,29 @@ const int Fixed::fractBits = 8;
 
 Fixed::Fixed( void ) : fixedNbr(0)
 {
-	std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed( const Fixed &F )
 {
-	std::cout << "Copy constructor called" << std::endl;
 	fixedNbr = F.fixedNbr;
 }
 
 Fixed::Fixed( const int nbr )
 {
-	std::cout << "Int constructor called" << std::endl;
-	fixedNbr = nbr * 256.0f;
+	fixedNbr = nbr << Fixed::fractBits;
 }
 
 Fixed::Fixed( const float nbr )
 {
-	std::cout << "Float constructor called" << std::endl;
-	fixedNbr = roundf(nbr * 256.0f);
+	fixedNbr = roundf(nbr * (1 << Fixed::fractBits));
 }
 
 Fixed::~Fixed( void )
 {
-	std::cout << "Destructor called" << std::endl;
 }
 
 Fixed	&Fixed::operator=( const Fixed &F )
 {
-	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &F)
 	{
 		this->fixedNbr = F.fixedNbr;
@@ -55,28 +49,28 @@ Fixed	&Fixed::operator=( const Fixed &F )
 Fixed	Fixed::operator+ ( const Fixed &F ) const
 {
 	Fixed ret;
-	ret.setRawBits( ((this->fixedNbr / 256.0f) + (F.getRawBits() / 256.0f)) * 256.0f );
+	ret.fixedNbr = (this->toFloat() + F.toFloat()) * (1 << Fixed::fractBits);
 	return (ret); 
 }
 
 Fixed	Fixed::operator- ( const Fixed &F ) const
 {
 	Fixed ret;
-	ret.setRawBits( ((this->fixedNbr / 256.0f) - (F.getRawBits() / 256.0f)) * 256.0f );
+	ret.fixedNbr = (this->toFloat() - F.toFloat()) * (1 << Fixed::fractBits);
 	return (ret); 
 }
 
 Fixed	Fixed::operator* ( const Fixed &F ) const
 {
 	Fixed ret;
-	ret.setRawBits( ((this->fixedNbr / 256.0f) * (F.getRawBits() / 256.0f)) * 256.0f );
+	ret.fixedNbr = (this->toFloat() * F.toFloat()) * (1 << Fixed::fractBits);
 	return (ret); 
 }
 
 Fixed	Fixed::operator/ ( const Fixed &F ) const
 {
 	Fixed ret;
-	ret.setRawBits( ((this->fixedNbr / 256.0f) / (F.getRawBits() / 256.0f)) * 256.0f );
+	ret.fixedNbr = (this->toFloat() / F.toFloat()) * (1 << Fixed::fractBits);
 	return (ret); 
 }
 
@@ -89,7 +83,7 @@ Fixed	&Fixed::operator++ ( void )
 Fixed	Fixed::operator++ ( int )
 {
 	Fixed F;
-	F.setRawBits(this->fixedNbr);
+	F.fixedNbr = this->fixedNbr;
 	this->fixedNbr++;
 	return (F);
 }
@@ -103,7 +97,7 @@ Fixed	&Fixed::operator-- ( void )
 Fixed	Fixed::operator-- ( int )
 {
 	Fixed F;
-	F.setRawBits(this->fixedNbr);
+	F.fixedNbr = this->fixedNbr;
 	this->fixedNbr--;
 	return (F);
 }
@@ -121,42 +115,42 @@ void	Fixed::setRawBits( int const raw)
 
 float	Fixed::toFloat( void ) const
 {
-	return(fixedNbr / 256.0f);
+	return((float)fixedNbr / (1 << Fixed::fractBits));
 }
 
 int	Fixed::toInt( void ) const
 {
-	return (fixedNbr / 256.0f);
+	return (fixedNbr >> Fixed::fractBits);
 }
 
 bool	Fixed::operator== ( const Fixed &F1 ) const
 {
-	return (F1.getRawBits() == this->fixedNbr);
+	return (F1.fixedNbr == this->fixedNbr);
 }
 
 bool	Fixed::operator!= ( const Fixed &F1 ) const
 {
-	return (F1.getRawBits() !=this->fixedNbr);
+	return (F1.fixedNbr != this->fixedNbr);
 }
 
 bool	Fixed::operator< ( const Fixed &F1 ) const
 {
-	return (F1.getRawBits() > this->fixedNbr);
+	return (this->fixedNbr < F1.fixedNbr);
 }
 
 bool	Fixed::operator> ( const Fixed &F1 ) const
 {
-	return (F1.getRawBits() < this->fixedNbr);
+	return (this->fixedNbr > F1.fixedNbr);
 }
 
 bool	Fixed::operator<= ( const Fixed &F1 ) const
 {
-	return (F1.getRawBits() <= this->fixedNbr);
+	return (this->fixedNbr <= F1.fixedNbr);
 }
 
 bool	Fixed::operator>= ( const Fixed &F1 ) const
 {
-	return (F1.getRawBits() >= this->fixedNbr);
+	return (this->fixedNbr >= F1.fixedNbr);
 }
 
 Fixed &Fixed::min( Fixed &F1, Fixed &F2 )
