@@ -3,25 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/14 12:04:25 by codespace         #+#    #+#             */
-/*   Updated: 2022/11/14 12:07:37 by codespace        ###   ########.fr       */
+/*   Created: 2022/12/16 17:11:50 by abaioumy          #+#    #+#             */
+/*   Updated: 2022/12/16 17:16:21 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MATERIASOURCE_HPP
-#define MATERIASOURCE_HPP
+#ifndef IMATERIA_SOURCE_HPP
+#define IMATERIA_SOURCE_HPP
 
-#include "AMateria.hpp"
-
-class	IMateriaSource
+#include "IMateriaSource.hpp"
+class MateriaSource : public IMateriaSource
 {
-	public:
-		IMateriaSource( void );
-		virtual	~IMateriaSource( void );
-		virtual	void	learnMateria( AMateria* ) = 0;
-		virtual	AMateria	*createMateria( std::string const &type ) = 0;
+    public:
+        MateriaSource( void );
+        ~MateriaSource( void );
+        void    learnMateria( AMateria* );
+        AMateria    *createMateria( std::string const &type );
+    private:
+        AMateria *materias[4];
 };
 
 #endif

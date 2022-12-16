@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 11:26:10 by codespace         #+#    #+#             */
-/*   Updated: 2022/11/14 12:17:32 by codespace        ###   ########.fr       */
+/*   Updated: 2022/12/16 17:08:26 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ class Ice : public AMateria
 {
     public:
         Ice( void );
+        Ice &operator=( const Ice & );
         ~Ice( void );
         Ice *clone( void );
         void    use( ICharacter &target );

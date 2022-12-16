@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 12:41:29 by codespace         #+#    #+#             */
-/*   Updated: 2022/11/01 12:10:52 by codespace        ###   ########.fr       */
+/*   Updated: 2022/12/16 15:33:27 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ Cat::~Cat( void )
 
 void	Cat::makeSound( void ) const
 {
-	std::cout << "meooooow !!" << std::endl;
+	std::cout << "meooooow !" << std::endl;
 }

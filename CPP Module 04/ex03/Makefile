@@ -1,10 +1,10 @@
 TARGET = Interface
 
-FILES = main.cpp AMateria.cpp Cure.cpp Ice.cpp ICharacter.cpp MateriaSource.hpp
+FILES = main.cpp AMateria.cpp Cure.cpp Ice.cpp ICharacter.cpp Character.cpp MateriaSource.cpp
 
 OBJS = $(FILES:%.cpp=%.o)
 
-FLAGS = -fsanitize=address -std=c++98 -Wall -Wextra -Werror
+FLAGS = -std=c++98 -Wall -Wextra -Werror
 
 INCLUDE = include/
 

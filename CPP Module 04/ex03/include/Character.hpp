@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/31 12:26:11 by codespace         #+#    #+#             */
-/*   Updated: 2022/12/16 15:35:25 by abaioumy         ###   ########.fr       */
+/*   Created: 2022/12/16 16:08:06 by abaioumy          #+#    #+#             */
+/*   Updated: 2022/12/16 16:50:05 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-#define CAT_HPP
+#ifndef CHARACTER_HPP
+#define CHARACTER_HPP
 
-#include "Animal.hpp"
-#include "Brain.hpp"
+#include "ICharacter.hpp"
+#include "AMateria.hpp"
 
-class Cat : public Animal
+class Character : public ICharacter
 {
     public:
-		Cat( void );
-		~Cat( void );
-		void    makeSound( void ) const;
+        Character( std::string & );
+        ~Character( void );
+		std::string const &getName( void ) const;
+		void	equip( AMateria *m );
+		void	unequip( int idx );
+		void	use( int idx, ICharacter &target );
     private:
-		Brain   *B;
+        std::string name;
+        AMateria    *inventory[4];
 };
 
 #endif

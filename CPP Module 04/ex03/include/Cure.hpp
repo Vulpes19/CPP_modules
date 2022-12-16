@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 11:57:15 by codespace         #+#    #+#             */
-/*   Updated: 2022/11/14 13:00:21 by codespace        ###   ########.fr       */
+/*   Updated: 2022/12/16 17:07:28 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ class Cure : public AMateria
 {
     public:
         Cure( void );
+        Cure    &operator=( const Cure & );
         ~Cure( void );
         Cure *clone( void );
         void    use( ICharacter &target );

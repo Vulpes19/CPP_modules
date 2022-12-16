@@ -3,21 +3,44 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 12:07:56 by codespace         #+#    #+#             */
-/*   Updated: 2022/11/14 12:12:03 by codespace        ###   ########.fr       */
+/*   Updated: 2022/12/16 17:21:14 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MateriaSource.hpp"
 
-IMateriaSource::IMateriaSource( void )
+MateriaSource::MateriaSource( void ) : IMateriaSource()
 {
-    std::cout << "IMateriaSource is created" << std::endl;
+    std::cout << "MateriaSource is created" << std::endl;
+    for (int i = 0; i < 4; i++)
+        materias[i] = NULL;
 }
 
-IMateriaSource::~IMateriaSource( void )
+MateriaSource::~MateriaSource( void )
 {
-    std::cout << "IMateriaSource is destroyed" << std::endl;
+    std::cout << "MateriaSource is destroyed" << std::endl;
+}
+
+void    MateriaSource::learnMateria( AMateria *M )
+{
+    for (int i = 0; i < 4; i++)
+    {
+        if (materias[i] == NULL)
+        {
+            materias[i] = M;
+            break ;
+        }
+    }
+}
+
+AMateria    *MateriaSource::createMateria( std::string const &type )
+{
+    for (int i = 0; i < 4; i++)
+    {
+        if (materias[i]->getType() == type)
+            return (materias[i]);
+    }
 }

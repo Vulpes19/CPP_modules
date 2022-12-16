@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 12:15:54 by codespace         #+#    #+#             */
-/*   Updated: 2022/11/14 12:24:29 by codespace        ###   ########.fr       */
+/*   Updated: 2022/12/16 17:10:27 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@ Ice::Ice( void ) : AMateria("ice")
     std::cout << "Ice is created" << std::endl;
 }
 
+Ice &Ice::operator=( const Ice &I )
+{
+    return (*this);
+}
+
 Ice::~Ice( void )
 {
     std::cout << "Ice is destroyed" << std::endl;
@@ -24,7 +29,10 @@ Ice::~Ice( void )
 
 Ice *Ice::clone( void )
 {
-    return (this);
+    Ice *ret;
+
+    ret = this;
+    return (ret);
 }
 
 void    Ice::use( ICharacter &target )

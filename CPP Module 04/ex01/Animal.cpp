@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 12:33:33 by codespace         #+#    #+#             */
-/*   Updated: 2022/11/01 12:10:02 by codespace        ###   ########.fr       */
+/*   Updated: 2022/12/16 15:36:21 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,11 @@ Animal	&Animal::operator=( const Animal &A )
 		type = A.type;
 	}
 	return (*this);
+}
+
+std::string	Animal::getType( void ) const
+{
+	return (type);
 }
 
 void	Animal::makeSound( void ) const
