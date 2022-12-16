@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 11:35:29 by codespace         #+#    #+#             */
-/*   Updated: 2022/10/29 14:37:46 by codespace        ###   ########.fr       */
+/*   Updated: 2022/12/16 14:51:53 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ class ClapTrap
 {
 	public:
 		ClapTrap( std::string );
-		virtual	~ClapTrap( void );
-		virtual	void		attack( const std::string &target);
+		~ClapTrap( void );
+		void		attack( const std::string &target);
 		void		takeDamage(unsigned int amount);
 		void		beRepaired(unsigned int amount);
 	protected:

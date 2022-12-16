@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vulpes <vulpes@student.42.fr>              +#+  +:+       +#+        */
+/*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 14:32:09 by codespace         #+#    #+#             */
-/*   Updated: 2022/12/07 17:32:19 by vulpes           ###   ########.fr       */
+/*   Updated: 2022/12/16 14:50:16 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ FragTrap::~FragTrap( void )
 
 void    FragTrap::updateAttFrag( std::string n )
 {
-    std::cout << "FragTrap is created !" << std::endl;
+    std::cout << "FragTrap is created" << std::endl;
+    name = n;
     hitPoints = 100;
     energyPoints = 100;
     attackDamage = 30;

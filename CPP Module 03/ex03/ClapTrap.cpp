@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vulpes <vulpes@student.42.fr>              +#+  +:+       +#+        */
+/*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 11:42:25 by codespace         #+#    #+#             */
-/*   Updated: 2022/12/07 17:35:21 by vulpes           ###   ########.fr       */
+/*   Updated: 2022/12/16 14:53:43 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 ClapTrap::ClapTrap( std::string n ) : name(n)
 {
-    std::cout << "constructor is called" << std::endl;
+    std::cout << "ClapTrap is created" << std::endl;
 }
 
 ClapTrap::~ClapTrap( void )
 {
-    std::cout << "destructor called" << std::endl;
+    std::cout << "ClapTrap is destroyed" << std::endl;
 }
 
 void    ClapTrap::attack( const std::string &target )

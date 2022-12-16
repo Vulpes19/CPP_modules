@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 12:07:23 by codespace         #+#    #+#             */
-/*   Updated: 2022/10/29 12:51:54 by codespace        ###   ########.fr       */
+/*   Updated: 2022/12/16 14:41:04 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ int main( void )
     ClapTrap C("Ayman");
 
     S.attack("Ayman");
-    C.takeDamage(10);
+    // C.takeDamage(10);
     C.attack("Hiba");
 }

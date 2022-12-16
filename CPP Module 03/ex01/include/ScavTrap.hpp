@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vulpes <vulpes@student.42.fr>              +#+  +:+       +#+        */
+/*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 12:15:00 by codespace         #+#    #+#             */
-/*   Updated: 2022/12/07 17:28:37 by vulpes           ###   ########.fr       */
+/*   Updated: 2022/12/16 14:21:30 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class ScavTrap: public ClapTrap
         ~ScavTrap( void );
         void    attack( const std::string &target );
         void    updateAtt( std::string );
-        void guardGate( void );
+        void    guardGate( void );
 };
 
 #endif
