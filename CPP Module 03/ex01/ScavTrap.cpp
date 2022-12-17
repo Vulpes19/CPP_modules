@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 12:27:11 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/12/17 16:56:12 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/17 20:34:34 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,38 @@
 
 ScavTrap::ScavTrap( std::string n ) : ClapTrap( n )
 { 
-    updateAtt(n);
-}
-
-ScavTrap::~ScavTrap( void )
-{
-    std::cout << "ScavTrap is destroyed" << std::endl;
-}
-
-void    ScavTrap::updateAtt( std::string n )
-{
     std::cout << "ScavTrap is created" << std::endl;
     name = n;
     hitPoints = 100;
     energyPoints = 50;
     attackDamage = 20;
+}
+
+ScavTrap::ScavTrap( const ScavTrap &S ) : ClapTrap( S )
+{
+    std::cout << "Copy constructor is called" << std::endl;
+    name = S.name;
+    hitPoints = S.hitPoints;
+    energyPoints = S.energyPoints;
+    attackDamage = S.attackDamage;
+}
+
+ScavTrap &ScavTrap::operator= ( const ScavTrap &S )
+{
+    std::cout << "Copy assignement operator is called" << std::endl;
+    if ( this != &S )
+    {
+         name = S.name;
+        hitPoints = S.hitPoints;
+        energyPoints = S.energyPoints;
+        attackDamage = S.attackDamage;
+    }
+    return (*this);
+}
+
+ScavTrap::~ScavTrap( void )
+{
+    std::cout << "ScavTrap is destroyed" << std::endl;
 }
 
 void    ScavTrap::attack( const std::string &target )
