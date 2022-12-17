@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/31 10:20:48 by codespace         #+#    #+#             */
-/*   Updated: 2022/11/13 17:24:51 by codespace        ###   ########.fr       */
+/*   Created: 2022/10/31 10:20:48 by abaioumy          #+#    #+#             */
+/*   Updated: 2022/12/17 16:58:47 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
