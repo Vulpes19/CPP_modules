@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 16:08:06 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/12/16 16:50:05 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/18 20:24:34 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 #define CHARACTER_HPP
 
 #include "ICharacter.hpp"
-#include "AMateria.hpp"
 
+
+class AMateria;
 class Character : public ICharacter
 {
     public:

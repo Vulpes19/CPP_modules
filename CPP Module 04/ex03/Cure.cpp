@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 12:15:51 by codespace         #+#    #+#             */
-/*   Updated: 2022/12/16 17:08:07 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/18 20:21:32 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ Cure::Cure( void ) : AMateria("cure")
 
 Cure    &Cure::operator=( const Cure &C )
 {
+    this->type = C.type;
     return (*this);
 }
 
@@ -27,11 +28,9 @@ Cure::~Cure( void )
     std::cout << "Cure is destroyed" << std::endl;
 }
 
-Cure *Cure::clone( void )
+Cure *Cure::clone( void ) const
 {
-    Cure *ret;
-
-    ret = this;
+    Cure *ret = new Cure();
     return (ret);
 }
 

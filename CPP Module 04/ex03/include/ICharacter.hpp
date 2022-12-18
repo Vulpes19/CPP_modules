@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 11:16:48 by codespace         #+#    #+#             */
-/*   Updated: 2022/12/16 16:07:32 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/18 20:13:27 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include "AMateria.hpp"
 
+class AMateria;
 class ICharacter
 {
 	public:

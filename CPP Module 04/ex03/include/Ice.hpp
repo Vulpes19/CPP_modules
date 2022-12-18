@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 11:26:10 by codespace         #+#    #+#             */
-/*   Updated: 2022/12/16 17:08:26 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/18 20:12:45 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Ice : public AMateria
         Ice( void );
         Ice &operator=( const Ice & );
         ~Ice( void );
-        Ice *clone( void );
+        Ice *clone( void ) const;
         void    use( ICharacter &target );
 };
 

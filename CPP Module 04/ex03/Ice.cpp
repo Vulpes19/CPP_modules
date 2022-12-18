@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 12:15:54 by codespace         #+#    #+#             */
-/*   Updated: 2022/12/16 17:10:27 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/18 20:21:46 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ Ice::Ice( void ) : AMateria("ice")
 
 Ice &Ice::operator=( const Ice &I )
 {
+    this->type = I.type;
     return (*this);
 }
 
@@ -27,11 +28,9 @@ Ice::~Ice( void )
     std::cout << "Ice is destroyed" << std::endl;
 }
 
-Ice *Ice::clone( void )
+Ice *Ice::clone( void ) const
 {
-    Ice *ret;
-
-    ret = this;
+    Ice *ret = new Ice();
     return (ret);
 }
 

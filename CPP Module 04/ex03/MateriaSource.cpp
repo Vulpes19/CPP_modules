@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 12:07:56 by codespace         #+#    #+#             */
-/*   Updated: 2022/12/16 17:21:14 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/18 20:23:06 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,5 @@ AMateria    *MateriaSource::createMateria( std::string const &type )
         if (materias[i]->getType() == type)
             return (materias[i]);
     }
+    return (0);
 }
