@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/30 21:22:02 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/12/17 18:55:27 by abaioumy         ###   ########.fr       */
+/*   Created: 2022/12/11 18:39:38 by abaioumy          #+#    #+#             */
+/*   Updated: 2022/12/13 15:03:53 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DIAMONDTRAP_HPP
-#define DIAMONDTRAP_HPP
+#include "Point.hpp"
 
-#include "ScavTrap.hpp"
-#include "FragTrap.hpp"
-
-class DiamondTrap : public FragTrap, public ScavTrap
+int main( void )
 {
-public:
-    DiamondTrap( std::string );
-    ~DiamondTrap( void );
-    void    updateName( std::string );
-    //void    attack( std::string &target );
-    void    whoAmI( void );  
-private:
-    std::string name;
-};
-
-#endif
+    Point p1(-2.0f, -1.0f);
+    Point p2(0.0f, 2.0f);
+    Point p3(2.0f, -1.0f);
+    Point p( 0.0f, 0.0f);
+    std::cout << bsp(p1, p2, p3, p) << std::endl;
+}

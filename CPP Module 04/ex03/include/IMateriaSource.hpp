@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/30 21:22:02 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/12/17 18:55:27 by abaioumy         ###   ########.fr       */
+/*   Created: 2022/11/14 12:04:25 by codespace         #+#    #+#             */
+/*   Updated: 2022/12/16 16:07:05 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DIAMONDTRAP_HPP
-#define DIAMONDTRAP_HPP
+#ifndef MATERIASOURCE_HPP
+#define MATERIASOURCE_HPP
 
-#include "ScavTrap.hpp"
-#include "FragTrap.hpp"
+#include "AMateria.hpp"
 
-class DiamondTrap : public FragTrap, public ScavTrap
+class	IMateriaSource
 {
-public:
-    DiamondTrap( std::string );
-    ~DiamondTrap( void );
-    void    updateName( std::string );
-    //void    attack( std::string &target );
-    void    whoAmI( void );  
-private:
-    std::string name;
+	public:
+		virtual	~IMateriaSource( void );
+		virtual	void	learnMateria( AMateria* ) = 0;
+		virtual	AMateria	*createMateria( std::string const &type ) = 0;
 };
 
 #endif

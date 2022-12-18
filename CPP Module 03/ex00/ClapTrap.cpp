@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/29 11:42:25 by codespace         #+#    #+#             */
-/*   Updated: 2022/11/13 17:40:54 by codespace        ###   ########.fr       */
+/*   Created: 2022/10/29 11:42:25 by abaioumy          #+#    #+#             */
+/*   Updated: 2022/12/17 19:20:17 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 ClapTrap::ClapTrap( std::string input )
 {
-    std::cout << "constructor is called" << std::endl;
+    std::cout << "ClapTrap is created" << std::endl;
     name = input;
     hitPoints = 10;
     energyPoints = 10;
@@ -32,7 +32,7 @@ ClapTrap::ClapTrap( const ClapTrap &C )
 
 ClapTrap::~ClapTrap( void )
 {
-	std::cout << "Animal is destoryed" << std::endl;
+	std::cout << "ClapTrap is destoryed" << std::endl;
 }
 
 ClapTrap	&ClapTrap::operator=( const ClapTrap &C )
@@ -46,11 +46,6 @@ ClapTrap	&ClapTrap::operator=( const ClapTrap &C )
         attackDamage = C.attackDamage;
 	}
 	return (*this);
-}
-
-ClapTrap::~ClapTrap( void )
-{
-    std::cout << "destructor called" << std::endl;
 }
 
 void    ClapTrap::attack( const std::string &target )
@@ -76,6 +71,16 @@ void    ClapTrap::takeDamage( unsigned int amount )
 
 void    ClapTrap::beRepaired( unsigned int amount )
 {
+    if (energyPoints == 0)
+    {
+        std::cout << name << " is tired :(" << std::endl;
+        return ;
+    }
+    if (hitPoints == 0)
+    {
+        std::cout << name << " is dead :(" << std::endl;
+        return ;
+    }
     hitPoints += amount;
     energyPoints--;
 }

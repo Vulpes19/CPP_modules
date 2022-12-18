@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/31 10:20:48 by codespace         #+#    #+#             */
-/*   Updated: 2022/11/13 17:24:51 by codespace        ###   ########.fr       */
+/*   Created: 2022/10/31 10:20:48 by abaioumy          #+#    #+#             */
+/*   Updated: 2022/12/17 18:56:05 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap( std::string n) : ClapTrap( n ), ScavTrap( n ), FragTrap( n )
+DiamondTrap::DiamondTrap(std::string name) : ClapTrap( name ), FragTrap( name ), ScavTrap( name )
 {
 	std::cout << "DiamondTrap is created" << std::endl;
-	name = n;
-	ClapTrap::name = n.append("_clap_name");
+	this->name = name;
+	ClapTrap::name = name.append("_clap_name");
 	hitPoints = FragTrap::hitPoints;
 	energyPoints = ScavTrap::energyPoints;
 	attackDamage = FragTrap::attackDamage;

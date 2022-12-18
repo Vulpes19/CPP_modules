@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 11:50:17 by codespace         #+#    #+#             */
-/*   Updated: 2022/11/14 12:34:31 by codespace        ###   ########.fr       */
+/*   Updated: 2022/12/16 17:06:31 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,6 @@ AMateria::AMateria( std::string const &type ) : this->type(type)
 	std::cout << "AMateria is created" << std::endl;
 }
 
-AMateria::AMateria( const AMateria &M )
-{
-	std::cout << "copy constructor called" << std::endl;
-	type = M.type;
-}
-
-AMateria	&AMateria::operator=( const AMateria &M )
-{
-	if ( *this != M )
-		type = M.type;
-	return (*this);
-}
-
 AMateria::~AMateria( void )
 {
 	std::cout << "AMateria is destroyed" << std::endl;
@@ -38,9 +25,4 @@ AMateria::~AMateria( void )
 std::string	const	&AMateria::getType( void ) const
 {
 	return (type);
-}
-
-void	AMateria::use( ICharacter &target )
-{
-
 }

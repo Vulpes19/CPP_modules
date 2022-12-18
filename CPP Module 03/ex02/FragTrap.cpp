@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vulpes <vulpes@student.42.fr>              +#+  +:+       +#+        */
+/*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/29 14:32:09 by codespace         #+#    #+#             */
-/*   Updated: 2022/12/07 17:32:19 by vulpes           ###   ########.fr       */
+/*   Created: 2022/10/29 14:32:09 by abaioumy          #+#    #+#             */
+/*   Updated: 2022/12/17 20:41:59 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,38 @@
 
 FragTrap::FragTrap( std::string n ) : ClapTrap( n )
 { 
-    updateAttFrag( n ); 
+    std::cout << "FragTrap is created" << std::endl;
+    name = n;
+    hitPoints = 100;
+    energyPoints = 100;
+    attackDamage = 30;
+}
+
+FragTrap::FragTrap( const FragTrap &F ) : ClapTrap( F )
+{
+    std::cout << "Copy constructor is called" << std::endl;
+    name = F.name;
+    hitPoints = F.hitPoints;
+    energyPoints = F.energyPoints;
+    attackDamage = F.attackDamage;
+}
+
+FragTrap &FragTrap::operator= ( const FragTrap &F )
+{
+    std::cout << "Copy assignement operator is called" << std::endl;
+    if ( this != &F )
+    {
+        name = F.name;
+        hitPoints = F.hitPoints;
+        energyPoints = F.energyPoints;
+        attackDamage = F.attackDamage;
+    }
+    return (*this);
 }
 
 FragTrap::~FragTrap( void )
 {
     std::cout << "FragTrap is destroyed" << std::endl;
-}
-
-void    FragTrap::updateAttFrag( std::string n )
-{
-    std::cout << "FragTrap is created !" << std::endl;
-    hitPoints = 100;
-    energyPoints = 100;
-    attackDamage = 30;
 }
 
 void    FragTrap::highFivesGuys( void )

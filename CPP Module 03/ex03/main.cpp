@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/29 12:07:23 by codespace         #+#    #+#             */
-/*   Updated: 2022/11/13 17:25:17 by codespace        ###   ########.fr       */
+/*   Created: 2022/10/29 12:07:23 by abaioumy          #+#    #+#             */
+/*   Updated: 2022/12/17 20:51:53 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,19 @@
 
 int main( void )
 {
-    DiamondTrap D("Ayyy");
+    DiamondTrap D("Monster");
+    std::cout << "*****" << std::endl;
+    ClapTrap C("Original character");
+    std::cout << "*****" << std::endl;
+    ScavTrap S("Robot1");
+    std::cout << "*****" << std::endl;
+    FragTrap F("Robot2");
+    std::cout << "*****" << std::endl;
 
+    C.attack("villain");
+    F.attack("villain");
+    S.attack("villain");
     D.attack("hmar");
     D.takeDamage(10);
-    std::cout << D.getHitpoints() << std::endl;
     D.whoAmI();
 }

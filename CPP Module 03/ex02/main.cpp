@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/29 12:07:23 by codespace         #+#    #+#             */
-/*   Updated: 2022/10/29 14:35:57 by codespace        ###   ########.fr       */
+/*   Created: 2022/10/29 12:07:23 by abaioumy          #+#    #+#             */
+/*   Updated: 2022/12/17 20:44:05 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,13 @@
 
 int main( void )
 {
-    ScavTrap    S("Amine");
-    FragTrap    F("mama");
-    ClapTrap C("Ayman");
+    ScavTrap    S("Cat");
+    FragTrap    F("Dog");
+    ClapTrap C("Wolf");
 
-    S.attack("Ayman");
-    C.attack("Hiba");
+    S.attack("Dog");
+    S.guardGate();
+    C.attack("Cat");
+    F.attack("Cat");
+    F.highFivesGuys();
 }

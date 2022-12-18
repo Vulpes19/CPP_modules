@@ -4,7 +4,7 @@ FILES = main.cpp Animal.cpp Dog.cpp Cat.cpp
 
 OBJS = $(FILES:%.cpp=%.o)
 
-FLAGS = -fsanitize=address -std=c++98 -Wall -Wextra -Werror
+FLAGS = -std=c++98 -Wall -Wextra -Werror
 
 INCLUDE = include/
 

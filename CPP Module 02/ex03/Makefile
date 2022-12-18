@@ -1,6 +1,6 @@
-TARGET = Interface
+TARGET = OCCF
 
-FILES = main.cpp AMateria.cpp Cure.cpp Ice.cpp ICharacter.cpp Character.cpp MateriaSource.cpp
+FILES = main.cpp Fixed.cpp Point.cpp bsp.cpp
 
 OBJS = $(FILES:%.cpp=%.o)
 

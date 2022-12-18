@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vulpes <vulpes@student.42.fr>              +#+  +:+       +#+        */
+/*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/29 11:42:25 by codespace         #+#    #+#             */
-/*   Updated: 2022/12/07 17:35:21 by vulpes           ###   ########.fr       */
+/*   Created: 2022/10/29 11:42:25 by abaioumy          #+#    #+#             */
+/*   Updated: 2022/12/17 20:46:51 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,38 @@
 
 ClapTrap::ClapTrap( std::string n ) : name(n)
 {
-    std::cout << "constructor is called" << std::endl;
+    std::cout << "ClapTrap is created" << std::endl;
+    name = n;
+    hitPoints = 10;
+    energyPoints = 10;
+    attackDamage = 0;
+}
+
+ClapTrap::ClapTrap( const ClapTrap &C )
+{
+	std::cout << "copy constructor called" << std::endl;
+	name = C.name;
+    hitPoints = C.hitPoints;
+    energyPoints = C.energyPoints;
+    attackDamage = C.attackDamage;
+}
+
+ClapTrap	&ClapTrap::operator=( const ClapTrap &C )
+{
+	std::cout << "Copy assignment operator called" << std::endl;
+	if (this != &C)
+	{
+		name = C.name;
+        hitPoints = C.hitPoints;
+        energyPoints = C.energyPoints;
+        attackDamage = C.attackDamage;
+	}
+	return (*this);
 }
 
 ClapTrap::~ClapTrap( void )
 {
-    std::cout << "destructor called" << std::endl;
+    std::cout << "ClapTrap is destroyed" << std::endl;
 }
 
 void    ClapTrap::attack( const std::string &target )
@@ -45,5 +71,15 @@ void    ClapTrap::takeDamage( unsigned int amount )
 
 void    ClapTrap::beRepaired( unsigned int amount )
 {
+    if (energyPoints == 0)
+    {
+        std::cout << name << " is tired :(" << std::endl;
+        return ;
+    }
+    if (hitPoints == 0)
+    {
+        std::cout << name << " is dead :(" << std::endl;
+        return ;
+    }
     hitPoints += amount;
 }
