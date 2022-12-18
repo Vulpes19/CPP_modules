@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 12:27:11 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/12/17 20:48:50 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/18 13:45:11 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ ScavTrap::ScavTrap( std::string n ) : ClapTrap( n)
 
 ScavTrap::ScavTrap( const ScavTrap &S ) : ClapTrap( S )
 {
-    std::cout << "Copy constructor is called" << std::endl;
+    std::cout << "ScavTrap copy constructor is called" << std::endl;
     name = S.name;
     hitPoints = S.hitPoints;
     energyPoints = S.energyPoints;
@@ -32,7 +32,7 @@ ScavTrap::ScavTrap( const ScavTrap &S ) : ClapTrap( S )
 
 ScavTrap &ScavTrap::operator= ( const ScavTrap &S )
 {
-    std::cout << "Copy assignement operator is called" << std::endl;
+    std::cout << "ScavTrap copy assignement operator is called" << std::endl;
     if ( this != &S )
     {
          name = S.name;

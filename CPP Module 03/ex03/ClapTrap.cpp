@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 11:42:25 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/12/17 20:46:51 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/18 13:44:56 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ ClapTrap::ClapTrap( std::string n ) : name(n)
 
 ClapTrap::ClapTrap( const ClapTrap &C )
 {
-	std::cout << "copy constructor called" << std::endl;
+	std::cout << "ClapTrap copy constructor called" << std::endl;
 	name = C.name;
     hitPoints = C.hitPoints;
     energyPoints = C.energyPoints;
@@ -32,7 +32,7 @@ ClapTrap::ClapTrap( const ClapTrap &C )
 
 ClapTrap	&ClapTrap::operator=( const ClapTrap &C )
 {
-	std::cout << "Copy assignment operator called" << std::endl;
+	std::cout << "ClapTrap copy assignment operator called" << std::endl;
 	if (this != &C)
 	{
 		name = C.name;

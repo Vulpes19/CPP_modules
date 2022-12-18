@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 14:32:09 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/12/17 20:48:15 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/18 13:44:37 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ FragTrap::FragTrap( std::string n ) : ClapTrap( n )
 
 FragTrap::FragTrap( const FragTrap &F ) : ClapTrap( F )
 {
-    std::cout << "Copy constructor is called" << std::endl;
+    std::cout << "FragTrap copy constructor is called" << std::endl;
     name = F.name;
     hitPoints = F.hitPoints;
     energyPoints = F.energyPoints;
@@ -32,7 +32,7 @@ FragTrap::FragTrap( const FragTrap &F ) : ClapTrap( F )
 
 FragTrap &FragTrap::operator= ( const FragTrap &F )
 {
-    std::cout << "Copy assignement operator is called" << std::endl;
+    std::cout << "Fragtrap copy assignement operator is called" << std::endl;
     if ( this != &F )
     {
         name = F.name;
