@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 12:43:18 by codespace         #+#    #+#             */
-/*   Updated: 2022/11/01 12:10:12 by codespace        ###   ########.fr       */
+/*   Updated: 2022/12/19 18:17:11 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,22 @@ Dog::Dog( void ) : Animal()
 {
     type = "Dog";
     std::cout << "bark I'm created !" << std::endl;
+}
+
+Dog::Dog( const Dog &D )
+{
+    std::cout << "Cat copy constructor is called" << std::endl;
+    *this = D;
+}
+
+Dog &Dog::operator= ( const Dog &D )
+{
+    std::cout << "Cat copy assignement operator is called" << std::endl;
+    if (this != &D)
+    {
+        type = D.type;
+    }
+    return (*this);
 }
 
 Dog::~Dog( void )

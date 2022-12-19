@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 12:41:29 by codespace         #+#    #+#             */
-/*   Updated: 2022/11/02 10:38:31 by codespace        ###   ########.fr       */
+/*   Updated: 2022/12/19 18:55:10 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,24 @@ Cat::Cat( void ) : Animal()
     type = "Cat";
     B = new Brain;
     std::cout << "meow I'm created !" << std::endl;
+}
+
+Cat::Cat( const Cat &C )
+{
+    std::cout << "Cat copy constructor is called" << std::endl;
+    *this = C;
+}
+
+Cat &Cat::operator= ( const Cat &C )
+{
+    std::cout << "Cat copy assignement operator is called" << std::endl;
+    if (this != &C)
+    {
+        type = C.type;
+        delete B;
+        B = new Brain(*(C.B));
+    }
+    return (*this);
 }
 
 Cat::~Cat( void )

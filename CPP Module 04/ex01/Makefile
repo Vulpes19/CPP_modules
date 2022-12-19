@@ -1,6 +1,6 @@
 TARGET = Animal
 
-FILES = main.cpp Animal.cpp Dog.cpp Cat.cpp
+FILES = main.cpp Animal.cpp Dog.cpp Cat.cpp Brain.cpp
 
 OBJS = $(FILES:%.cpp=%.o)
 

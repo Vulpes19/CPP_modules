@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 12:26:11 by codespace         #+#    #+#             */
-/*   Updated: 2022/11/02 10:55:09 by codespace        ###   ########.fr       */
+/*   Updated: 2022/12/19 18:54:27 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,11 @@ class Cat : public Animal
 {
     public:
         Cat( void );
+        Cat( const Cat & );
+        Cat &operator= ( const Cat & );
         ~Cat( void );
         void    makeSound( void ) const;
-	private:
+    private:
         Brain   *B;
 };
 
