@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 11:17:13 by codespace         #+#    #+#             */
-/*   Updated: 2022/12/18 20:24:07 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/19 16:20:03 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 #define AMATERIA_HPP
 
 #include <iostream>
-#include "ICharacter.hpp"
 
+#include "ICharacter.hpp"
 class AMateria
 {
 	protected:
