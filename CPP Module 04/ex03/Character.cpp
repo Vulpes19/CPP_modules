@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/14 12:24:53 by codespace         #+#    #+#             */
-/*   Updated: 2022/12/19 17:14:05 by abaioumy         ###   ########.fr       */
+/*   Created: 2022/11/14 12:24:53 by abaioumy          #+#    #+#             */
+/*   Updated: 2022/12/20 14:53:45 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,30 @@
 
 Character::Character( const std::string &name ) : ICharacter()
 {
-    std::cout << "ICharacter is created" << std::endl;
+    std::cout << "Character is created" << std::endl;
     this->name = name;
     for (int i = 0; i < 4; i++)
         inventory[i] = NULL;
+}
+
+Character::Character( const Character &ch )
+{
+    std::cout << "Character copy constructor is called" << std::endl;
+    *this = ch;
+}
+
+Character   &Character::operator= ( const Character &ch )
+{
+    std::cout << "Character copy assignement operator is called" << std::endl;
+    if ( this != &ch )
+    {
+        name = ch.name;
+        for ( int i = 0; i < 4; i++ )
+        {
+            inventory[i] = ch.inventory[i];
+        }
+    }
+    return (*this);
 }
 
 Character::~Character( void )
@@ -30,9 +50,9 @@ std::string const &Character::getName( void ) const
     return (name);
 }
 
-void    Character::equip( AMateria *m )
+void    Character::equip( AMateria *newMateria )
 {
-    if ( m == NULL )
+    if ( newMateria == NULL )
     {
         std::cout << "The AMateria is empty" << std::endl;
         return ;
@@ -41,8 +61,8 @@ void    Character::equip( AMateria *m )
     {
         if (inventory[i] == NULL)
         {
-            std::cout << "The Materia " << m->getType() << " is equipped succesfully" << std::endl;
-            inventory[i] = m;
+            std::cout << "The Materia " << newMateria->getType() << " is equipped succesfully" << std::endl;
+            inventory[i] = newMateria;
             break ;
         }
     }

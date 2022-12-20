@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 17:22:13 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/12/19 17:14:40 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/20 15:44:25 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int main( void )
 
     //Character
     ICharacter* bob = new Character("bob");
+    // ICharacter* bob2 = new Character("bob2");
 
     me->use(0, *bob);
     me->use(1, *bob);

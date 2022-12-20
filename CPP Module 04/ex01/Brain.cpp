@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 18:24:24 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/12/19 19:33:23 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/20 15:54:18 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,16 @@ Brain   &Brain::operator= ( const Brain &B )
             ideas[i] = B.ideas[i];
     }
     return (*this);
+}
+
+void    Brain::setIdea( std::string idea, int index )
+{
+    ideas[index] = idea;
+}
+
+std::string Brain::getIdea( int index )
+{
+    return (ideas[index]);
 }
 
 Brain::~Brain( void )

@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 17:11:50 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/12/16 17:16:21 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/20 14:29:33 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ class MateriaSource : public IMateriaSource
 {
     public:
         MateriaSource( void );
+        MateriaSource( const MateriaSource & );
+        MateriaSource   &operator= ( const MateriaSource & );
         ~MateriaSource( void );
         void    learnMateria( AMateria* );
         AMateria    *createMateria( std::string const &type );

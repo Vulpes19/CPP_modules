@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/31 12:43:18 by codespace         #+#    #+#             */
-/*   Updated: 2022/12/19 19:27:50 by abaioumy         ###   ########.fr       */
+/*   Created: 2022/10/31 12:43:18 by abaioumy          #+#    #+#             */
+/*   Updated: 2022/12/20 16:02:00 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,22 @@ Dog::Dog( void ) : Animal()
 {
     type = "Dog";
     B = new Brain();
-    std::cout << "bark I'm created !" << std::endl;
+    std::cout << "bark I'm created" << std::endl;
 }
 
 Dog::Dog( const Dog &D )
 {
-    std::cout << "Cat copy constructor is called" << std::endl;
+    std::cout << "Dog copy constructor is called" << std::endl;
     *this = D;
 }
 
 Dog &Dog::operator= ( const Dog &D )
 {
-    std::cout << "Cat copy assignement operator is called" << std::endl;
+    std::cout << "Dog copy assignement operator is called" << std::endl;
     if (this != &D)
     {
         type = D.type;
+        delete B;
         B = new Brain(*(D.B));
     }
     return (*this);

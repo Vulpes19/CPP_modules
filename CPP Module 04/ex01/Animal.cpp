@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/31 12:33:33 by codespace         #+#    #+#             */
-/*   Updated: 2022/12/19 19:34:14 by abaioumy         ###   ########.fr       */
+/*   Created: 2022/10/31 12:33:33 by abaioumy          #+#    #+#             */
+/*   Updated: 2022/12/20 16:01:37 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,8 @@ Animal	&Animal::operator=( const Animal &A )
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &A)
 	{
-		std::cout << "here" << std::endl;
 		type = A.type;
 	}
-		std::cout << "here" << std::endl;
-
 	return (*this);
 }
 

@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 16:08:06 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/12/19 16:26:55 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/20 14:28:00 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ class Character : public ICharacter
 {
     public:
         Character(const  std::string & );
+        Character( const Character & );
+        Character &operator= ( const Character & );
         ~Character( void );
 		std::string const &getName( void ) const;
 		void	equip( AMateria *m );
