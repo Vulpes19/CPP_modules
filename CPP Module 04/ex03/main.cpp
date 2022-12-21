@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 17:22:13 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/12/21 20:56:40 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/21 20:26:11 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,10 @@ int main( void )
     copy.learnMateria(new Cure());
     //Character
     ICharacter* me = new Character("me");
+    Character test("ayman");
+    Character test2("hmar");
 
+    test2 = test;
     //Materias
     AMateria* tmp;
     AMateria* tmp2;
@@ -37,6 +40,7 @@ int main( void )
     tmp = src->createMateria("ice");
     me->equip(tmp);
     me->equip(tmp);
+    test.equip(tmp);
     tmp = src->createMateria("cure");
     //equipping Materias
     me->equip(tmp);
@@ -46,6 +50,8 @@ int main( void )
     ICharacter* bob = new Character("bob");
     // ICharacter* bob2 = new Character("bob2");
 
+    test.use(0, *bob);
+    test2.use(0, *bob);
     me->use(0, *bob);
     me->use(1, *bob);
     me->use(2, *bob);
@@ -59,6 +65,6 @@ int main( void )
     delete me;
     delete src;
     // delete copy;
-    system( "leaks Interface");
+    // system( "leaks Interface");
     return 0;
 }

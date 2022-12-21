@@ -4,7 +4,7 @@ FILES = main.cpp AMateria.cpp Cure.cpp Ice.cpp Character.cpp MateriaSource.cpp
 
 OBJS = $(FILES:%.cpp=%.o)
 
-FLAGS = -std=c++98 -Wall -Wextra -Werror
+FLAGS = -fsanitize=address -g -std=c++98 #-Wall -Wextra -Werror
 
 INCLUDE = include/
 
