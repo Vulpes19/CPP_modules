@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 12:24:53 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/12/20 14:53:45 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/21 21:12:40 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,22 @@ Character   &Character::operator= ( const Character &ch )
     std::cout << "Character copy assignement operator is called" << std::endl;
     if ( this != &ch )
     {
+        AMateria    *newInventory[4];
         name = ch.name;
         for ( int i = 0; i < 4; i++ )
         {
-            inventory[i] = ch.inventory[i];
+            if (ch.inventory[i])
+                newInventory[i] = ch.inventory[i]->clone();
+            else
+                newInventory[i] = NULL;
+        }
+        for ( int i = 0; i < 4; i++ )
+        {
+            delete inventory[i];
+        }
+        for ( int i = 0; i < 4; i++ )
+        {
+            inventory[i] = newInventory[i];
         }
     }
     return (*this);
@@ -43,6 +55,10 @@ Character   &Character::operator= ( const Character &ch )
 Character::~Character( void )
 {
     std::cout << "Character is destroyed" << std::endl;
+    for (int i = 0; i < 4; i++)
+    {
+        delete inventory[i];
+    }
 }
 
 std::string const &Character::getName( void ) const
