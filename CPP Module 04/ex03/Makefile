@@ -1,6 +1,6 @@
 TARGET = Interface
 
-FILES = main.cpp AMateria.cpp Cure.cpp Ice.cpp ICharacter.cpp Character.cpp MateriaSource.cpp
+FILES = main.cpp AMateria.cpp Cure.cpp Ice.cpp Character.cpp MateriaSource.cpp
 
 OBJS = $(FILES:%.cpp=%.o)
 

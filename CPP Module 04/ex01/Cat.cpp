@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/31 12:41:29 by codespace         #+#    #+#             */
-/*   Updated: 2022/12/16 15:38:39 by abaioumy         ###   ########.fr       */
+/*   Created: 2022/10/31 12:41:29 by abaioumy          #+#    #+#             */
+/*   Updated: 2022/12/20 16:01:49 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,36 @@
 Cat::Cat( void ) : Animal()
 {
     type = "Cat";
-    B = new Brain;
-    std::cout << "meow I'm created !" << std::endl;
+    B = new Brain();
+    std::cout << "meow I'm created" << std::endl;
+}
+
+Cat::Cat( const Cat &C )
+{
+    std::cout << "Cat copy constructor is called" << std::endl;
+    *this = C;
+}
+
+Cat &Cat::operator= ( const Cat &C )
+{
+    std::cout << "Cat copy assignement operator is called" << std::endl;
+    if (this != &C)
+    {
+        type = C.type;
+        delete B;
+        B = new Brain(*(C.B));
+    }
+    return (*this);
+}
+
+void    Cat::addIdea( std::string idea, int index )
+{
+    B->setIdea(idea, index);
+}
+
+std::string Cat::talk( int index )
+{
+    return (B->getIdea(index));
 }
 
 Cat::~Cat( void )

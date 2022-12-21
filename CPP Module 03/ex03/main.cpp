@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 12:07:23 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/12/17 20:51:53 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/18 14:41:16 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int main( void )
     C.attack("villain");
     F.attack("villain");
     S.attack("villain");
-    D.attack("hmar");
+    D.attack("Dragon");
     D.takeDamage(10);
     D.whoAmI();
 }

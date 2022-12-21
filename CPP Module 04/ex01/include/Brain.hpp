@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/01 12:16:24 by codespace         #+#    #+#             */
-/*   Updated: 2022/11/02 10:39:49 by codespace        ###   ########.fr       */
+/*   Created: 2022/11/01 12:16:24 by abaioumy          #+#    #+#             */
+/*   Updated: 2022/12/20 16:01:14 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,13 @@
 
 class Brain
 {
+	public:
+		Brain( void );
+		Brain( const Brain & );
+		Brain &operator= ( const Brain & );
+		void	setIdea( std::string idea, int index );
+		std::string	getIdea( int idea );
+		~Brain( void );
 	private:
 		std::string	ideas[100];
 };

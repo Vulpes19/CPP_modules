@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/31 12:26:11 by codespace         #+#    #+#             */
-/*   Updated: 2022/12/16 15:35:25 by abaioumy         ###   ########.fr       */
+/*   Created: 2022/10/31 12:26:11 by abaioumy          #+#    #+#             */
+/*   Updated: 2022/12/20 16:01:22 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,12 @@ class Cat : public Animal
 {
     public:
 		Cat( void );
+		Cat( const Cat & );
+        Cat &operator= ( const Cat & );
 		~Cat( void );
 		void    makeSound( void ) const;
+		void		addIdea( std::string idea, int index );
+		std::string talk( int index );
     private:
 		Brain   *B;
 };

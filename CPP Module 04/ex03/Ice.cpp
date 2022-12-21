@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/14 12:15:54 by codespace         #+#    #+#             */
-/*   Updated: 2022/12/16 17:10:27 by abaioumy         ###   ########.fr       */
+/*   Created: 2022/11/14 12:15:54 by abaioumy          #+#    #+#             */
+/*   Updated: 2022/12/20 14:54:00 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,15 @@ Ice::Ice( void ) : AMateria("ice")
     std::cout << "Ice is created" << std::endl;
 }
 
+Ice::Ice( const Ice &I ) : AMateria( I )
+{
+    std::cout << "Ice copy constructor is called" << std::endl;
+}
+
 Ice &Ice::operator=( const Ice &I )
 {
+    std::cout << "Ice copy assignement operator is called" << std::endl;
+    this->type = I.type;
     return (*this);
 }
 
@@ -27,11 +34,9 @@ Ice::~Ice( void )
     std::cout << "Ice is destroyed" << std::endl;
 }
 
-Ice *Ice::clone( void )
+Ice *Ice::clone( void ) const
 {
-    Ice *ret;
-
-    ret = this;
+    Ice *ret = new Ice();
     return (ret);
 }
 

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/31 12:26:17 by codespace         #+#    #+#             */
-/*   Updated: 2022/12/16 15:29:42 by abaioumy         ###   ########.fr       */
+/*   Created: 2022/10/31 12:26:17 by abaioumy          #+#    #+#             */
+/*   Updated: 2022/12/20 15:59:57 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Animal
 		Animal( const Animal & );
 		Animal	&operator=(const Animal & );
 		std::string	getType( void ) const;
-		~Animal( void );
+		virtual ~Animal( void );
 		virtual void	makeSound( void ) const;
 	protected:
 		std::string type;

@@ -4,7 +4,7 @@ FILES = main.cpp DiamondTrap.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 
 OBJS = $(FILES:%.cpp=%.o)
 
-FLAGS = -Wshadow -Wno-shadow -std=c++98 -Wall -Wextra -Werror
+FLAGS = -Wshadow -std=c++98 -Wall -Wextra -Werror
 
 INCLUDE = include/
 
