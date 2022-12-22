@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 10:12:50 by codespace         #+#    #+#             */
-/*   Updated: 2022/11/03 12:41:35 by codespace        ###   ########.fr       */
+/*   Updated: 2022/12/22 11:08:58 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@
 class	GradeTooHighException : public std::exception
 {
 	public:
-		GradeTooHighException( void ) : msg("Grade is too high"){ };
+		GradeTooHighException( void );
 		virtual	~GradeTooHighException( void ) throw (){ };
-		const	char	*what( void ) const throw() { return (msg.c_str()); };
+		const	char	*what( void ) const throw();
 	private:
 		std::string	msg;
 };
@@ -30,9 +30,9 @@ class	GradeTooHighException : public std::exception
 class	GradeTooLowException : public std::exception
 {
 	public:
-		GradeTooLowException( void ) : msg("Grade is too low"){ };
+		GradeTooLowException( void );
 		virtual	~GradeTooLowException( void ) throw() { };
-		const	char	*what( void ) const throw(){ return (msg.c_str()); };
+		const	char	*what( void ) const throw();
 	private:
 		std::string	msg;
 };
@@ -46,12 +46,13 @@ class Bureaucrat
 		int		getGrade( void ) const;
 		void	incrementGrade( void );
 		void	decrementGrade( void );
-		friend std::ostream &operator<< ( std::ostream&,  Bureaucrat& );
 	private:
 		GradeTooHighException tooHigh;
 		GradeTooLowException	tooLow;
 		const	std::string	name;
 		int		grade;
 };
+
+std::ostream &operator<< ( std::ostream&,  Bureaucrat& );
 
 #endif

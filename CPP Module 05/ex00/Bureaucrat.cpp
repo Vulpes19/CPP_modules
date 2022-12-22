@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 10:12:42 by codespace         #+#    #+#             */
-/*   Updated: 2022/11/03 12:50:51 by codespace        ###   ########.fr       */
+/*   Updated: 2022/12/22 11:14:18 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,23 @@
 
 Bureaucrat::Bureaucrat( std::string n, int g): name(n)
 {
-	try
+	grade = -1;
+	while (true)
 	{
-		if (g < 1)
-			throw(tooHigh);
-		else if (g > 150)
-			throw(tooLow);
-	}
-	catch(std::exception &e)
-	{
-		std::cerr << e.what() << std::endl;
+		try
+		{
+			if (g < 1)
+				throw(tooHigh);
+			else if (g > 150)
+				throw(tooLow);
+			else
+				break ;
+		}
+		catch(std::exception &e)
+		{
+			std::cerr << e.what() << std::endl;
+			return ;
+		}
 	}
 	grade = g;
 	std::cout << "Bureaucrat is created" << std::endl;
@@ -46,30 +53,58 @@ int		Bureaucrat::getGrade( void ) const
 
 void	Bureaucrat::incrementGrade( void )
 {
-	try
+	while (true)
 	{
-		if (grade <= 1)
+		try
 		{
-			throw(tooHigh);
+			if (grade <= 1)
+			{
+				throw(tooHigh);
+			}
+			else
+				break ;
 		}
-	}
-	catch(std::exception &e)
-	{
-		std::cerr << e.what() << std::endl;
+		catch(std::exception &e)
+		{
+			std::cerr << e.what() << std::endl;
+			return ;
+		}
 	}
 	grade--;
 }
 
 void	Bureaucrat::decrementGrade( void )
 {
-	try
+	while (true)
 	{
-		if (grade >= 150)
-			throw(tooLow);
-	}
-	catch(std::exception &e)
-	{
-		std::cerr << e.what() << std::endl;
+		try
+		{
+			if (grade >= 150)
+				throw(tooLow);
+			else
+				break ;
+		}
+		catch(std::exception &e)
+		{
+			std::cerr << e.what() << std::endl;
+			return ;
+		}
 	}
 	grade++;
+}
+
+GradeTooHighException::GradeTooHighException( void ) : msg("Grade is too high")
+{}
+
+const char	*GradeTooHighException::what( void ) const throw()
+{
+	return (msg.c_str());
+}
+
+GradeTooLowException::GradeTooLowException( void ) : msg("Grade is too low")
+{}
+
+const char	*GradeTooLowException::what( void ) const throw()
+{
+	return (msg.c_str());
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 10:12:45 by codespace         #+#    #+#             */
-/*   Updated: 2022/11/03 12:47:10 by codespace        ###   ########.fr       */
+/*   Updated: 2022/12/22 10:49:48 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	main( void )
 	Bureaucrat B( "Ayman", 1);
 	Bureaucrat H("HIBA", 160);
 	std::cout << B;
+	std::cout << H;
 	B.incrementGrade();
 	std::cout << B;
 	return (0);
