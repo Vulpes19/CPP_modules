@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 16:24:15 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/12/13 15:02:55 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/18 13:09:57 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ int main( void )
     std::cout << a++ << std::endl;
     std::cout << a << std::endl;
     std::cout << b << std::endl;
-    std::cout << c << std::endl;
-    std::cout << c + d << std::endl;
-    std::cout << d + d << std::endl;
-    std::cout << "the max nbr of a: " << a << " and b: " << b << " is b: " << Fixed::max( a, b ) << std::endl;
+<<<<<<< HEAD
+    std::cout << Fixed::max( a, b ) << std::endl;
+    // Fixed c(Fixed(2) * Fixed(2));
+    // Fixed a(1);
     std::cout << "the min nbr of a: " << a << " and b: " << b << " is a: " << Fixed::min( a, b ) << std::endl;
     if (a >= b)
         std::cout << "a: " << a << " is bigger or equal than b: " << b << " ===> a >= b" << std::endl;
