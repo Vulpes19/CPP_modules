@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Exception.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 10:45:17 by codespace         #+#    #+#             */
-/*   Updated: 2022/11/05 10:46:50 by codespace        ###   ########.fr       */
+/*   Updated: 2022/12/22 11:17:34 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@
 class	GradeTooHighException : public std::exception
 {
 	public:
-		GradeTooHighException( void ) : msg("Grade is too high"){ };
+		GradeTooHighException( void );
 		virtual	~GradeTooHighException( void ) throw (){ };
-		const	char	*what( void ) const throw() { return (msg.c_str()); };
+		const	char	*what( void ) const throw();
 	private:
 		std::string	msg;
 };
@@ -29,9 +29,9 @@ class	GradeTooHighException : public std::exception
 class	GradeTooLowException : public std::exception
 {
 	public:
-		GradeTooLowException( void ) : msg("Grade is too low"){ };
+		GradeTooLowException( void );
 		virtual	~GradeTooLowException( void ) throw() { };
-		const	char	*what( void ) const throw(){ return (msg.c_str()); };
+		const	char	*what( void ) const throw();
 	private:
 		std::string	msg;
 };

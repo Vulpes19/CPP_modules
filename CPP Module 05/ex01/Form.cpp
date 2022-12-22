@@ -3,29 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 10:31:02 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/11/05 11:02:50 by codespace        ###   ########.fr       */
+/*   Updated: 2022/12/22 12:16:43 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
-Form::Form( std::string n, int gExec, int gSign ): name(n), gradeExec(gExec), gradeSign(gSign)
+Form::Form( std::string n, int gExec, int gSign ): name(n), gradeSign(gSign), gradeExec(gExec)
 {
-	try
-	{
-		if (gExec < 1 || gSign < 1)
-			throw(tooHigh);
-		else if (gExec > 150 || gExec > 150)
-			throw(tooLow);
-	}
-	catch(std::exception &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
 	isSigned = false;
+	while (true)
+	{
+		try
+		{
+			if (gExec < 1 || gSign < 1)
+				throw(tooHigh);
+			else if (gExec > 150 || gExec > 150)
+				throw(tooLow);
+			else
+				break ;
+		}
+		catch(std::exception &e)
+		{
+			std::cerr << e.what() << std::endl;
+			return ;
+		}
+	}
 	std::cout << "Form is created" << std::endl;
 }
 
@@ -56,19 +63,26 @@ int Form::getGradeExec( void ) const
 
 void    Form::beSigned( Bureaucrat &B)
 {
-	try
+	while (true)
 	{
-		if (gradeSign < 150)
+		try
 		{
-			isSigned = false;
-			throw(tooLow);
+			if (B.getGrade() <= 150)
+			{
+				isSigned = false;
+				throw(tooLow);
+			}
+			else
+			{
+				isSigned = true;
+				break ;
+			}
 		}
-		else
-			isSigned = true;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+			return ;
+		}
 	}
 }
 

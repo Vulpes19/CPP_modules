@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 10:12:50 by codespace         #+#    #+#             */
-/*   Updated: 2022/11/05 10:53:34 by codespace        ###   ########.fr       */
+/*   Updated: 2022/12/22 12:24:49 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,22 @@ class Bureaucrat
 {
 	public:
 		Bureaucrat( std::string, int );
+		Bureaucrat( const Bureaucrat & );
+		const Bureaucrat	&operator= ( const Bureaucrat & ) const;
 		~Bureaucrat( void );
+		void	swapBureaucrats( std::string &, std::string & ) const;
 		const	std::string	getName( void ) const;
 		int		getGrade( void ) const;
 		void	incrementGrade( void );
 		void	decrementGrade( void );
 		void	signForm( Form& ) const;
-		friend std::ostream &operator<< ( std::ostream&,  Bureaucrat& );
 	private:
 		GradeTooHighException tooHigh;
 		GradeTooLowException	tooLow;
 		const	std::string	name;
 		int		grade;
 };
+
+std::ostream &operator<< ( std::ostream&,  Bureaucrat& );
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 10:31:02 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/11/05 11:02:50 by codespace        ###   ########.fr       */
+/*   Updated: 2022/12/22 17:28:54 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,24 @@
 
 Form::Form( std::string n, int gExec, int gSign ): name(n), gradeExec(gExec), gradeSign(gSign)
 {
-	try
-	{
-		if (gExec < 1 || gSign < 1)
-			throw(tooHigh);
-		else if (gExec > 150 || gExec > 150)
-			throw(tooLow);
-	}
-	catch(std::exception &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
 	isSigned = false;
+	while (true)
+	{
+		try
+		{
+			if (gExec < 1 || gSign < 1)
+				throw(tooHigh);
+			else if (gExec > 150 || gExec > 150)
+				throw(tooLow);
+			else
+				break ;
+		}
+		catch(std::exception &e)
+		{
+			std::cerr << e.what() << std::endl;
+			return ;
+		}
+	}
 	std::cout << "Form is created" << std::endl;
 }
 
@@ -52,24 +58,6 @@ int Form::getGradeSign( void ) const
 int Form::getGradeExec( void ) const
 {
 	return (gradeExec);
-}
-
-void    Form::beSigned( Bureaucrat &B)
-{
-	try
-	{
-		if (gradeSign < 150)
-		{
-			isSigned = false;
-			throw(tooLow);
-		}
-		else
-			isSigned = true;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
 }
 
 std::ostream &operator<<( std::ostream &out, Form &F)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 10:16:34 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/11/05 10:54:17 by codespace        ###   ########.fr       */
+/*   Updated: 2022/12/22 11:46:00 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,7 @@ class Form
 		bool	getSign( void ) const;
 		int	getGradeSign( void ) const;
 		int	getGradeExec( void ) const;
-		void	beSigned( Bureaucrat &B);
-		friend std::ostream &operator<< ( std::ostream&,  Form& );
+		void	beSigned( Bureaucrat & );
 	private:
 		GradeTooHighException	tooHigh;
 		GradeTooLowException	tooLow;
@@ -36,5 +35,7 @@ class Form
 		const	int	gradeSign;
 		const	int	gradeExec;
 };
+
+std::ostream &operator<< ( std::ostream&,  Form& );
 
 #endif

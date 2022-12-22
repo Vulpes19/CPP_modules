@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 10:12:50 by codespace         #+#    #+#             */
-/*   Updated: 2022/12/22 11:08:58 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/22 11:29:34 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,10 @@ class Bureaucrat
 {
 	public:
 		Bureaucrat( std::string, int );
+		Bureaucrat( const Bureaucrat & );
+		Bureaucrat	&operator= ( const Bureaucrat & );
 		~Bureaucrat( void );
+		void	swapBureaucrats( Bureaucrat &, Bureaucrat & );
 		const	std::string	getName( void ) const;
 		int		getGrade( void ) const;
 		void	incrementGrade( void );

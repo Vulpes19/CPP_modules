@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
+/*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/05 11:31:01 by codespace         #+#    #+#             */
-/*   Updated: 2022/12/22 18:19:52 by abaioumy         ###   ########.fr       */
+/*   Created: 2022/12/22 14:21:34 by abaioumy          #+#    #+#             */
+/*   Updated: 2022/12/22 14:27:11 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRESIDENTIALPARDONFORM_HPP
-#define PRESIDENTIALPARDONFORM_HPP
+#include "RobotomyRequestForm.hpp"
 
-#include "Form.hpp"
-
-class PresidentialPardonForm : public Form
+RobotomyRequestForm::RobotomyRequestForm( Form &form ) : Form(form)
 {
-    PresidentialPardonForm( Form& );
-    ~PresidentialPardonForm( void );
-    void    beSigned( Bureaucrat & );
-    void    execute( const Bureaucrat &executor );
-};
+    if ( form.getGradeSign() == 72 && form.getGradeExec() == 45 )
+        std::cout << form.getName() << " has been robotomized successfully 50% of the time" << std::endl;
+    else
+        std::cout << "Robotomy failed" << std::endl;
+}
 
-#endif
+RobotomyRequestForm::~RobotomyRequestForm( void )
+{}
