@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 10:12:42 by codespace         #+#    #+#             */
-/*   Updated: 2022/12/22 18:04:32 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/23 13:50:21 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Bureaucrat::Bureaucrat( std::string n, int g): name(n)
 {
-	grade = -1;
+	grade = 0;
 	while (true)
 	{
 		try
@@ -112,6 +112,17 @@ void	Bureaucrat::signForm( Form &form ) const
             std::cerr << e.what() << std::endl;
         }
 	}
+}
+
+void	Bureaucrat::executeForm( const Form &form ) const
+{
+	if ( form.getSign() )
+	{
+		form.action();
+		std::cout << name << " executed " << form.getName() << std::endl;
+	}
+	else
+		std::cerr << name << " wasn't able to execute " << form.getName() << std::endl;
 }
 
 std::ostream &operator<<( std::ostream &out, Bureaucrat &B)

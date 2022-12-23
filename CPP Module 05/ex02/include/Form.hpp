@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 10:16:34 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/12/22 18:15:03 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/23 13:51:39 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 #include <iostream>
 #include "Exception.hpp"
+#include <typeinfo>
+
 class Bureaucrat;
 
 class Form
@@ -28,14 +30,15 @@ class Form
 		int	getGradeSign( void ) const;
 		int	getGradeExec( void ) const;
 		virtual void	beSigned( Bureaucrat &B) = 0;
-		virtual	void	execute( const Bureaucrat & ) = 0;
+		void	execute( const Bureaucrat & ) const;
+    	virtual void    action( void ) const = 0;
 	private:
 		GradeTooHighException	tooHigh;
 		GradeTooLowException	tooLow;
 		const	std::string	name;
 		bool	isSigned;
-		const	int	gradeSign;
 		const	int	gradeExec;
+		const	int	gradeSign;
 };
 
 std::ostream &operator<< ( std::ostream&,  Form& );

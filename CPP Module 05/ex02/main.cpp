@@ -3,20 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 10:12:45 by codespace         #+#    #+#             */
-/*   Updated: 2022/11/04 11:31:59 by codespace        ###   ########.fr       */
+/*   Updated: 2022/12/23 14:23:59 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int	main( void )
 {
-	Bureaucrat B( "Ayman", 1);
-	Form F("form1", 10, 20);
-	F.beSigned(B);
+	Bureaucrat Ayman( "Ayman", 1);
+	ShrubberyCreationForm shrubbery("home");
+
+	shrubbery.beSigned(Ayman);
+	Ayman.signForm(shrubbery);
+	shrubbery.execute(Ayman);
+
+	Bureaucrat mayor("prisoner", 4);
+	PresidentialPardonForm presidentForm("pisoner");
+
+	presidentForm.beSigned(mayor);
+	mayor.signForm(presidentForm);
+	presidentForm.execute(mayor);
+
+	Bureaucrat	person("mynamejeff", 2);
+	RobotomyRequestForm RobotForm("peepeepoopoo");
+
+	RobotForm.beSigned(person);
+	person.signForm(RobotForm);
+	RobotForm.execute(person);
 	return (0);
 }

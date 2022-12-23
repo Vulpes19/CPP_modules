@@ -1,10 +1,10 @@
 TARGET = Bureaucrat
 
-FILES = main.cpp Bureaucrat.cpp Form.cpp
+FILES = main.cpp Bureaucrat.cpp Form.cpp PresidentialPardonForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp
 
 OBJS = $(FILES:%.cpp=%.o)
 
-FLAGS = -std=c++98 #-Wall -Wextra -Werror
+FLAGS = -std=c++98 -Wall -Wextra -Werror
 
 INCLUDE = include/
 

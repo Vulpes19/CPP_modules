@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 11:31:01 by codespace         #+#    #+#             */
-/*   Updated: 2022/12/22 18:19:52 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/23 13:51:46 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,13 @@
 
 class PresidentialPardonForm : public Form
 {
-    PresidentialPardonForm( Form& );
-    ~PresidentialPardonForm( void );
-    void    beSigned( Bureaucrat & );
-    void    execute( const Bureaucrat &executor );
+    public:
+        PresidentialPardonForm( const std::string target );
+        ~PresidentialPardonForm( void );
+		void	beSigned( Bureaucrat &B);
+        void    action( void ) const;
+    private:
+        std::string target;
 };
 
 #endif

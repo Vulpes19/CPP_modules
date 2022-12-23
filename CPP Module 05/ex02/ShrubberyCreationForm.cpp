@@ -6,27 +6,33 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 13:30:47 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/12/22 14:19:57 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/23 14:14:20 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 #include <fstream>
+#include <string>
 
-ShrubberyCreationForm::ShrubberyCreationForm( Form &form) : Form(form)
+ShrubberyCreationForm::ShrubberyCreationForm( const std::string target ) : Form("Shrubbery creation", 137, 145)
 {
-    std::string fileName = form.getName();
-    if (form.getGradeSign() == 145 && form.getGradeExec() == 137)
-        createFile( fileName.append("_shrubbery"));
+    this->target = target;
 }    
 
 ShrubberyCreationForm::~ShrubberyCreationForm( void )
 {}
 
-void    ShrubberyCreationForm::createFile( std::string &fileName )
+void    ShrubberyCreationForm::beSigned( Bureaucrat &B )
 {
-    std::ofstream   file( fileName );
+    Form::beSigned(B);
+}
 
+void    ShrubberyCreationForm::action( void ) const
+{
+    std::string fileName = target + "_shrubbery";
+    std::ofstream   file;
+
+    file.open(fileName.c_str());
     if (file.is_open())
     {
         file << "        **\n";

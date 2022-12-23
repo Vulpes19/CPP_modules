@@ -6,11 +6,12 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 10:31:02 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/12/22 17:28:54 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/23 14:15:20 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "PresidentialPardonForm.hpp"
 
 Form::Form( std::string n, int gExec, int gSign ): name(n), gradeExec(gExec), gradeSign(gSign)
 {
@@ -58,6 +59,43 @@ int Form::getGradeSign( void ) const
 int Form::getGradeExec( void ) const
 {
 	return (gradeExec);
+}
+
+void	Form::beSigned( Bureaucrat &B )
+{
+	try
+	{
+		if ( B.getGrade() <= gradeSign )
+		{
+			isSigned = true;
+			return ;
+		}
+		else
+		{
+			isSigned = false;
+			throw(tooLow);
+		}
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+}
+
+void	Form::execute( const Bureaucrat &executor ) const
+{
+	try
+	{
+		if ( executor.getGrade() <= gradeExec )
+			executor.executeForm( *this );
+		else
+			throw(tooLow);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	
 }
 
 std::ostream &operator<<( std::ostream &out, Form &F)
