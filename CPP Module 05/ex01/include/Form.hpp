@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 10:16:34 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/12/22 11:46:00 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/23 17:55:45 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@ class Bureaucrat;
 class Form
 {
 	public:
+		Form( void );
 		Form( std::string, int e, int s );
+		Form( const Form & );
+		Form	&operator= ( const Form & );
 		~Form( void );
 		const	std::string getName( void ) const;
 		bool	getSign( void ) const;

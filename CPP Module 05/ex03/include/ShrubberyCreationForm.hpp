@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 11:16:29 by codespace         #+#    #+#             */
-/*   Updated: 2022/12/23 13:51:57 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/23 17:48:25 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,10 @@
 class ShrubberyCreationForm : public Form
 {
     public:
+        ShrubberyCreationForm( void );
         ShrubberyCreationForm( const std::string target );
+        ShrubberyCreationForm( const ShrubberyCreationForm & );
+        ShrubberyCreationForm   &operator= ( const ShrubberyCreationForm & );
         ~ShrubberyCreationForm( void );
 		void	beSigned( Bureaucrat &B);
         void    action( void ) const;

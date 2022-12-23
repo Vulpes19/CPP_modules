@@ -6,32 +6,22 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 10:12:42 by codespace         #+#    #+#             */
-/*   Updated: 2022/12/22 11:31:01 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/23 17:53:44 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
+Bureaucrat::Bureaucrat( void ) : name(""), g(0)
+{}
+
 Bureaucrat::Bureaucrat( std::string n, int g): name(n)
 {
-	grade = -1;
-	while (true)
-	{
-		try
-		{
-			if (g < 1)
-				throw(tooHigh);
-			else if (g > 150)
-				throw(tooLow);
-			else
-				break ;
-		}
-		catch(std::exception &e)
-		{
-			std::cerr << e.what() << std::endl;
-			return ;
-		}
-	}
+	grade = 0;
+	if (g < 1)
+		throw(tooHigh);
+	else if (g > 150)
+		throw(tooLow);
 	grade = g;
 	std::cout << "Bureaucrat is created" << std::endl;
 }
@@ -47,8 +37,7 @@ Bureaucrat	&Bureaucrat::operator= ( const Bureaucrat &B )
 	std::cout << "Bureaucrat copy assignement operator is called" << std::endl;
 	if ( this != &B )
 	{
-		Bureaucrat tmp = B;
-		swapBureaucrats(*this, tmp);
+		grade = B.grade;
 	}
 	return (*this);
 }
@@ -78,43 +67,15 @@ int		Bureaucrat::getGrade( void ) const
 
 void	Bureaucrat::incrementGrade( void )
 {
-	while (true)
-	{
-		try
-		{
-			if (grade <= 1)
-			{
-				throw(tooHigh);
-			}
-			else
-				break ;
-		}
-		catch(std::exception &e)
-		{
-			std::cerr << e.what() << std::endl;
-			return ;
-		}
-	}
+	if (grade <= 1)
+		throw(tooHigh);
 	grade--;
 }
 
 void	Bureaucrat::decrementGrade( void )
 {
-	while (true)
-	{
-		try
-		{
-			if (grade >= 150)
-				throw(tooLow);
-			else
-				break ;
-		}
-		catch(std::exception &e)
-		{
-			std::cerr << e.what() << std::endl;
-			return ;
-		}
-	}
+	if (grade >= 150)
+		throw(tooLow);
 	grade++;
 }
 

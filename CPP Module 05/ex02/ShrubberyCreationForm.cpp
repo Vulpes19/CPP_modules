@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 13:30:47 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/12/23 14:14:20 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/23 18:05:02 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,27 @@
 #include <fstream>
 #include <string>
 
+ShrubberyCreationForm::ShrubberyCreationForm( void ) : Form(), target("")
+{}
+
 ShrubberyCreationForm::ShrubberyCreationForm( const std::string target ) : Form("Shrubbery creation", 137, 145)
 {
     this->target = target;
 }    
+
+ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm &copy )
+{
+    *this = copy;
+}
+
+ShrubberyCreationForm  &ShrubberyCreationForm::operator= ( const ShrubberyCreationForm &copy)
+{
+    if (this != &copy)
+    {
+        target = copy.getName();
+    }
+    return (*this);
+}
 
 ShrubberyCreationForm::~ShrubberyCreationForm( void )
 {}

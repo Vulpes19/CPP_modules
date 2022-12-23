@@ -6,34 +6,37 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 10:12:42 by codespace         #+#    #+#             */
-/*   Updated: 2022/12/23 13:50:21 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/23 17:52:10 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
+Bureaucrat::Bureaucrat( void ) : name(""), g(0)
+{}
+
 Bureaucrat::Bureaucrat( std::string n, int g): name(n)
 {
-	grade = 0;
-	while (true)
-	{
-		try
-		{
-			if (g < 1)
-				throw(tooHigh);
-			else if (g > 150)
-				throw(tooLow);
-			else
-				break ;
-		}
-		catch(std::exception &e)
-		{
-			std::cerr << e.what() << std::endl;
-			return ;
-		}
-	}
+	if (g < 1)
+		throw(tooHigh);
+	else if (g > 150)
+		throw(tooLow);
 	grade = g;
 	std::cout << "Bureaucrat is created" << std::endl;
+}
+
+Bureaucrat::Bureaucrat( const Bureaucrat &B )
+{
+	*this = B;
+}
+
+Bureaucrat	&Bureaucrat::operator= ( const Bureaucrat &B )
+{
+	if ( this != &B )
+	{
+		grade = B.grade;
+	}
+	return (*this);
 }
 
 Bureaucrat::~Bureaucrat( void )
@@ -53,43 +56,15 @@ int		Bureaucrat::getGrade( void ) const
 
 void	Bureaucrat::incrementGrade( void )
 {
-	while (true)
-	{
-		try
-		{
-			if (grade <= 1)
-			{
-				throw(tooHigh);
-			}
-			else
-				break ;
-		}
-		catch(std::exception &e)
-		{
-			std::cerr << e.what() << std::endl;
-			return ;
-		}
-	}
+	if (grade <= 1)
+		throw(tooHigh);
 	grade--;
 }
 
 void	Bureaucrat::decrementGrade( void )
 {
-	while (true)
-	{
-		try
-		{
-			if (grade >= 150)
-				throw(tooLow);
-			else
-				break ;
-		}
-		catch(std::exception &e)
-		{
-			std::cerr << e.what() << std::endl;
-			return ;
-		}
-	}
+	if (grade >= 150)
+		throw(tooLow);
 	grade++;
 }
 
@@ -100,17 +75,10 @@ void	Bureaucrat::signForm( Form &form ) const
     else
 	{
 		 std::cerr << name << " couldn't sign " << form.getName() << " because ";
-		try
-        {
-            if (form.getGradeSign() < 1)
-                throw(tooHigh);
-            else
-                throw(tooLow);
-        }
-        catch(const std::exception& e)
-        {
-            std::cerr << e.what() << std::endl;
-        }
+		if (form.getGradeSign() < 1)
+			throw(tooHigh);
+		else
+			throw(tooLow);
 	}
 }
 

@@ -6,33 +6,23 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 10:31:02 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/12/23 14:15:20 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/23 18:00:45 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "PresidentialPardonForm.hpp"
 
+Form::Form( void ) : name(""), gradeExec(0), gradeSign(0)
+{}
+
 Form::Form( std::string n, int gExec, int gSign ): name(n), gradeExec(gExec), gradeSign(gSign)
 {
 	isSigned = false;
-	while (true)
-	{
-		try
-		{
-			if (gExec < 1 || gSign < 1)
-				throw(tooHigh);
-			else if (gExec > 150 || gExec > 150)
-				throw(tooLow);
-			else
-				break ;
-		}
-		catch(std::exception &e)
-		{
-			std::cerr << e.what() << std::endl;
-			return ;
-		}
-	}
+	if (gExec < 1 || gSign < 1)
+		throw(tooHigh);
+	else if (gExec > 150 || gExec > 150)
+		throw(tooLow);
 	std::cout << "Form is created" << std::endl;
 }
 
@@ -63,22 +53,15 @@ int Form::getGradeExec( void ) const
 
 void	Form::beSigned( Bureaucrat &B )
 {
-	try
+	if ( B.getGrade() <= gradeSign )
 	{
-		if ( B.getGrade() <= gradeSign )
-		{
-			isSigned = true;
-			return ;
-		}
-		else
-		{
-			isSigned = false;
-			throw(tooLow);
-		}
+		isSigned = true;
+		return ;
 	}
-	catch(const std::exception& e)
+	else
 	{
-		std::cerr << e.what() << '\n';
+		isSigned = false;
+		throw(tooLow);
 	}
 }
 

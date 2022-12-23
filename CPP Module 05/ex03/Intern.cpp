@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 14:41:31 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/12/23 14:57:04 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/23 18:02:53 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,16 @@
 
 Intern::Intern( void )
 {}
+
+Intern::Intern( const Intern &newIntern )
+{
+    *this = newIntern;
+}
+
+Intern  &Intern::operator= ( const Intern &newIntern )
+{
+    return (*this);
+}
 
 Intern::~Intern( void )
 {}

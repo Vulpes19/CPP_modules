@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 14:31:52 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/12/23 14:35:23 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/23 17:59:53 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ class Intern
 {
     public:
         Intern( void );
+        Intern( const Intern & );
+        Intern  &operator= ( const Intern & );
         ~Intern( void );
         Form    *makeForm( const std::string, const std::string );
 };

@@ -6,15 +6,32 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 14:21:34 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/12/23 14:54:40 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/23 18:03:55 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 
+RobotomyRequestForm::RobotomyRequestForm( void ) : Form(), target("")
+{}
+
 RobotomyRequestForm::RobotomyRequestForm( const std::string target ) : Form("Robot to my request", 45, 72)
 {
     this->target = target;
+}
+
+RobotomyRequestForm::RobotomyRequestForm( const RobotomyRequestForm &copy )
+{
+    *this = copy;
+}
+
+RobotomyRequestForm  &RobotomyRequestForm::operator= ( const RobotomyRequestForm &copy)
+{
+    if (this != &copy)
+    {
+        target = copy.getName();
+    }
+    return (*this);
 }
 
 RobotomyRequestForm::~RobotomyRequestForm( void )
