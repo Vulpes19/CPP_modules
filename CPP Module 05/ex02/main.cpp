@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 10:12:45 by codespace         #+#    #+#             */
-/*   Updated: 2022/12/23 16:04:58 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/24 14:22:32 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ int	main( void )
 	Ayman.signForm(shrubbery);
 	shrubbery.execute(Ayman);
 
-	Bureaucrat mayor("prisoner", 4);
-	PresidentialPardonForm presidentForm("pisoner");
+	Bureaucrat mayor("jurgen", 4);
+	PresidentialPardonForm presidentForm("prisoner");
 
 	presidentForm.beSigned(mayor);
 	mayor.signForm(presidentForm);

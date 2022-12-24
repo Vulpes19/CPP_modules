@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 10:12:50 by codespace         #+#    #+#             */
-/*   Updated: 2022/12/23 17:49:16 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/24 15:08:48 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 #include <iostream>
 #include <fstream>
-#include "Exception.hpp"
 #include "Form.hpp"
 
 class Bureaucrat

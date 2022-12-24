@@ -6,13 +6,13 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 10:12:42 by codespace         #+#    #+#             */
-/*   Updated: 2022/12/23 17:52:10 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/24 15:03:36 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat( void ) : name(""), g(0)
+Bureaucrat::Bureaucrat( void ) : name(""), grade(0)
 {}
 
 Bureaucrat::Bureaucrat( std::string n, int g): name(n)
@@ -22,7 +22,6 @@ Bureaucrat::Bureaucrat( std::string n, int g): name(n)
 	else if (g > 150)
 		throw(tooLow);
 	grade = g;
-	std::cout << "Bureaucrat is created" << std::endl;
 }
 
 Bureaucrat::Bureaucrat( const Bureaucrat &B )
@@ -41,7 +40,7 @@ Bureaucrat	&Bureaucrat::operator= ( const Bureaucrat &B )
 
 Bureaucrat::~Bureaucrat( void )
 {
-	std::cout << "Bureaucrat is destroyed" << std::endl;
+	std::cout << "Bureaucrat " << name << " is destroyed" << std::endl;
 }
 
 const	std::string	Bureaucrat::getName( void ) const
@@ -70,15 +69,16 @@ void	Bureaucrat::decrementGrade( void )
 
 void	Bureaucrat::signForm( Form &form ) const
 {
-    if ( form.getSign() == true )
-		std::cout << name << " signed " << form.getName() << std::endl;
-    else
+    try
 	{
-		 std::cerr << name << " couldn't sign " << form.getName() << " because ";
-		if (form.getGradeSign() < 1)
-			throw(tooHigh);
+		if ( form.getSign() == true && grade <= form.getGradeSign() )
+			std::cout << name << " signed " << form.getName() << std::endl;
 		else
 			throw(tooLow);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << name << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
 	}
 }
 
@@ -91,6 +91,22 @@ void	Bureaucrat::executeForm( const Form &form ) const
 	}
 	else
 		std::cerr << name << " wasn't able to execute " << form.getName() << std::endl;
+}
+
+GradeTooHighException::GradeTooHighException( void ) : msg("Grade is too high")
+{}
+
+const char	*GradeTooHighException::what( void ) const throw()
+{
+	return (msg.c_str());
+}
+
+GradeTooLowException::GradeTooLowException( void ) : msg("Grade is too low")
+{}
+
+const char	*GradeTooLowException::what( void ) const throw()
+{
+	return (msg.c_str());
 }
 
 std::ostream &operator<<( std::ostream &out, Bureaucrat &B)

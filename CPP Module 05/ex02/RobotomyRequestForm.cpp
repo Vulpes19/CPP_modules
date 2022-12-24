@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 14:21:34 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/12/23 18:04:55 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/24 14:26:52 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 RobotomyRequestForm::RobotomyRequestForm( void ) : Form(), target("")
 {}
 
-RobotomyRequestForm::RobotomyRequestForm( const std::string target ) : Form("Robot to my request", 45, 72)
+RobotomyRequestForm::RobotomyRequestForm( const std::string target ) : Form("Robotomy request", 45, 72)
 {
     this->target = target;
 }

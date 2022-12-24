@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 10:31:02 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/12/23 17:56:58 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/24 14:24:15 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ Form	&Form::operator= ( const Form &newForm )
 
 Form::~Form( void )
 {
-	std::cout << "Form is destroyed" << std::endl;
+	std::cout << "Form " << name << " is destroyed" << std::endl;
 }
 
 const   std::string Form::getName( void ) const

@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 10:31:02 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/12/23 18:00:45 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/24 14:50:17 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,10 @@ Form::Form( std::string n, int gExec, int gSign ): name(n), gradeExec(gExec), gr
 		throw(tooHigh);
 	else if (gExec > 150 || gExec > 150)
 		throw(tooLow);
-	std::cout << "Form is created" << std::endl;
 }
 
 Form::~Form( void )
-{
-	std::cout << "Form is destroyed" << std::endl;
-}
+{}
 
 const   std::string Form::getName( void ) const
 {

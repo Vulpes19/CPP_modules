@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 14:31:52 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/12/23 17:59:53 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/24 15:01:26 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,18 @@
 #define INTERN_HPP
 
 #include <iostream>
+#include <exception>
 #include "Form.hpp"
 
+class	FormNotfoundException : public std::exception
+{
+	public:
+		FormNotfoundException( void );
+		virtual	~FormNotfoundException( void ) throw() { };
+		const	char	*what( void ) const throw();
+	private:
+		std::string	msg;
+};
 class Intern
 {
     public:

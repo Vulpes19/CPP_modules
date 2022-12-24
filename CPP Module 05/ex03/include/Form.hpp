@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 10:16:34 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/12/23 17:46:29 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/24 15:06:37 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,28 @@
 #define FORM_HPP
 
 #include <iostream>
-#include "Exception.hpp"
-#include <typeinfo>
 
 class Bureaucrat;
+
+class	GradeTooHighException : public std::exception
+{
+	public:
+		GradeTooHighException( void );
+		virtual	~GradeTooHighException( void ) throw (){ };
+		const	char	*what( void ) const throw();
+	private:
+		std::string	msg;
+};
+
+class	GradeTooLowException : public std::exception
+{
+	public:
+		GradeTooLowException( void );
+		virtual	~GradeTooLowException( void ) throw() { };
+		const	char	*what( void ) const throw();
+	private:
+		std::string	msg;
+};
 
 class Form
 {

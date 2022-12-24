@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 14:41:31 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/12/23 18:02:53 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/24 15:07:07 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Intern::Intern( const Intern &newIntern )
     *this = newIntern;
 }
 
-Intern  &Intern::operator= ( const Intern &newIntern )
+Intern  &Intern::operator= ( const Intern & )
 {
     return (*this);
 }
@@ -33,6 +33,7 @@ Intern::~Intern( void )
 
 Form *Intern::makeForm( std::string formName, std::string target )
 {
+    FormNotfoundException   formNotFound;
     Form    *form1 = new ShrubberyCreationForm(target);
     Form    *form2 = new PresidentialPardonForm(target);
     Form    *form3 = new RobotomyRequestForm(target);
@@ -51,6 +52,15 @@ Form *Intern::makeForm( std::string formName, std::string target )
             return (forms[i]);
         }
     }
-    std::cerr << "There's no form with the name: " << formName << std::endl;
-    return NULL;
+     for (int i = 0; i < 3; i++)
+        delete forms[i];
+    throw(formNotFound);
+}
+
+FormNotfoundException::FormNotfoundException( void ) : msg("Form not found")
+{}
+
+const char	*FormNotfoundException::what( void ) const throw()
+{
+	return (msg.c_str());
 }
