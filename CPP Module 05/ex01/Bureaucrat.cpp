@@ -6,16 +6,16 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 10:12:42 by codespace         #+#    #+#             */
-/*   Updated: 2022/12/23 17:54:29 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/24 14:04:36 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat( void ) : name(""), g(0)
+Bureaucrat::Bureaucrat( void ) : name(""), grade(0)
 {}
 
-Bureaucrat::Bureaucrat( std::string n, int g): name(n)
+Bureaucrat::Bureaucrat( std::string n, int g ): name(n)
 {
 	if (g < 1)
 		throw(tooHigh);
@@ -72,15 +72,16 @@ void	Bureaucrat::decrementGrade( void )
 
 void    Bureaucrat::signForm( Form &form ) const
 {
-	if ( form.getSign() == true )
-		std::cout << name << " signed " << form.getName() << std::endl;
-    else
+	try
 	{
-		 std::cerr << name << " couldn't sign " << form.getName() << " because ";
-        if (form.getGradeSign() < 1)
-            throw(tooHigh);
-        else
-            throw(tooLow);
+		if ( form.getSign() == true && grade <= form.getGradeSign() )
+			std::cout << name << " signed " << form.getName() << std::endl;
+		else
+			throw(tooLow);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << name << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
 	}
 }
 
@@ -102,7 +103,6 @@ const char	*GradeTooLowException::what( void ) const throw()
 
 std::ostream &operator<<( std::ostream &out, Bureaucrat &B)
 {
-	out << B.getName() << ", " << "bureaucrat grade is ";
-	out << B.getGrade() << std::endl;
+	out << B.getName() << ", " << "bureaucrat grade is " << B.getGrade();
 	return (out);
 }

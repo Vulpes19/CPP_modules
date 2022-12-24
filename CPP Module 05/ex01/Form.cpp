@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 10:31:02 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/12/23 17:56:25 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/24 14:10:13 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Form::Form( std::string n, int gExec, int gSign ): name(n), gradeSign(gSign), gr
 	std::cout << "Form is created" << std::endl;
 }
 
-Form::Form( const Form &newForm )
+Form::Form( const Form &newForm ) : name(newForm.name), gradeSign(newForm.gradeSign), gradeExec(newForm.gradeExec)
 {
 	*this = newForm;
 }
@@ -42,7 +42,7 @@ Form	&Form::operator= ( const Form &newForm )
 
 Form::~Form( void )
 {
-	std::cout << "Form is destroyed" << std::endl;
+	std::cout << "Form " << name << " is destroyed" << std::endl;
 }
 
 const   std::string Form::getName( void ) const
@@ -81,8 +81,12 @@ void    Form::beSigned( Bureaucrat &B)
 std::ostream &operator<<( std::ostream &out, Form &F)
 {
 	out << "Form name is: " << F.getName() << std::endl;
-	out << "Is grade signed: " << F.getSign() << std::endl;
+	out << "Is grade signed: ";
+	if ( F.getSign() == true )
+		out << "yes" << std::endl;
+	else
+		out << "no" << std::endl;
 	out << "Grade required to sign it: " << F.getGradeSign() << std::endl;
-	out << "Grade required to execute it: " << F.getGradeExec() << std::endl;
+	out << "Grade required to execute it: " << F.getGradeExec();
 	return (out);
 }
