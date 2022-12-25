@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serialization.cpp                                  :+:      :+:    :+:   */
+/*   vector.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/24 19:23:18 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/12/25 15:55:41 by abaioumy         ###   ########.fr       */
+/*   Created: 2022/12/25 15:55:14 by abaioumy          #+#    #+#             */
+/*   Updated: 2022/12/25 15:55:30 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vector.hpp"
+#ifndef VECTOR_HPP
+#define VECTOR_HPP
 
-uintptr_t serialize( vector *ptr )
-{
-    return ( reinterpret_cast<uintptr_t>(ptr) );
-}
+#include <iostream>
+#include <stdint.h>
 
-vector    *deserialize( uintptr_t raw )
+
+typedef struct
 {
-    return ( reinterpret_cast<vector*>(raw) );
-}
+    int x;
+    int y;
+} vector;
+
+uintptr_t serialize( vector *ptr );
+vector    *deserialize( uintptr_t raw );
+
+#endif
