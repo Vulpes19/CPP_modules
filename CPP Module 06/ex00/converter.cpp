@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   converter.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vulpes <vulpes@student.42.fr>              +#+  +:+       +#+        */
+/*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 11:25:39 by codespace         #+#    #+#             */
-/*   Updated: 2022/11/30 14:52:43 by vulpes           ###   ########.fr       */
+/*   Updated: 2022/12/25 15:10:42 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@ bool	checkPseudo( std::string str )
 
 	if ( str[0] != '+' && str[0] != '-')
 		return (false);
-	for ( unsigned int i = 1, j = 0; i < str.length(), j < 3; i++, j++ )
+	for ( unsigned int i = 1, j = 0; i < str.length(); i++, j++ )
 	 {
+		if (j >= 3)
+			break ;
 		if ( str[i] != cmp[j] )
 			return (false);
 	 }
@@ -33,8 +35,10 @@ bool	check_Pseudo( std::string str )
 {
 	std::string cmp = "nan";
 
-	for ( unsigned int i = 0, j = 0; i < str.length(), j < 3; i++, j++ )
+	for ( unsigned int i = 0, j = 0; i < str.length(); i++, j++ )
 	 {
+		if (j >= 3)
+			break ;
 		if ( str[i] != cmp[j] )
 			return (false);
 	 }
@@ -141,36 +145,41 @@ void	findType( std::string str )
 	ssi << str;
 	ssf << str;
 	ssd << str;
-	if ( !ssi.good() && str.length() == 1)
+	if ( str.length() == 1 && ((str[0] >= 'a' && str[0] <= 'z') || (str[0] >= 'A' && str[0] <= 'Z')) )
 	{
 		std::cout << "it's char" << std::endl;
 		convertToType(CHAR, str);
+		return ;
 	}
 	else if ( checkPseudo( str ) )
 	{
 		std::cout << "it's pseudo literal" << std::endl;
 		convertToType(PSEUDO, str);
+		return ;
 	}
 	else if ( check_Pseudo( str ) )
 	{
 		std::cout << "it's pseudo literal" << std::endl;
 		convertToType(_PSEUDO, str);
+		return ;
 	}
-	else if ( !ssi.fail() && (str.find('.') == 0 || str.find('.') > str.length()))
+	else if ( !ssi.fail() && (str.find('.') == 0 || str.find('.') > str.length()) )
 	{
 		std::cout << "it's int" << std::endl;
 		convertToType(INT, str);
+		return ;
 	}
-	else if ( !ssf.fail() && (str.find('.') > 0 && str.find('.') < str.length()) && (str.find('f') > 0 && str.find('f') < str.length()))
+	else if ( !ssf.fail() && (str.find('.') > 0 && str.find('.') < str.length()) && (str.find('f') > 0 && str.find('f') < str.length()) )
 	{
 		std::cout << "it's float" << std::endl;
 		convertToType(FLOAT, str);
+		return ;
 	}
-	else if ( !ssd.fail() && (str.find('.') > 0 && str.find('.') < str.length()))
+	else if ( !ssd.fail() && (str.find('.') > 0 && str.find('.') < str.length()) )
 	{
 		std::cout << "it's double" << std::endl;
 		convertToType(DOUBLE, str);
+		return ;
 	}
-	else
-		std::cerr << "Please enter <char> or <int> or <float> or <double> or <pseudo_type>" << std::endl;
+	std::cerr << "Please enter <char> or <int> or <float> or <double> or <pseudo_type>" << std::endl;
 }
