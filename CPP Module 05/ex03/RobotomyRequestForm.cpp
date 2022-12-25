@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 14:21:34 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/12/24 14:26:35 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/25 17:29:16 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,11 @@ void    RobotomyRequestForm::beSigned( Bureaucrat &B )
 
 void    RobotomyRequestForm::action( void ) const
 {
-    std::cout << target << " has been robotomized successfully 50% of the time" << std::endl;
+   std::srand(time(0));
+
+    int random = std::rand() % 10 + 1;
+    if ( random % 2 == 0 )
+        std::cout << target << " has been robotomized successfully" << std::endl;
+    else
+        std::cout << target << "'s robotomy has failed" << std::endl;
 }
