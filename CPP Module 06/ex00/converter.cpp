@@ -5,53 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 11:25:39 by codespace         #+#    #+#             */
-/*   Updated: 2022/12/25 15:10:42 by abaioumy         ###   ########.fr       */
+/*   Created: 2022/11/07 11:25:39 by abaioumy          #+#    #+#             */
+/*   Updated: 2022/12/27 10:26:05 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "convert.hpp"
 
-
-bool	checkPseudo( std::string str )
-{
-	std::string cmp = "inf";
-
-	if ( str[0] != '+' && str[0] != '-')
-		return (false);
-	for ( unsigned int i = 1, j = 0; i < str.length(); i++, j++ )
-	 {
-		if (j >= 3)
-			break ;
-		if ( str[i] != cmp[j] )
-			return (false);
-	 }
-	 if ( str[str.length() - 1] != 'f' )
-	 	return (false);
-	return (true);
-}
-
-bool	check_Pseudo( std::string str )
-{
-	std::string cmp = "nan";
-
-	for ( unsigned int i = 0, j = 0; i < str.length(); i++, j++ )
-	 {
-		if (j >= 3)
-			break ;
-		if ( str[i] != cmp[j] )
-			return (false);
-	 }
-	 if ( str[str.length() - 1] != 'f' && str[str.length() - 1] != 'n' )
-	 	return (false);
-	return (true);
-}
-
 void	convertToType( int type, std::string str )
 {
 	char	*ptrEnd;
 	char	ptr[str.length()];
-	long	int nbr;
+	long	int nbr_l;
 	
 	for ( unsigned int i = 0; i < str.length(); i++ )
 		ptr[i] = str[i];
@@ -59,48 +24,86 @@ void	convertToType( int type, std::string str )
 	{
 	case CHAR:
 	{
-		std::cout << "char: " << str << std::endl;
-		std::cout << "int: non displayable" << std::endl;
+		std::cout << "char: '" << str << "'" << std::endl;
+		int nbr_i = static_cast<int>(str[0]);
+		std::cout << "int: " << nbr_i << std::endl;
 		std::cout << "float: non displayable" << std::endl;
 		std::cout << "double: non displayable" << std::endl;
 		break;
 	}
 	case INT:
 	{
-		nbr = strtol(ptr, &ptrEnd, 10);
-		std::cout << "char: non displayable" << std::endl;
-		std::cout << "int: " << nbr << std::endl;
-		float nbrf = static_cast<float>(nbr);
-		std::cout << "float: " <<  nbrf << ".0f" << std::endl;
-		double nbrd = static_cast<double>(nbr);
-		std::cout << "double: " << nbrd << ".0" << std::endl;
+		nbr_l = strtol(ptr, &ptrEnd, 10);
+		int nbr = static_cast<int>(nbr_l);
+		if ( nbr >= 32 && nbr < 127 )
+		{
+			char ch = static_cast<char>(nbr);
+			std::cout << "char: '" << ch << "'" << std::endl;
+		}
+		else if ( nbr >= 0 && nbr < 32 )
+			std::cout << "char: non displayable " << std::endl;
+		else
+			std::cout << "char: impossible" << std::endl;
+		if ( nbr_l >= INT_MIN && nbr_l <= INT_MAX )
+			std::cout << "int: " << nbr << std::endl;
+		else
+			std::cout << "int: impossible" << std::endl;
+		float nbr_f = static_cast<float>(nbr_l);
+		std::cout << "float: " <<  nbr_f << ".0f" << std::endl;
+		double nbr_d = static_cast<double>(nbr_l);
+		std::cout << "double: " << nbr_d << ".0" << std::endl;
 		break;
 	}
 	case FLOAT:
 	{
-		float nbrf = strtof(ptr, &ptrEnd);
-		std::cout << "char: non displayable" << std::endl;
-		std::cout << "float: " <<  nbrf << "f" << std::endl;
-		int nbr = static_cast<int>(nbrf);
-		std::cout << "int: " << nbr << std::endl;
-		double nbrd = static_cast<double>(nbrf);
-		std::cout << "double: " << nbrd << std::endl;
+		nbr_l = strtol(ptr, &ptrEnd, 10);
+		int nbr = static_cast<int>(nbr_l);
+		if ( nbr >= 32 && nbr < 127 )
+		{
+			char ch = static_cast<char>(nbr);
+			std::cout << "char: '" << ch << "'" << std::endl;
+		}
+		else if ( nbr >= 0 && nbr < 32 )
+			std::cout << "char: non displayable " << std::endl;
+		else
+			std::cout << "char: impossible" << std::endl;
+		float nbr_f = strtof(ptr, &ptrEnd);
+		std::cout << "float: " <<  nbr_f << "f" << std::endl;
+		int nbr_i = static_cast<int>(nbr_f);
+		if ( nbr_i <= INT_MAX && nbr_i >= INT_MIN )
+			std::cout << "int: " << nbr_i << std::endl;
+		else
+			std::cout << "int: impossible" << std::endl;
+		double nbr_d = static_cast<double>(nbr_f);
+		std::cout << "double: " << nbr_d << std::endl;
 		break;
 	}
 	case DOUBLE:
 	{
-		double nbrd = strtod(ptr, &ptrEnd);
-		std::cout << "char: non displayable" << std::endl;
-		std::cout << "double: " << nbrd << std::endl;
-		int nbr = static_cast<int>(nbrd);
-		std::cout << "int: " << nbr << std::endl;
-		float nbrf = static_cast<float>(nbrd);
-		std::cout << "float: " <<  nbrf << "f" << std::endl;
+		nbr_l = strtol(ptr, &ptrEnd, 10);
+		int nbr = static_cast<int>(nbr_l);
+		if ( nbr >= 32 && nbr < 127 )
+		{
+			char ch = static_cast<char>(nbr);
+			std::cout << "char: '" << ch << "'" << std::endl;
+		}
+		else if ( nbr >= 0 && nbr < 32 )
+			std::cout << "char: non displayable " << std::endl;
+		else
+			std::cout << "char: impossible" << std::endl;
+		double nbr_d = strtod(ptr, &ptrEnd);
+		std::cout << "double: " << nbr_d << std::endl;
+		int nbr_i = static_cast<int>(nbr_d);
+		if ( nbr_i <= INT_MAX && nbr_i >= INT_MIN )
+			std::cout << "int: " << nbr_i << std::endl;
+		else
+			std::cout << "int: impossible" << std::endl;
+		float nbr_f = static_cast<float>(nbr_d);
+		std::cout << "float: " <<  nbr_f << "f" << std::endl;
 		break;
 	}
 	case PSEUDO:
 	{
-		//char sign = str[0];
 		std::cout << "char: impossible" << std::endl;
 		std::cout << "int: impossible" << std::endl;
 		if ( str[str.length()-1] == 'f' && str[str.length()-2] == 'f' )
@@ -122,7 +125,7 @@ void	convertToType( int type, std::string str )
 		if ( str[str.length()-1] == 'f')
 		{	
 			std::cout << "float: " << str << std::endl;
-			std::cout << "double: " << str.substr(0, str.length() - 2) << std::endl;
+			std::cout << "double: " << str.substr(0, str.length() - 1) << std::endl;
 		}
 		else
 		{
@@ -145,41 +148,40 @@ void	findType( std::string str )
 	ssi << str;
 	ssf << str;
 	ssd << str;
-	if ( str.length() == 1 && ((str[0] >= 'a' && str[0] <= 'z') || (str[0] >= 'A' && str[0] <= 'Z')) )
+	if ( str.length() == 1 && ((str[0] >= 32 && str[0] <= 47) || (str[0] >= 58 && str[0] < 127)) )
 	{
-		std::cout << "it's char" << std::endl;
 		convertToType(CHAR, str);
 		return ;
 	}
-	else if ( checkPseudo( str ) )
+	if ( !checkStr( str ) )
+	{	
+		std::cerr << "Please enter <char>, <int>, <float>, <double> or <pseudo_type>" << std::endl;
+		return ;
+	}
+	if ( checkPseudo( str ) )
 	{
-		std::cout << "it's pseudo literal" << std::endl;
 		convertToType(PSEUDO, str);
 		return ;
 	}
-	else if ( check_Pseudo( str ) )
+	if ( check_Pseudo( str ) )
 	{
-		std::cout << "it's pseudo literal" << std::endl;
 		convertToType(_PSEUDO, str);
 		return ;
 	}
-	else if ( !ssi.fail() && (str.find('.') == 0 || str.find('.') > str.length()) )
+	if ( !ssi.fail() && str.find('.') > str.length() )
 	{
-		std::cout << "it's int" << std::endl;
 		convertToType(INT, str);
 		return ;
 	}
-	else if ( !ssf.fail() && (str.find('.') > 0 && str.find('.') < str.length()) && (str.find('f') > 0 && str.find('f') < str.length()) )
+	if ( !ssf.fail() && (str.find('.') > 0 && str.find('.') < str.length() - 1) && (str.find('f') > 0 && str.find('f') < str.length() ) )
 	{
-		std::cout << "it's float" << std::endl;
 		convertToType(FLOAT, str);
 		return ;
 	}
-	else if ( !ssd.fail() && (str.find('.') > 0 && str.find('.') < str.length()) )
+	if ( !ssd.fail() && (str.find('.') > 0 && str.find('.') < str.length() - 1) )
 	{
-		std::cout << "it's double" << std::endl;
 		convertToType(DOUBLE, str);
 		return ;
 	}
-	std::cerr << "Please enter <char> or <int> or <float> or <double> or <pseudo_type>" << std::endl;
+	std::cerr << "Please enter <char>, <int>, <float>, <double> or <pseudo_type>" << std::endl;
 }

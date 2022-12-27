@@ -1,10 +1,10 @@
 TARGET = convert
 
-FILES = main.cpp converter.cpp
+FILES = main.cpp converter.cpp checker.cpp
 
 OBJS = $(FILES:%.cpp=%.o)
 
-FLAGS = -std=c++98 #-Wall -Wextra -Werror
+FLAGS = -std=c++98 -Wall -Wextra -Werror
 
 INCLUDE = include/
 
