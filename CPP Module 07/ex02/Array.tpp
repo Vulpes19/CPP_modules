@@ -5,17 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/27 17:18:33 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/12/27 17:29:56 by abaioumy         ###   ########.fr       */
+/*   Created: 2022/12/27 18:26:36 by abaioumy          #+#    #+#             */
+/*   Updated: 2022/12/27 18:26:47 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Array.hpp"
 
-Array::Array( void ) : size(0), element(0)
+Array::Array( void ) : _size(0), element(NULL)
 {}
 
-Array::Array( unsigned int N ) : size(N), elements( new T[N] )
+Array::Array( unsigned int N ) : _size(N), elements( new T[N] )
 {}
 
 Array::Array( const Array &newArr )
@@ -28,28 +28,28 @@ Array   &Array::operator=( const Array &newArr )
     if ( this != &newArr )
     {
         delete [] elements;
-        size = newArr.size();
-        elements = new T[size];
-        for ( int i = 0; i < size; i++ )
+        _size = newArr.size();
+        elements = new T[_size];
+        for ( int i = 0; i < _size; i++ )
             elements[i] = newArr[i];
     }
     return (*this);
 }
 
-void    *Array::operator new( std::size_t size )
+void    *Array::operator new( std::size_t _size )
 {
-    void *elm = new T[size];
+    void *elm = new T[_size];
     return (elm);
 }
 
 T       &Array::operator[]( std::size_t index )
 {
-    if ( index < 0 || index >= size )
+    if ( index < 0 || index >= _size )
         throw( std::out_of_range );
     return ( elements[index] );
 }
 
 std::size_t Array::size( void ) const
 {
-    return ( size );
+    return ( _size );
 }

@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 16:52:29 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/12/27 17:28:29 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/27 18:21:38 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ class Array
         Array( unsigned int );
         Array( const Array & );
         Array   &operator=( const Array & );
-        void    *operator new( std::size_t size );
+        void    *operator new( std::size_t _size );
         T       &operator[]( std::size_t index );
         std::size_t size( void ) const;
     private:
-        std::size_t size;
+        std::size_t _size;
         T           *elements;
 };
 
