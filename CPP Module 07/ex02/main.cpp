@@ -5,16 +5,65 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/27 18:11:34 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/12/27 18:29:49 by abaioumy         ###   ########.fr       */
+/*   Created: 2022/12/29 16:22:15 by abaioumy          #+#    #+#             */
+/*   Updated: 2022/12/29 18:58:49 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Array.hpp"
+#include <iostream>
+#include <Array.hpp>
 
-int main( void )
+#define MAX_VAL 750
+int main(int, char**)
 {
-    int * a = new int();
-    Array *b = new int();
-    std::cout << *a;
+    Array<int> numbers(MAX_VAL);
+    int* mirror = new int[MAX_VAL];
+    srand(time(NULL));
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        const int value = rand();
+        numbers[i] = value;
+        mirror[i] = value;
+    }
+    //SCOPE
+    {
+        Array<int> tmp = numbers;
+        Array<int> test(tmp);
+        tmp.setElm( 2, 0);
+        std::cout << tmp[0] << std::endl;
+        std::cout << test[0] << std::endl;
+    }
+
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        if (mirror[i] != numbers[i])
+        {
+            std::cerr << "didn't save the same value!!" << std::endl;
+            return 1;
+        }
+    }
+    try
+    {
+        numbers[-2] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    try
+    {
+        numbers[MAX_VAL] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        numbers[i] = rand();
+    }
+    delete [] mirror;//
+    system("leaks array");
+    return 0;
 }
