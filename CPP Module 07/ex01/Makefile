@@ -1,4 +1,4 @@
-TARGET = templates
+TARGET = iter
 
 FILES = main.cpp
 
