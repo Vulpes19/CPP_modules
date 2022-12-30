@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 16:22:15 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/12/29 18:58:49 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/30 20:19:50 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,7 @@ int main(int, char**)
     {
         Array<int> tmp = numbers;
         Array<int> test(tmp);
-        tmp.setElm( 2, 0);
-        std::cout << tmp[0] << std::endl;
-        std::cout << test[0] << std::endl;
+        test = numbers;
     }
 
     for (int i = 0; i < MAX_VAL; i++)

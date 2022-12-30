@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 16:52:29 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/12/29 18:58:03 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/30 20:20:27 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,16 +31,25 @@ class Array
         {
             elements = new T[N];
         };
-        Array( const Array &newArr ) { *this = newArr; };
+        Array( const Array &newArr ) : _size(newArr._size)
+        {
+            elements = new T[_size];
+            for ( std::size_t i = 0; i < _size; i++ )
+            {
+                elements[i] = newArr.elements[i];
+            }
+        };
         Array   &operator=( const Array &newArr )
         {
             if ( this != &newArr )
             {
-                // delete [] elements;
-                _size = newArr.size();
+                if (elements)
+                    delete [] elements;
                 elements = new T[_size];
                 for ( std::size_t i = 0; i < _size; i++ )
+                {
                     elements[i] = newArr.elements[i];
+                }
             }
             return (*this);
         };
@@ -48,7 +57,7 @@ class Array
         {
              if ( index < 0 || index >= _size )
              {
-                throw( std::out_of_range("error") );
+                throw( std::out_of_range("error: out of range") );
              }
             return ( elements[index] );
         };
