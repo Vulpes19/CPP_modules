@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 16:52:29 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/12/30 20:20:27 by abaioumy         ###   ########.fr       */
+/*   Updated: 2022/12/31 14:56:07 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ template <typename T>
 class Array
 {
     public:
-        Array( void ) : _size(0) 
+        Array( void ) : _size(1) 
         { 
             elements = new T[1];
             elements[0] = 0;
@@ -38,6 +38,10 @@ class Array
             {
                 elements[i] = newArr.elements[i];
             }
+        };
+        ~Array( void )
+        {
+            delete [] elements;
         };
         Array   &operator=( const Array &newArr )
         {
@@ -62,7 +66,6 @@ class Array
             return ( elements[index] );
         };
         std::size_t size( void ) const { return (_size); };
-        void    setElm( T e, int i ) { elements[i] = e; };
     private:
         std::size_t _size;
         T           *elements;
