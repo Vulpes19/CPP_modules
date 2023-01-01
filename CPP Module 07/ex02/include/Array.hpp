@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 16:52:29 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/12/31 14:56:07 by abaioumy         ###   ########.fr       */
+/*   Updated: 2023/01/01 16:05:36 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,9 @@ template <typename T>
 class Array
 {
     public:
-        Array( void ) : _size(1) 
+        Array( void ) : _size(0) 
         { 
-            elements = new T[1];
-            elements[0] = 0;
+            elements = NULL;
         };
         Array( unsigned int N ) : _size(N)
         {
@@ -57,7 +56,7 @@ class Array
             }
             return (*this);
         };
-        T       &operator[]( std::size_t index )
+        T       &operator[]( std::size_t index ) const
         {
              if ( index < 0 || index >= _size )
              {
