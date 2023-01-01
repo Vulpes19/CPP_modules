@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 20:23:31 by abaioumy          #+#    #+#             */
-/*   Updated: 2022/12/31 18:53:28 by abaioumy         ###   ########.fr       */
+/*   Updated: 2023/01/01 18:11:34 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ class Span
         Span( const Span & );
         Span    &operator= ( const Span & );
         void    addNumber( unsigned int );
+        void    addMoreNumbers( unsigned int, unsigned int );
         int     shortestSpan( void );
         int     longestSpan( void );
     private:

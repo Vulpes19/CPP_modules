@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 20:27:28 by abaioumy          #+#    #+#             */
-/*   Updated: 2023/01/01 15:30:36 by abaioumy         ###   ########.fr       */
+/*   Updated: 2023/01/01 20:08:27 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,24 @@ void    Span::addNumber( unsigned int N )
     }
 }
 
+void    Span::addMoreNumbers( unsigned int N, unsigned int range )
+{
+    std::vector<int>::iterator last = integers.end();
+    last--;
+    if ( *last != 0 )
+        throw(std::runtime_error("already filled"));
+    
+    std::vector<int>::iterator it;
+    for ( it = integers.begin(); it != integers.end(); ++it )
+    {
+        if (*it == 0)
+        {
+            std::fill( integers.begin(), integers.begin() + range, N);
+            break ;
+        }
+    }
+}
+
 int    Span::shortestSpan( void )
 {
     int min = -1;
@@ -79,5 +97,5 @@ int    Span::longestSpan( void )
     std::vector<int>::iterator first = integers.begin();
     std::vector<int>::iterator last = integers.end();
     last--;
-    return (std::abs(*first - *last));
+    return (*last - *first);
 }
