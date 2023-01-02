@@ -6,14 +6,15 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 20:27:28 by abaioumy          #+#    #+#             */
-/*   Updated: 2023/01/01 20:08:27 by abaioumy         ###   ########.fr       */
+/*   Updated: 2023/01/02 11:47:38 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 
 Span::Span( void )
-{}
+{
+}
 
 Span::Span( unsigned int N )
 {
@@ -37,6 +38,8 @@ Span    &Span::operator=( const Span &newSpan )
 
 void    Span::addNumber( unsigned int N )
 {
+    if ( integers.empty() )
+        throw(std::runtime_error("no elements stored"));
     std::vector<int>::iterator last = integers.end();
     last--;
     if ( *last != 0 )
@@ -53,6 +56,8 @@ void    Span::addNumber( unsigned int N )
 
 void    Span::addMoreNumbers( unsigned int N, unsigned int range )
 {
+    if ( integers.empty() )
+        throw(std::runtime_error("no elements stored"));
     std::vector<int>::iterator last = integers.end();
     last--;
     if ( *last != 0 )
