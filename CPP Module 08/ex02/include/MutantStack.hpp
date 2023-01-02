@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 15:34:48 by abaioumy          #+#    #+#             */
-/*   Updated: 2023/01/01 16:20:49 by abaioumy         ###   ########.fr       */
+/*   Updated: 2023/01/01 16:34:17 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,14 @@ class MutantStack : public std::stack<T, std::deque<T> >
         {};
         MutantStack( const MutantStack &newStack ) : std::stack<T, std::deque<T> >( newStack )
         {};
+        MutantStack &operator= ( const MutantStack &newStack )
+        {
+            if ( this != &newStack )
+            {
+                this->c = newStack.c;
+            }
+            return (*this);
+        };
         ~MutantStack( void )
         {};
         iterator    begin( void ) { return (this->c.begin()); };
