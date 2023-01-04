@@ -98,3 +98,58 @@ A static function can be called even if no objects of the class exist and the st
 only the class name and the `::` operator 
 It can only access static data members and other static member functions and any other function outside the class. 
 They do not have access to the this pointer of the class.
+
+## Module 01:
+
+### new operator
+Is an operator function if sufficient memory is available new operator intializes the memory and returns the address of the newly allocated memory. 
+`void *operator new( size_t size ); `
+
+### References:
+It's an alias for an object.
+*Example:*
+```
+void swap(int &x, int &y) 
+{ 
+   int tmp = x; 
+   x= y; 
+   y= tmp; 
+} 
+int main( void ) 
+{ 
+   int a = 1; 
+   int b = 2; 
+   swap(a, b); 
+}
+```
+**x** and **y** are aliases for **a** and **b** it's not a copy or a pointer but **x** and **y** themselves with the same address. 
+
+### Pointer to members
+Pointers to members can refer to non static members of class objects, we can't use it to point to static class members because the address of a static member isn't associated with class objects. 
+*Example:* 
+```
+class test 
+{ 
+   public: 
+      int var; 
+      void func(void) {}; 
+}; 
+
+int main( void ) 
+{ 
+   /*pointer to data member*/ 
+   int test::*ptrvar = &test::var;
+   
+   /*pointer to data function*/ 
+   void (test::*ptrfunc) (void) = &test::func; 
+
+   /*access data member*/ 
+   test t; 
+   t.*ptrvar = 0; 
+  
+   /*call member function*/ 
+   t.*ptrfunc; 
+} 
+```
+### Stream
+In C++, a stream is an abstract class that provides a framework for input/output operations. Streams are a key part of the C++ standard library, providing a flexible and extensible way to read and write data from various sources and to various outputs. A stream is associated with a specific input or output source, such as a file, a string, the standard input/output, or a custom input/output device.
