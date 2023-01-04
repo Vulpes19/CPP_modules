@@ -62,17 +62,20 @@ Cases we must use initialize lists: 
   - For performance reasons. 
 
 *Example 1:* 
-```class Test 
+```
+class Test 
 { 
 private: 
     int x; 
     int y; 
 public: 
     Test( void ) : x(0), y(1) { } 
- };```
+ };
+```
 
 *Example 2:* 
-```class A  
+```
+class A  
 {
     int i; 
 public: 
@@ -83,7 +86,8 @@ class B 
     A a; 
 public: 
     B( int in ) : a(in) { } 
-};```
+};
+```
 
 ### Static class member
 Declaring a member static means no matter how many objects of the class are created there's only one copy of that member. 
