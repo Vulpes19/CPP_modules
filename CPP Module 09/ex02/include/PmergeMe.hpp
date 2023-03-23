@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 11:00:06 by codespace         #+#    #+#             */
-/*   Updated: 2023/03/23 12:26:14 by codespace        ###   ########.fr       */
+/*   Updated: 2023/03/23 14:23:04 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,14 @@
 #include <iostream>
 #include <vector>
 #include <deque>
+#include <cstdlib>
+#include <time.h>
 
+enum	CONTAINER
+{
+	vector = 0,
+	deque = 1
+};
 template < typename Container >
 
 class	PmergeMe
@@ -23,9 +30,40 @@ class	PmergeMe
 	public:
 		PmergeMe( char *av )
 		{
-			Container copy(av, av + getLength(av) );
-			_sequence = copy;
-			sort(_sequence);
+			size_t len = getLength(av);
+			size_t i = 0;
+			std::string tmp;
+			while ( i < len )
+			{
+				if ( av[i] == ' ' )
+				{
+					tmp = "";
+					i++;
+				}
+				else if ( av[i] != ' ' && av[i + 1] && av[i + 1] != ' ' )
+				{
+					tmp += av[i];
+					tmp += av[i + 1];
+					i++;
+				}
+				else if ( !tmp.empty() )
+				{
+					if ( av[i] != ' ' )
+						tmp += av[i];
+					const char *ptr = tmp.c_str();
+					_sequence.push_back(atoi(ptr));
+					i++;
+				}
+				else
+				{
+					_sequence.push_back(av[i] - '0');
+					i++;
+				}
+			}
+			_sequenceBefore = _sequence;
+			start = clock();
+			_sequence = sort(_sequence);
+			// stop = clock();
 		};
 		PmergeMe( const PmergeMe &copy )
 		{
@@ -41,15 +79,17 @@ class	PmergeMe
 		{
 			_sequence.clear();
 		};
-		Container	&sort( Container &_sequence )
+		Container	sort( Container &_sequence )
 		{
 			if ( _sequence.size() <= 1 )
 				return (_sequence);
 			else
 			{
 				int mid = _sequence.size() / 2;
-				Container left = sort( Container(_sequence.begin(), _sequence.begin() + mid));
-				Container right = sort( Container(_sequence.begin() + mid, _sequence.end()));
+				Container tmp1( _sequence.begin(), _sequence.begin() + mid );
+				Container left = sort( tmp1 );
+				Container tmp2( _sequence.begin() + mid, _sequence.end() );
+				Container right = sort( tmp2 );
 				return ( mergeSort(left, right) );
 			}
 		};
@@ -86,18 +126,41 @@ class	PmergeMe
 					j += 1;
 				}
 			}
-			result.insert( left.begin() + i, left.end() );
-			result.insert( right.begin() + j, right.end() );
+			result.insert( result.end(), left.begin() + i, left.end() );
+			result.insert( result.end(), right.begin() + j, right.end() );
+			stop = clock();
 			return (result);
 		};
-		size_t	getLength( char *ptr )
+		size_t	getLength( char *ptr ) const
 		{
 			size_t i = 0;
 			while ( ptr[i] )
 				i++;
 			return (i);
 		};
-		Container	getContainer( void ) const { return (_sequence); };
+		std::pair<Container, Container>	getContainers( void ) const { return (std::make_pair(_sequenceBefore ,_sequence)); };
+
+		void	printResults( enum CONTAINER e ) const
+		{
+			// std::cout << "Before:  ";
+			// for ( size_t i = 0; i < _sequenceBefore.size(); i++ )
+			// 	std::cout << _sequenceBefore[i] << " ";
+			// std::cout << std::endl;
+			// std::cout << "After:   ";
+			// for ( size_t i = 0; i < _sequence.size(); i++ )
+			// 	std::cout << _sequence[i] << " ";
+			// std::cout << std::endl;
+			std::cout << "Time to process a range of " << _sequence.size() << " elements with std::";
+			if ( e == vector )
+				std::cout << "vector";
+			else if ( e == deque )
+				std::cout << "deque";
+			std::cout << " : " << double(stop - start) / CLOCKS_PER_SEC << " us" << std::endl;
+		};
+		
 	private:
 		Container	_sequence;
+		Container	_sequenceBefore;
+		clock_t		start;
+		clock_t		stop;
 } ;

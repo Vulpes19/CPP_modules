@@ -1,6 +1,6 @@
 TARGET = PmergeMe
 
-FILES = main.cpp PmergeMe.cpp
+FILES = main.cpp
 
 OBJS = $(FILES:%.cpp=%.o)
 
