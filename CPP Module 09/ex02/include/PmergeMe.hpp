@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 11:00:06 by codespace         #+#    #+#             */
-/*   Updated: 2023/03/23 14:23:04 by abaioumy         ###   ########.fr       */
+/*   Updated: 2023/03/24 12:19:05 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <vector>
 #include <deque>
 #include <cstdlib>
+#include <exception>
 #include <time.h>
 
 enum	CONTAINER
@@ -23,6 +24,17 @@ enum	CONTAINER
 	vector = 0,
 	deque = 1
 };
+
+class	NotIntegerException : public std::exception
+{
+	public:
+		NotIntegerException( void );
+		virtual ~NotIntegerException( void ) throw() {};
+		const	char	*what( void ) const throw();
+	private:
+		std::string msg;
+};
+
 template < typename Container >
 
 class	PmergeMe
@@ -35,6 +47,8 @@ class	PmergeMe
 			std::string tmp;
 			while ( i < len )
 			{
+				if ( !(av[i] >= '0' && av[i] <= '9') && av[i] != ' ' )
+					throw( excp.what() );
 				if ( av[i] == ' ' )
 				{
 					tmp = "";
@@ -42,14 +56,20 @@ class	PmergeMe
 				}
 				else if ( av[i] != ' ' && av[i + 1] && av[i + 1] != ' ' )
 				{
+					std::cout << "string before: " << tmp << std::endl;
 					tmp += av[i];
+					std::cout << "string after1: " << tmp << std::endl;
 					tmp += av[i + 1];
+					if ( av[i + 1] == ' ' )
+						std::cout << "hello\n";
+					std::cout << "string after2: " << tmp << " i + 1: " << av[i + 1] << std::endl;
 					i++;
 				}
 				else if ( !tmp.empty() )
 				{
-					if ( av[i] != ' ' )
-						tmp += av[i];
+					std::cout << "string: " << tmp << std::endl;
+					if ( av[i] == ' ' )
+						tmp += av[i];					
 					const char *ptr = tmp.c_str();
 					_sequence.push_back(atoi(ptr));
 					i++;
@@ -161,6 +181,7 @@ class	PmergeMe
 	private:
 		Container	_sequence;
 		Container	_sequenceBefore;
+		NotIntegerException	excp;
 		clock_t		start;
 		clock_t		stop;
 } ;
