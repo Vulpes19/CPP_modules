@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 13:10:48 by codespace         #+#    #+#             */
-/*   Updated: 2023/03/22 16:41:53 by codespace        ###   ########.fr       */
+/*   Updated: 2023/03/24 17:26:28 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,32 @@ BitcoinExchange::BitcoinExchange( void )
 		std::cerr << "no data.csv file is found\n";
 		return ;
 	}
+	std::string line;
+	if ( !std::getline( file, line ) )
+	{
+		excp.setMsg("file is empty");
+		throw(excp.what());
+	}
+	if ( line != "date,exchange_rate" )
+	{
+		excp.setMsg("wrong file format");
+		throw(excp.what());
+	}
 	while ( file )
 	{
-		std::string line;
+		line = "";
 		if ( !std::getline( file, line ) )
 			break ;
+		if ( !checkDate(line.substr(0, 10)) )
+		{
+			excp.setMsg("wrong date format");
+			throw(excp.what());
+		}
+		if (line.length() < 12 )
+		{
+			excp.setMsg("wrong file format");
+			throw(excp.what());
+		}
 		std::string value = line.substr(11, line.length());
 		_transactions.insert( std::make_pair( line.substr( 0, 10), value ) );
 	}
@@ -82,8 +103,12 @@ void	BitcoinExchange::printTransactions( std::string date, double value )
 	}
 }
 
-bool	BitcoinExchange::checkDate( std::string &date ) const
+bool	BitcoinExchange::checkDate( const std::string &date ) const
 {
+	const int monthDays[12] = {31, 28, 31, 30, 31, 30, 31, 30, 31, 30, 31, 30};
+	int month = atoi(date.substr(5, 2).c_str());
+	if ( atoi(date.substr(5, 2).c_str()) > monthDays[month] )
+		return (false);
 	if ( date.substr(0, 4) > "2022"
 		|| date.substr(0, 4) < "2009"
 		|| date.substr(5, 2) > "12" 
@@ -93,4 +118,14 @@ bool	BitcoinExchange::checkDate( std::string &date ) const
 		return (false);
 	else
 		return (true);
+}
+
+void	WrongDatabaseException::setMsg( std::string s ) 
+{
+	msg = s;
+}
+
+const char	 *WrongDatabaseException::what( void ) const throw()
+{
+	return (msg.c_str());
 }

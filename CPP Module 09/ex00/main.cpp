@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 13:39:02 by codespace         #+#    #+#             */
-/*   Updated: 2023/03/22 16:44:35 by codespace        ###   ########.fr       */
+/*   Updated: 2023/03/24 13:36:29 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	main( int ac, char **av )
 	BitcoinExchange	btc;
 	std::string line;
 	std::string tmpLine = "";
+	double		amount = 0.0;
 	inputFile.open(av[1]);
 	if ( !inputFile )
 	{
@@ -46,19 +47,24 @@ int	main( int ac, char **av )
 	while ( inputFile )
 	{
 		tmpLine = "";
+		amount = 0;
 		const char	*ptr_line;
-		double	amount;
 		if ( !std::getline( inputFile, line ) )
 			break ;
 		if ( line.length() >= 12 )
+		{	
 			tmpLine = line.substr(12, line.length());
-		if ( !tmpLine.empty() )
-		{
-			ptr_line = tmpLine.c_str();
-			amount = atof(ptr_line);
+			if ( !tmpLine.empty() )
+			{
+				ptr_line = tmpLine.c_str();
+				amount = atof(ptr_line);
+			}
 		}
 		else
-			std::cout << "Error: bad input => " << line.substr(0, 10) << std::endl;
+		{
+			std::cout << "Error: bad input => " << line << std::endl;
+			continue ;
+		}
 		btc.printTransactions( line.substr(0, 10), amount );
 	}
 	inputFile.close();

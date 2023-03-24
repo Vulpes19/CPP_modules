@@ -4,7 +4,7 @@ FILES = main.cpp BitcoinExchange.cpp
 
 OBJS = $(FILES:%.cpp=%.o)
 
-FLAGS = -std=c++98 -Wall -Wextra -Werror -fsanitize=address
+FLAGS = -std=c++98 -Wall -Wextra -Werror #-fsanitize=address -g3
 
 INCLUDE = include/
 

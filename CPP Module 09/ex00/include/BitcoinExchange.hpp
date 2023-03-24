@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 13:11:03 by codespace         #+#    #+#             */
-/*   Updated: 2023/03/22 15:21:10 by codespace        ###   ########.fr       */
+/*   Updated: 2023/03/24 17:26:36 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,18 @@
 #include <iostream>
 #include <map>
 #include <cstdlib>
-// #include <pair>
+#include <exception>
+
+class   WrongDatabaseException : public std::exception
+{
+    public:
+        WrongDatabaseException( void ) {};
+        virtual ~WrongDatabaseException( void ) throw() {};
+        void    setMsg( std::string );
+        const   char *what( void ) const throw();
+    private:
+        std::string msg;
+};
 
 class BitcoinExchange
 {
@@ -28,7 +39,8 @@ class BitcoinExchange
         ~BitcoinExchange( void );
         BitcoinExchange &operator=( const BitcoinExchange &copy );
         void    printTransactions( std::string date, double value );
-        bool    checkDate( std::string &date ) const;
+        bool    checkDate( const std::string &date ) const;
     private:
         std::map< std::string, std::string >   _transactions;
+        WrongDatabaseException  excp;
 };
