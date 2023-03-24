@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 11:00:06 by codespace         #+#    #+#             */
-/*   Updated: 2023/03/24 12:19:05 by abaioumy         ###   ########.fr       */
+/*   Updated: 2023/03/24 13:09:47 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,20 +56,19 @@ class	PmergeMe
 				}
 				else if ( av[i] != ' ' && av[i + 1] && av[i + 1] != ' ' )
 				{
-					std::cout << "string before: " << tmp << std::endl;
 					tmp += av[i];
-					std::cout << "string after1: " << tmp << std::endl;
 					tmp += av[i + 1];
-					if ( av[i + 1] == ' ' )
-						std::cout << "hello\n";
-					std::cout << "string after2: " << tmp << " i + 1: " << av[i + 1] << std::endl;
-					i++;
+					i += 2;
+					if ( av[i] == ' ' )
+					{
+						const char *ptr = tmp.c_str();
+						_sequence.push_back(atoi(ptr));
+					}
 				}
 				else if ( !tmp.empty() )
 				{
-					std::cout << "string: " << tmp << std::endl;
-					if ( av[i] == ' ' )
-						tmp += av[i];					
+					if ( av[i] != ' ' )
+						tmp += av[i];				
 					const char *ptr = tmp.c_str();
 					_sequence.push_back(atoi(ptr));
 					i++;
@@ -162,14 +161,6 @@ class	PmergeMe
 
 		void	printResults( enum CONTAINER e ) const
 		{
-			// std::cout << "Before:  ";
-			// for ( size_t i = 0; i < _sequenceBefore.size(); i++ )
-			// 	std::cout << _sequenceBefore[i] << " ";
-			// std::cout << std::endl;
-			// std::cout << "After:   ";
-			// for ( size_t i = 0; i < _sequence.size(); i++ )
-			// 	std::cout << _sequence[i] << " ";
-			// std::cout << std::endl;
 			std::cout << "Time to process a range of " << _sequence.size() << " elements with std::";
 			if ( e == vector )
 				std::cout << "vector";
