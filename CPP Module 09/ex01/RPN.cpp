@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 17:33:15 by codespace         #+#    #+#             */
-/*   Updated: 2023/03/22 18:08:42 by codespace        ###   ########.fr       */
+/*   Updated: 2023/03/25 15:44:28 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,22 +42,38 @@ void    RPN::readExpression( const char *exp )
         else if ( exp[i] == '+' || exp[i] == '-' 
             || exp[i] == '/' || exp[i] == '*' )
         {
-            operate( exp[i] );
+            if ( !operate( exp[i] ) )
+                return ;
         }
         else
         {
-            const char *toConvert = exp + i;
-            _expression.push(atoi(toConvert));
+            std::string toConvert;
+            toConvert.assign(1, exp[i]);
+            int nbr = atoi(toConvert.c_str());
+            _expression.push(nbr);
         }
     }
-    std::cout << _expression.top() << std::endl;
+    int result = _expression.top(); 
+    _expression.pop();
+    std::cout << result << std::endl;
 }
 
-void    RPN::operate( char operation )
+bool    RPN::operate( char operation )
 {
-    int n1 = _expression.top();
+    int n1, n2;
+    if ( _expression.empty() )
+    {
+        std::cerr << "Error\n";
+        return (false);
+    }
+    n1 = _expression.top();
     _expression.pop();
-    int n2 = _expression.top();
+    if ( _expression.empty() )
+    {
+        std::cerr << "Error\n";
+        return (false);
+    }
+    n2 = _expression.top();
     _expression.pop();
     if ( operation == '+' )
         _expression.push(n2 + n1);
@@ -67,4 +83,5 @@ void    RPN::operate( char operation )
         _expression.push(n2 * n1);
     else if ( operation == '/' )
         _expression.push(n2 / n1);
+    return (true);
 }
