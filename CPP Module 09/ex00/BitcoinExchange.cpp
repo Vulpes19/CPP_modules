@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 13:10:48 by codespace         #+#    #+#             */
-/*   Updated: 2023/03/24 17:26:28 by abaioumy         ###   ########.fr       */
+/*   Updated: 2023/03/25 14:59:13 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ BitcoinExchange::BitcoinExchange( void )
 		return ;
 	}
 	std::string line;
+	size_t		pos = 0;
 	if ( !std::getline( file, line ) )
 	{
 		excp.setMsg("file is empty");
@@ -35,9 +36,12 @@ BitcoinExchange::BitcoinExchange( void )
 	}
 	while ( file )
 	{
-		line = "";
+		line.clear();
 		if ( !std::getline( file, line ) )
 			break ;
+		pos = line.find(",");
+		if ( pos != line.npos )
+			line.replace(pos, 1, ".");
 		if ( !checkDate(line.substr(0, 10)) )
 		{
 			excp.setMsg("wrong date format");

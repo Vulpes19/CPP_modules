@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 13:39:02 by codespace         #+#    #+#             */
-/*   Updated: 2023/03/24 13:36:29 by abaioumy         ###   ########.fr       */
+/*   Updated: 2023/03/25 14:58:38 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	main( int ac, char **av )
 	std::string line;
 	std::string tmpLine = "";
 	double		amount = 0.0;
+	size_t pos = 0;
 	inputFile.open(av[1]);
 	if ( !inputFile )
 	{
@@ -46,11 +47,15 @@ int	main( int ac, char **av )
 	}
 	while ( inputFile )
 	{
+		pos = 0;
 		tmpLine = "";
 		amount = 0;
 		const char	*ptr_line;
 		if ( !std::getline( inputFile, line ) )
 			break ;
+		pos = line.find(",");
+		if ( pos != line.npos )
+			line.replace(pos, 1, ".");
 		if ( line.length() >= 12 )
 		{	
 			tmpLine = line.substr(12, line.length());
