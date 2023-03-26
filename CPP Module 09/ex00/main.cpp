@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/22 13:39:02 by codespace         #+#    #+#             */
-/*   Updated: 2023/03/25 14:58:38 by abaioumy         ###   ########.fr       */
+/*   Created: 2023/03/22 13:39:02 by abaioumy          #+#    #+#             */
+/*   Updated: 2023/03/26 17:07:40 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,13 @@ int	main( int ac, char **av )
 		const char	*ptr_line;
 		if ( !std::getline( inputFile, line ) )
 			break ;
-		pos = line.find(",");
-		if ( pos != line.npos )
-			line.replace(pos, 1, ".");
+		if ( line.length() >= 14)
+			std::replace( line.begin() + 13, line.end(), ',', '.');
+		if ( std::count( line.begin(), line.end(), '.') > 1 )
+		{
+			std::cout << "Error: bad input => " << line << std::endl;
+			continue ;
+		}
 		if ( line.length() >= 12 )
 		{	
 			tmpLine = line.substr(12, line.length());

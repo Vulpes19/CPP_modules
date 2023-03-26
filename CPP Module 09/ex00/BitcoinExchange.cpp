@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/22 13:10:48 by codespace         #+#    #+#             */
-/*   Updated: 2023/03/25 14:59:13 by abaioumy         ###   ########.fr       */
+/*   Created: 2023/03/22 13:10:48 by abaioumy          #+#    #+#             */
+/*   Updated: 2023/03/26 17:07:53 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ BitcoinExchange::BitcoinExchange( void )
 		return ;
 	}
 	std::string line;
-	size_t		pos = 0;
 	if ( !std::getline( file, line ) )
 	{
 		excp.setMsg("file is empty");
@@ -39,9 +38,6 @@ BitcoinExchange::BitcoinExchange( void )
 		line.clear();
 		if ( !std::getline( file, line ) )
 			break ;
-		pos = line.find(",");
-		if ( pos != line.npos )
-			line.replace(pos, 1, ".");
 		if ( !checkDate(line.substr(0, 10)) )
 		{
 			excp.setMsg("wrong date format");
@@ -96,11 +92,6 @@ void	BitcoinExchange::printTransactions( std::string date, double value )
 			tmp = (it->second).c_str();
 		}
 		const char *ptr = tmp;
-		if ( ptr == NULL )
-		{
-			std::cout << "im null\n";
-			exit(1);
-		}
 		double toMultiply = atof(ptr);
 		double res = toMultiply * value;
 		std::cout << date << " => " << value << " = " << res << std::endl;

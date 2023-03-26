@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/23 11:00:06 by codespace         #+#    #+#             */
-/*   Updated: 2023/03/26 11:30:22 by abaioumy         ###   ########.fr       */
+/*   Created: 2023/03/23 11:00:06 by abaioumy          #+#    #+#             */
+/*   Updated: 2023/03/26 17:18:59 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,6 @@ class	PmergeMe
 				}
 				else
 				{
-					std::cout << av[i] << std::endl;
 					_sequence.push_back(av[i] - '0');
 					i++;
 				}
@@ -99,7 +98,7 @@ class	PmergeMe
 			_sequenceBefore = _sequence;
 			start = clock();
 			_sequence = sort(_sequence);
-			// stop = clock();
+			stop = clock();
 		};
 		PmergeMe( const PmergeMe &copy )
 		{
@@ -117,8 +116,11 @@ class	PmergeMe
 		};
 		Container	sort( Container &_sequence )
 		{
-			if ( _sequence.size() <= 1 )
+			if ( _sequence.size() <= 10 )
+			{
+				insertSort(_sequence);
 				return (_sequence);
+			}
 			else
 			{
 				int mid = _sequence.size() / 2;
@@ -129,18 +131,18 @@ class	PmergeMe
 				return ( mergeSort(left, right) );
 			}
 		};
-		void	insertSort( void )
+		void	insertSort( Container &cnt )
 		{
-			for ( size_t i = 0; i < _sequence.size(); i++ )
+			for ( size_t i = 0; i < cnt.size(); i++ )
 			{
-				int key = _sequence[i];
+				int key = cnt[i];
 				int j = i - 1;
-				while ( j >= 0 && _sequence[j] > key )
+				while ( j >= 0 && cnt[j] > key )
 				{
-					_sequence[j+1] = _sequence[j];
+					cnt[j+1] = cnt[j];
 					j -= 1;
 				}
-				_sequence[j+1] = key;
+				cnt[j+1] = key;
 			}
 		};
 		Container	mergeSort( Container &left, Container &right )
@@ -164,7 +166,7 @@ class	PmergeMe
 			}
 			result.insert( result.end(), left.begin() + i, left.end() );
 			result.insert( result.end(), right.begin() + j, right.end() );
-			stop = clock();
+			// stop = clock();
 			return (result);
 		};
 		size_t	getLength( char *ptr ) const
@@ -188,7 +190,7 @@ class	PmergeMe
 				std::cout << "vector";
 			else if ( e == deque )
 				std::cout << "deque";
-			std::cout << " : " << double(stop - start) / CLOCKS_PER_SEC * 1e6 << " us" << std::endl;
+			std::cout << " : " << double(stop - start)<< " us" << std::endl;
 		};
 		
 	private:
