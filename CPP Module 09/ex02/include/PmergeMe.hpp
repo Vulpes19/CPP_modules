@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 11:00:06 by codespace         #+#    #+#             */
-/*   Updated: 2023/03/24 13:09:47 by abaioumy         ###   ########.fr       */
+/*   Updated: 2023/03/26 11:30:22 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,15 @@ class	PmergeMe
 					if ( av[i] == ' ' )
 					{
 						const char *ptr = tmp.c_str();
-						_sequence.push_back(atoi(ptr));
+						char *ptrEnd;
+						long int nbr = strtol(ptr, &ptrEnd, 10);
+						if ( nbr == LONG_MAX || nbr == LONG_MIN )
+						{
+							std::cerr << "A number is out of range\n";
+							_sequence.clear();
+							return ;
+						}
+						_sequence.push_back(nbr);
 					}
 				}
 				else if ( !tmp.empty() )
@@ -70,11 +78,20 @@ class	PmergeMe
 					if ( av[i] != ' ' )
 						tmp += av[i];				
 					const char *ptr = tmp.c_str();
-					_sequence.push_back(atoi(ptr));
+					char *ptrEnd;
+					long int nbr = strtol(ptr, &ptrEnd, 10);
+					if ( nbr == LONG_MAX || nbr == LONG_MIN )
+					{
+						std::cerr << "A number is out of range\n";
+						_sequence.clear();
+						return ;
+					}
+					_sequence.push_back(nbr);
 					i++;
 				}
 				else
 				{
+					std::cout << av[i] << std::endl;
 					_sequence.push_back(av[i] - '0');
 					i++;
 				}
@@ -161,12 +178,17 @@ class	PmergeMe
 
 		void	printResults( enum CONTAINER e ) const
 		{
+			if ( _sequence.empty() )
+			{
+				std::cerr << "Error: container is empty\n";
+				return ;
+			}
 			std::cout << "Time to process a range of " << _sequence.size() << " elements with std::";
 			if ( e == vector )
 				std::cout << "vector";
 			else if ( e == deque )
 				std::cout << "deque";
-			std::cout << " : " << double(stop - start) / CLOCKS_PER_SEC << " us" << std::endl;
+			std::cout << " : " << double(stop - start) / CLOCKS_PER_SEC * 1e6 << " us" << std::endl;
 		};
 		
 	private:
