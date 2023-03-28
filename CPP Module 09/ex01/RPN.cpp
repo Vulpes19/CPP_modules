@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 17:33:15 by abaioumy          #+#    #+#             */
-/*   Updated: 2023/03/26 17:08:30 by abaioumy         ###   ########.fr       */
+/*   Updated: 2023/03/28 13:46:38 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ void    RPN::readExpression( const char *exp )
             _expression.push(nbr);
         }
     }
+    if ( _expression.empty() )
+        return ;
     int result = _expression.top(); 
     _expression.pop();
     std::cout << result << std::endl;
@@ -82,6 +84,13 @@ bool    RPN::operate( char operation )
     else if ( operation == '*' )
         _expression.push(n2 * n1);
     else if ( operation == '/' )
+    {
+        if ( n1 == 0 )
+        {
+            std::cerr << "cannot divide by zero\n";
+            return (false);
+        }
         _expression.push(n2 / n1);
+    }
     return (true);
 }
