@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 13:11:03 by abaioumy          #+#    #+#             */
-/*   Updated: 2023/03/26 17:08:01 by abaioumy         ###   ########.fr       */
+/*   Updated: 2023/03/28 12:59:59 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,10 @@ class BitcoinExchange
         BitcoinExchange( const BitcoinExchange &copy );
         ~BitcoinExchange( void );
         BitcoinExchange &operator=( const BitcoinExchange &copy );
-        void    printTransactions( std::string date, double value );
-        bool    checkDate( const std::string &date ) const;
+        void    parseInputFile( const char *fileName );
+        void    printTransactions( int year, int month, int day, double value );
+        bool    checkDate( int year, int month, int day ) const;
+
     private:
         std::map< std::string, std::string >   _transactions;
         WrongDatabaseException  excp;
