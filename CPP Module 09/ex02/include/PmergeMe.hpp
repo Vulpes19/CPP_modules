@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 11:00:06 by abaioumy          #+#    #+#             */
-/*   Updated: 2023/03/26 17:18:59 by abaioumy         ###   ########.fr       */
+/*   Updated: 2023/03/29 13:24:31 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <deque>
 #include <cstdlib>
 #include <exception>
+#include <sstream>
 #include <time.h>
 
 enum	CONTAINER
@@ -28,8 +29,8 @@ enum	CONTAINER
 class	NotIntegerException : public std::exception
 {
 	public:
-		NotIntegerException( void );
-		virtual ~NotIntegerException( void ) throw() {};
+		NotIntegerException( const std::string & );
+		virtual ~NotIntegerException( void ) throw();
 		const	char	*what( void ) const throw();
 	private:
 		std::string msg;
@@ -42,59 +43,18 @@ class	PmergeMe
 	public:
 		PmergeMe( char *av )
 		{
-			size_t len = getLength(av);
-			size_t i = 0;
 			std::string tmp;
-			while ( i < len )
+			std::string test(av);
+			std::istringstream iss(test);
+			int nbr;
+			while ( iss >> nbr )
 			{
-				if ( !(av[i] >= '0' && av[i] <= '9') && av[i] != ' ' )
-					throw( excp.what() );
-				if ( av[i] == ' ' )
-				{
-					tmp = "";
-					i++;
-				}
-				else if ( av[i] != ' ' && av[i + 1] && av[i + 1] != ' ' )
-				{
-					tmp += av[i];
-					tmp += av[i + 1];
-					i += 2;
-					if ( av[i] == ' ' )
-					{
-						const char *ptr = tmp.c_str();
-						char *ptrEnd;
-						long int nbr = strtol(ptr, &ptrEnd, 10);
-						if ( nbr == LONG_MAX || nbr == LONG_MIN )
-						{
-							std::cerr << "A number is out of range\n";
-							_sequence.clear();
-							return ;
-						}
-						_sequence.push_back(nbr);
-					}
-				}
-				else if ( !tmp.empty() )
-				{
-					if ( av[i] != ' ' )
-						tmp += av[i];				
-					const char *ptr = tmp.c_str();
-					char *ptrEnd;
-					long int nbr = strtol(ptr, &ptrEnd, 10);
-					if ( nbr == LONG_MAX || nbr == LONG_MIN )
-					{
-						std::cerr << "A number is out of range\n";
-						_sequence.clear();
-						return ;
-					}
-					_sequence.push_back(nbr);
-					i++;
-				}
-				else
-				{
-					_sequence.push_back(av[i] - '0');
-					i++;
-				}
+				_sequence.push_back(nbr);
+				if ( iss.peek() == ' ' )
+					iss.ignore();
 			}
+			if ( !iss.eof() )
+				throw( NotIntegerException("all sequence must be integer numbers") );
 			_sequenceBefore = _sequence;
 			start = clock();
 			_sequence = sort(_sequence);
@@ -196,7 +156,6 @@ class	PmergeMe
 	private:
 		Container	_sequence;
 		Container	_sequenceBefore;
-		NotIntegerException	excp;
 		clock_t		start;
 		clock_t		stop;
 } ;
