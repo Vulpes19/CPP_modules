@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 13:11:03 by abaioumy          #+#    #+#             */
-/*   Updated: 2023/03/28 12:59:59 by abaioumy         ###   ########.fr       */
+/*   Updated: 2023/03/29 11:53:02 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@
 class   WrongDatabaseException : public std::exception
 {
     public:
-        WrongDatabaseException( void ) {};
+        WrongDatabaseException( std::string const &msg) : msg(msg)  {};
         virtual ~WrongDatabaseException( void ) throw() {};
-        void    setMsg( std::string );
+        // void    setMsg(  );
         const   char *what( void ) const throw();
     private:
         std::string msg;
@@ -44,5 +44,4 @@ class BitcoinExchange
 
     private:
         std::map< std::string, std::string >   _transactions;
-        WrongDatabaseException  excp;
 };

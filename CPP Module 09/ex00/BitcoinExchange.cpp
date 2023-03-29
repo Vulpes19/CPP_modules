@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 13:10:48 by abaioumy          #+#    #+#             */
-/*   Updated: 2023/03/28 13:19:27 by abaioumy         ###   ########.fr       */
+/*   Updated: 2023/03/29 12:58:50 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,47 +24,37 @@ BitcoinExchange::BitcoinExchange( void )
 		return ;
 	}
 	std::string line;
-	if ( !std::getline( file, line ) )
-	{
-		std::cerr << "1\n";
-		excp.setMsg("file is empty");
-		throw(excp.what());
-	}
-	if ( line != "date,exchange_rate" )
-	{
-		std::cerr << "2\n";
-		excp.setMsg("wrong file format");
-		throw(excp.what());
-	}
-	while ( file )
-	{
-		line.clear();
 		if ( !std::getline( file, line ) )
-			break ;
-		std::istringstream iss(line);
-		int year, month, day;
-		double value;
-		char delimiter;
-		if ( iss >> year >> delimiter >> month >> delimiter >> day >> delimiter >> value )
+			throw(WrongDatabaseException("file is empty"));
+
+		if ( line != "date,exchange_rate" )
+			throw(WrongDatabaseException("wrong file format"));
+		while ( file )
 		{
-			if ( !checkDate(year, month, day) )
+			line.clear();
+			if ( !std::getline( file, line ) )
+				break ;
+			std::istringstream iss(line);
+			int year, month, day;
+			double value;
+			char delimiter;
+			if ( iss >> year >> delimiter >> month >> delimiter >> day >> delimiter >> value )
 			{
-			std::cerr << "3\n";
-				excp.setMsg("wrong date format");
-				throw(excp.what());
+				if ( !checkDate(year, month, day) )
+					throw(WrongDatabaseException("wrong date format"));
 			}
+			else
+				throw(WrongDatabaseException("wrong file format"));
+			std::ostringstream date;
+			date << std::setfill('0') << year << "-" << std::setw(2) << month << "-" << std::setw(2) << day;
+			std::string amount = std::to_string(value);
+			_transactions.insert( std::make_pair( date.str(), amount ) );
 		}
-		else
-		{
-		std::cerr << "4\n";
-			excp.setMsg("wrong file format");
-			throw(excp.what());
-		}
-		std::string date = std::to_string(year) + "-" + std::to_string(month) + "-" + std::to_string(day);
-		std::string amount = std::to_string(value);
-		_transactions.insert( std::make_pair( date, amount ) );
-	}
-	file.close();
+		if ( _transactions.empty() )
+			throw(WrongDatabaseException("file is empty"));
+		if ( _transactions.size() != 1612 )
+			throw(WrongDatabaseException("wrong data base"));
+		file.close();
 }
 
 BitcoinExchange::BitcoinExchange(  const BitcoinExchange &copy )
@@ -88,7 +78,9 @@ BitcoinExchange	&BitcoinExchange::operator=( const BitcoinExchange &copy )
 
 void	BitcoinExchange::printTransactions( int year, int month, int day, double value )
 {
-	std::string key = std::to_string(year) + "-" + std::to_string(month) + "-" + std::to_string(day);
+	std::ostringstream date;
+	date << std::setfill('0') << year << "-" << std::setw(2) << month << "-" << std::setw(2) << day;
+	std::string key = date.str();
 	if ( value < 1 )
 		std::cout << "Error: not a positive number\n";
 	else if ( !checkDate( year, month, day ) )
@@ -97,18 +89,17 @@ void	BitcoinExchange::printTransactions( int year, int month, int day, double va
 		std::cout << "Error: number is too large\n";
 	else
 	{
-		const char *tmp;
-		if ( _transactions.count(key) )
-			tmp = _transactions[key].c_str();
+		iterator it = _transactions.upper_bound(key);
+		if ( it == _transactions.begin() )
+			std::cout << "Error: bad input => " << key << std::endl;
 		else
 		{
-			iterator it = _transactions.lower_bound(key);
-			tmp = (it->second).c_str();
+			it--;
+			const char *ptr = (it->second).c_str();
+			double toMultiply = atof(ptr);
+			double res = toMultiply * value;
+			std::cout << key << " => " << value << " = " << res << std::endl;
 		}
-		const char *ptr = tmp;
-		double toMultiply = atof(ptr);
-		double res = toMultiply * value;
-		std::cout << key << " => " << value << " = " << res << std::endl;
 	}
 }
 
@@ -151,7 +142,7 @@ void	BitcoinExchange::parseInputFile( const char *fileName )
 			int year, month, day;
 			double	value;
 			char delimiter;
-			if ( iss >> year >> delimiter >> month >> delimiter >> day && iss.get() == ' ' && iss.get() == '|' && iss.get() == ' ' && iss >> value )
+			if ( iss >> year >> delimiter >> month >> delimiter >> day && iss.get() == ' ' && iss.get() == '|' && iss.get() == ' ' && iss >> value && std::count(line.begin(), line.end(), ' ') == 2 )
 				printTransactions( year, month, day, value );
 			else
 			{
@@ -167,16 +158,10 @@ bool	BitcoinExchange::checkDate( int year, int month, int day ) const
 	const int monthDays[12] = {31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 	if ( month >= 1 && month <= 12 && day > monthDays[month - 1] )
 		return (false);
-	if ( year > 2022 || year < 2009
-		|| month > 12 || month < 1 )
+	if ( year < 2009 || month > 12 || month < 1 )
 		return (false);
 	else
 		return (true);
-}
-
-void	WrongDatabaseException::setMsg( std::string s ) 
-{
-	msg = s;
 }
 
 const char	 *WrongDatabaseException::what( void ) const throw()
