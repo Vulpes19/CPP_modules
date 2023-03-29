@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 11:00:06 by abaioumy          #+#    #+#             */
-/*   Updated: 2023/03/29 13:24:31 by abaioumy         ###   ########.fr       */
+/*   Updated: 2023/03/29 14:21:07 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,20 +41,22 @@ template < typename Container >
 class	PmergeMe
 {
 	public:
-		PmergeMe( char *av )
+		PmergeMe( char **av )
 		{
-			std::string tmp;
-			std::string test(av);
-			std::istringstream iss(test);
 			int nbr;
-			while ( iss >> nbr )
+			for ( size_t i = 1; av[i]; i++ )
 			{
-				_sequence.push_back(nbr);
-				if ( iss.peek() == ' ' )
-					iss.ignore();
+				std::string tmp(av[i]);
+				std::istringstream iss(tmp);
+				while ( iss >> nbr )
+				{
+					_sequence.push_back(nbr);
+					if ( iss.peek() == ' ' )
+						iss.ignore();
+				}
+				if ( !iss.eof() )
+					throw( NotIntegerException("all sequence must be integer numbers") );
 			}
-			if ( !iss.eof() )
-				throw( NotIntegerException("all sequence must be integer numbers") );
 			_sequenceBefore = _sequence;
 			start = clock();
 			_sequence = sort(_sequence);

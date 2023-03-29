@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 10:59:59 by abaioumy          #+#    #+#             */
-/*   Updated: 2023/03/28 13:48:08 by abaioumy         ###   ########.fr       */
+/*   Updated: 2023/03/29 14:21:20 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,15 @@ void	printNumbers( const Container &before, const Container &after )
 
 int	main( int ac, char **av )
 {
-	if ( ac != 2 )
+	if ( ac < 2 )
 	{
 		std::cerr << "Error: [executable] [integer sequence]\n";
 		return (1);
 	}
 	try
 	{
-		PmergeMe< std::vector<int> > pm1(av[1]);
-		PmergeMe< std::deque<int> > pm2(av[1]);
+		PmergeMe< std::vector<int> > pm1(av);
+		PmergeMe< std::deque<int> > pm2(av);
 		
 		printNumbers( pm1.getContainers().first, pm1.getContainers().second);
 		pm1.printResults( vector );
