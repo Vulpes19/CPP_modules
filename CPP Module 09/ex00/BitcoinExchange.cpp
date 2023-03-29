@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 13:10:48 by abaioumy          #+#    #+#             */
-/*   Updated: 2023/03/29 12:58:50 by abaioumy         ###   ########.fr       */
+/*   Updated: 2023/03/29 13:02:34 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,37 +24,37 @@ BitcoinExchange::BitcoinExchange( void )
 		return ;
 	}
 	std::string line;
-		if ( !std::getline( file, line ) )
-			throw(WrongDatabaseException("file is empty"));
+	if ( !std::getline( file, line ) )
+		throw(WrongDatabaseException("file is empty"));
 
-		if ( line != "date,exchange_rate" )
-			throw(WrongDatabaseException("wrong file format"));
-		while ( file )
+	if ( line != "date,exchange_rate" )
+		throw(WrongDatabaseException("wrong file format"));
+	while ( file )
+	{
+		line.clear();
+		if ( !std::getline( file, line ) )
+			break ;
+		std::istringstream iss(line);
+		int year, month, day;
+		double value;
+		char delimiter;
+		if ( iss >> year >> delimiter >> month >> delimiter >> day >> delimiter >> value )
 		{
-			line.clear();
-			if ( !std::getline( file, line ) )
-				break ;
-			std::istringstream iss(line);
-			int year, month, day;
-			double value;
-			char delimiter;
-			if ( iss >> year >> delimiter >> month >> delimiter >> day >> delimiter >> value )
-			{
-				if ( !checkDate(year, month, day) )
-					throw(WrongDatabaseException("wrong date format"));
-			}
-			else
-				throw(WrongDatabaseException("wrong file format"));
-			std::ostringstream date;
-			date << std::setfill('0') << year << "-" << std::setw(2) << month << "-" << std::setw(2) << day;
-			std::string amount = std::to_string(value);
-			_transactions.insert( std::make_pair( date.str(), amount ) );
+			if ( !checkDate(year, month, day) )
+				throw(WrongDatabaseException("wrong date format"));
 		}
-		if ( _transactions.empty() )
-			throw(WrongDatabaseException("file is empty"));
-		if ( _transactions.size() != 1612 )
-			throw(WrongDatabaseException("wrong data base"));
-		file.close();
+		else
+			throw(WrongDatabaseException("wrong file format"));
+		std::ostringstream date;
+		date << std::setfill('0') << year << "-" << std::setw(2) << month << "-" << std::setw(2) << day;
+		std::string amount = std::to_string(value);
+		_transactions.insert( std::make_pair( date.str(), amount ) );
+	}
+	if ( _transactions.empty() )
+		throw(WrongDatabaseException("file is empty"));
+	if ( _transactions.size() != 1612 )
+		throw(WrongDatabaseException("wrong data base"));
+	file.close();
 }
 
 BitcoinExchange::BitcoinExchange(  const BitcoinExchange &copy )
@@ -163,6 +163,10 @@ bool	BitcoinExchange::checkDate( int year, int month, int day ) const
 	else
 		return (true);
 }
+
+WrongDatabaseException::WrongDatabaseException( const std::string &msg ) : msg(msg) {}
+
+WrongDatabaseException::~WrongDatabaseException( void ) throw() {}
 
 const char	 *WrongDatabaseException::what( void ) const throw()
 {

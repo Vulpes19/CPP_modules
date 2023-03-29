@@ -6,7 +6,7 @@
 /*   By: abaioumy <abaioumy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 13:11:03 by abaioumy          #+#    #+#             */
-/*   Updated: 2023/03/29 11:53:02 by abaioumy         ###   ########.fr       */
+/*   Updated: 2023/03/29 13:01:46 by abaioumy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,8 @@
 class   WrongDatabaseException : public std::exception
 {
     public:
-        WrongDatabaseException( std::string const &msg) : msg(msg)  {};
-        virtual ~WrongDatabaseException( void ) throw() {};
-        // void    setMsg(  );
+        WrongDatabaseException( const std::string &msg );
+        virtual ~WrongDatabaseException( void ) throw();
         const   char *what( void ) const throw();
     private:
         std::string msg;
